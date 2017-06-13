@@ -4,15 +4,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 ../Schemas/NeuroML2/NeuroML_v2beta4.xsd"
 	id="jrose_cell_3L">
-	
-	<!-- Notes from Neuroml website -->
-	<!-- Example of a cell morphology in NeuroML 2 -->
-	<!-- This is a "pure" NeuroML 2 file. It cannot currently used for simulations with
-	jLEMS/jNeuroML however, as jLEMS does not yet support multicompartmental cells -->
-	<!-- Note: no <cells> element -->
+
 
 	 <include href="jrose_na_ion_channel.nml"/> <!-- Contains ionChannel Na_Conductance -->
-	 <ionChannelHH id="leak" conductance="10pS"/> <!--For use in example cell below-->
+
 
 	<cell id="cell_HN_3L">
 

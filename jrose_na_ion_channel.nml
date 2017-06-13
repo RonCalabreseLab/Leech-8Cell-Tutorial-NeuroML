@@ -9,7 +9,7 @@
 		
 		<!-- The "m" variable in the current equation -->
 		<!-- The "instances" parameter is the "p" parameter in the current equation -->
-		<gateHHTauInf id="m" instances="3"> 
+		<gateHHTauInf id="mNa" instances="3"> 
 			
 			<steadyState type="HHSigmoidVariable" rate="1" midpoint="-23mV" scale="10mV"/>
 			<timeCourse type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
@@ -18,7 +18,7 @@
 
 		<!-- The "h" variable in the current equation -->
 		<!-- The "instances" parameter is the "q" parameter in the current equation -->
-		<gateHHrates id="h" instances="1">
+		<gateHHrates id="hNa" instances="1">
 
 			<steadyState type="HHExpRate" rate="0.07" midpoint="-65mV" scale="-20mV"/>
 			<timeCourse type="HHSigmoidRate" rate="1per_ms" midpoint="-35mV" scale="10mV"/>
