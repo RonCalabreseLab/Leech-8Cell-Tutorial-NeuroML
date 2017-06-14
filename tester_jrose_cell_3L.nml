@@ -11,32 +11,32 @@
 	<!-- Leak conductance" -->	
 	</ionChannelHH>
 
-	<ionChannelHH id="na_channel" conductance="10pS">
+	<ionChannelHH id="na_channel" conductance="10pS" species="na">
 	<!-- Na channel-->
-		<gatesHHrates id="m" instances="3">
+		<gateHHrates id="m" instances="3">
 			<forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
 			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV"/>
-		</gatesHHrates>
+		</gateHHrates>
 
-		<gatesHHrates id="h" instances="1">
+		<gateHHrates id="h" instances="1">
 			<forwardRate type="HHExpRate" rate="0.07per_ms" midpoint="-65mV" scale="-20mV"/>
 			<reverseRate type="HHSigmoidRate" rate="1per_ms" midpoint="-35mV" scale="10mV"/>
-		</gatesHHrates>		
+		</gateHHrates>		
 	</ionChannelHH>
 	
-	<ionChannelHH id="k1_channel" conductance="10pS">
+	<ionChannelHH id="k1_channel" conductance="10pS" species="k1">
 	<!-- K1 channel-->
-		<gatesHHrates id="m" instances="3">
-			<forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
-			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV"/>
-		</gatesHHrates>
+		<gateHHrates id="n" instances="4">
+			<forwardRate type="HHExpLinearRate" rate="0.1per_ms" midpoint="-55mV" scale="10mV"/>
+			<reverseRate type="HHExpRate" rate="0.125per_ms" midpont="-65mV" scale="-80mV"/>
+		</gateHHrates>
 	</ionChannelHH>
 
-	<ionChannelHH id="k2_channel" conductance="10pS">
+	<!--<ionChannelHH id="k2_channel" conductance="10pS">
 	<!-- K2 Channel -->
 		<gatesHHrates id="m" instances="3">
 			<forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
-			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV">
+			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV"/>
 		</gatesHHrates>
 	</ionChannelHH>
 
@@ -44,7 +44,7 @@
 	<!-- A channel-->
 		<gatesHHrates id="m" instances="3">
 			<forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
-			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV">
+			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV"/>
 		</gatesHHrates>
 	</ionChannelHH>
 
@@ -52,7 +52,7 @@
 	<!-- h channel-->
 		<gatesHHrates id="m" instances="3">
 			<forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
-			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV">
+			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV"/>
 		</gatesHHrates>
 	</ionChannelHH>
 	
@@ -60,7 +60,7 @@
 	<!-- A channel-->
 		<gatesHHrates id="m" instances="3">
 			<forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
-			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV">
+			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV"/>
 		</gatesHHrates>
 	</ionChannelHH>
 
@@ -68,7 +68,7 @@
 	<!-- A channel-->
 		<gatesHHrates id="m" instances="3">
 			<forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
-			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV">
+			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV"/>
 		</gatesHHrates>
 	</ionChannelHH>
 
@@ -76,7 +76,7 @@
 	<!-- A channel-->
 		<gatesHHrates id="m" instances="3">
 			<forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
-			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV">
+			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV"/>
 		</gatesHHrates>
 	</ionChannelHH>
 
@@ -84,9 +84,9 @@
 	<!-- A channel-->
 		<gatesHHrates id="m" instances="3">
 			<forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
-			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV">
+			<reverseRate type="HHExpRate" rate="4per_ms" midpont="-65mV" scale="-18mV"/>
 		</gatesHHrates>
-	</ionChannelHH>
+	</ionChannelHH> -->
 
 
 	
@@ -95,18 +95,16 @@
 		<morphology id="morph_3L">
 			<!-- Only one segment needed -->
 			<segment id="0" name="soma">
-				<!-- no parent => root segment -->
-				<!--x, y, z, diameter are in microns-->
-				<!-- proximal is the point closest to the soma in a segment. -->
-				<!-- If the proximal point is equal to the distal point of the parent segment, 
-					proximal can be omitted -->
+				
 				<proximal x="0" y="0" z="0" diameter="126.15663"/>
 				<!-- distal is the point furthest from the soma in a segment -->
-				<distal x="126.15663" y="0" z="0" diameter="126.15663"/>
+				<distal x="0" y="0" z="0" diameter="126.15663"/>
+				
 			</segment>
+			
 			<segmentGroup id="soma_group">
 				<member segment="0"/>
-			<segmentGroup/>
+			</segmentGroup>
 		</morphology>
 
 		<biophysicalProperties id="bio_phys_prop_3L">	
@@ -114,7 +112,7 @@
 			<membraneProperties>
 				
 				<!-- CM	0.01 specific membrane capacitance in farad/m^2, this is from Genesis -->
-				<specificCapacitance value="0.01F_per_m2"/>
+				<specificCapacitance value="0.01 F_per_m2"/>
 
 				<!-- ELEAK -0.060  Volts, this is from Genesis -->
 				<!-- ELEAK if specified, gives an alternate value for initial Em,-->
@@ -122,22 +120,25 @@
 				<!-- ELEAK on reset, instead of Em.  Otherwise, ELEAK = EREST_ACT. -->
 
 				<!-- EREST_ACT-0.060 resting potential in volts (initial Em and initVm), this is from Genesis -->
+				<spikeThresh value="-20mV"/>
 				<initMembPotential value="-60mV"/>
 
 				<!-- Channel densities -->
 				<!-- For channels, "dens" = maximum conductance per unit area of compartment -->
 				<!-- For spike elements, "dens" is the spike threshold -->
 				
-				<!-- The "na_channel" replaces the "Na_ron" channel in Genesis -->
-				<channelDensity id="na_channel" ionChannel="na_conductance" segmentGroup="soma_group" 						condDensity="-2e-7 S_per_m2" erev="45mV" ion="na"/>
-				<!-- The "k1_channel" replaces the "K1_ron" channel in Genesis -->
+				<channelDensity id="leak_channel" ionChannel="leak" condDensity="0.16 S_per_m2" erev="-60mV" ion="non_specific"/> 
 				
+				<!-- The "na_channel" replaces the "Na_ron" channel in Genesis -->
+				<channelDensity id="na_chan_density" ionChannel="na_channel" segmentGroup="soma_group" condDensity="-2e-7 S_per_m2" erev="45mV" ion="na"/>
+				
+				<!-- The "k1_channel" replaces the "K1_ron" channel in Genesis -->
+				<channelDensity id="k1_chan_density" ionCahnnel="k1_channel" segementGroup="soma_group" conDensity="-1e-7 S_per_m2" erev="-77mV" ion="k1"/>
 				<!-- RM	6.25 specific membrane resistance in ohm*m^2, this is from Genesis -->
 				<!-- The "leak_channel" replaces the RM value in Genesis -->
 				<!-- The "erev" parameter is the ELEAK in Genesis -->
 				<!-- The "condDensity" parameter is equal to 1/RM value in Genesis -->				 
-				<channelDensity id="leak_channel" ionChannel="leak" 
-					condDensity="0.16 S_per_m2" erev="-60mV" ion="non_specific"/> 
+
 				 
 			</membraneProperties>
 			
@@ -151,4 +152,14 @@
 		</biophysicalProperties>
 
 	</cell>
+	
+	<pulseGenerator id="pulse_gen_1" delay="100ms" duration="100ms" amplitude="0.08nA"/>
+	
+	<network id="network_1">
+		
+		<population id="hhpop" component="cell_HN_3L" size="1"/>
+		<explicitInput target="hhpop[0]" input="pulse_gen_1"/>
+		
+	</network>
+	
 </neuroml>
