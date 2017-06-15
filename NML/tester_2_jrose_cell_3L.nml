@@ -48,9 +48,9 @@
 		
 			<segment id="0" name="soma">
 				
-				<proximal x="0" y="0" z="0" diameter="17.841242"/>
+				<proximal x="0" y="0" z="0" diameter="126.15663"/>
 			
-				<distal x="0" y="0" z="0" diameter="17.841242"/>
+				<distal x="0" y="0" z="0" diameter="126.15663"/>
 				
 			</segment>
 			
@@ -64,21 +64,21 @@
 			
 			<membraneProperties>
 		
-				<channelDensity id="leak_channel_density" ionChannel="leak_channel" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/> 
+				<channelDensity id="leak_channel_density" ionChannel="leak_channel" condDensity="0.16 S_per_m2" erev="-60.0mV" ion="non_specific"/> 
 				
-				<channelDensity id="na_channel_density" ionChannel="na_channel" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
+				<channelDensity id="na_channel_density" ionChannel="na_channel" condDensity="-2e-7 S_per_m2" erev="45.0mV" ion="na" gDensity="2.000000023e-07 S_per_m2"/>
 		
-				<channelDensity id="k1_channel_density" ionChannel="k1_channel" condDensity="360 S_per_m2" erev="-77mV" ion="k1"/>
+				<channelDensity id="k1_channel_density" ionChannel="k1_channel" condDensity="-1e-7 S_per_m2" erev="-70.0mV" ion="k1"/>
 						 
 				<spikeThresh value="-20mV"/>
-				<specificCapacitance value="1.0 uF_per_cm2"/>
-				<initMembPotential value="-65mV"/>
+				<specificCapacitance value="0.01 F_per_m2"/>
+				<initMembPotential value="-60mV"/>
 				 
 			</membraneProperties>
 			
 			<intracellularProperties>
 
-				<resistivity value="0.03 kohm_cm"/>
+				<resistivity value="0.3 ohm_cm"/>
 
 			</intracellularProperties>
 
