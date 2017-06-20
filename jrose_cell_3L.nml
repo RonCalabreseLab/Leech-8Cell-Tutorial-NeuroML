@@ -33,7 +33,7 @@
 			<membraneProperties>
 				
 				<!-- CM	0.01 specific membrane capacitance in farad/m^2, this is from Genesis -->
-				<specificCapacitance value="0.01F_per_m2"/>
+				<specificCapacitance value="0.01 F_per_m2"/>
 
 				<!-- ELEAK -0.060  Volts, this is from Genesis -->
 				<!-- ELEAK if specified, gives an alternate value for initial Em,-->
@@ -48,13 +48,13 @@
 				<!-- For spike elements, "dens" is the spike threshold -->
 				
 				<!-- The "na_channel" replaces the "Na_ron" channel in Genesis -->
-				<channelDensity id="na_channel" ionChannel="na_conductance" segmentGroup="soma_group" 						condDensity="-2e-7 S_per_m2" erev="45mV" ion="na"/>
+				<channelDensity id="na_channel" ionChannel="na_conductance" segmentGroup="soma_group" condDensity="-2e-7 S_per_m2" erev="45mV" ion="na"/>
 				<!-- The "k1_channel" replaces the "K1_ron" channel in Genesis -->
 				
 				<!-- RM	6.25 specific membrane resistance in ohm*m^2, this is from Genesis -->
 				<!-- The "leak_channel" replaces the RM value in Genesis -->
 				<!-- The "erev" parameter is the ELEAK in Genesis -->
-				<!-- The "condDensity" parameter is equal to 1/RM value in Genesis -->				 
+				<!-- The "condDensity" parameter for the leak channel is equal to 1/RM value in Genesis -->				 
 				<channelDensity id="leak_channel" ionChannel="leak" 
 					condDensity="0.16 S_per_m2" erev="-60mV" ion="non_specific"/> 
 				 
