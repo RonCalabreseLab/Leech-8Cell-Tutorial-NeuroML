@@ -1,20 +1,20 @@
 <Lems>
 
+    <Target component="simulation_2"/>
+
     <Include file="../NeuroML2CoreTypes/Cells.xml"/>
     <Include file="../NeuroML2CoreTypes/Networks.xml"/>
     <Include file="../NeuroML2CoreTypes/Simulation.xml"/>
 
 	<Include file="../NML/tester_2_jrose_cell_3L.nml"/>
 
-    <Target component="simulation_1"/>
-
-    <Simulation id="simulation_1" length="530ms" step="0.001ms" target="network_1">
+    <Simulation id="simulation_2" length="90ms" step="0.001ms" target="network_1">
     
         <Display id="display_1" title="Membrane Potential HN_3L" timeScale="1ms" xmin="0" xmax="530" ymin="-55" ymax="5">
                 <Line id="v" quantity="hhpop[0]/v" scale="1mV" color="#ffffff" timeScale="1ms"/>
         </Display>
         
-        <Display id="dispaly_2" title="Na Gates" timeScale="1ms" xmin="0" xmax="530" ymin="0" ymax="1">
+        <Display id="display_2" title="Na Gates" timeScale="1ms" xmin="0" xmax="530" ymin="0" ymax="1">
                 <Line id="m" quantity="hhpop[0]/na_pop/ionChannel/m/q" scale="1"  color="#000000" timeScale="1ms"/>
                 <Line id="h" quantity="hhpop[0]/na_pop/ionChannel/h/q" scale="1"  color="#ff0000" timeScale="1ms"/>
         </Display>
@@ -23,10 +23,10 @@
             <OutputColumn id="v" quantity="hhpop[0]/v"/> 
         </OutputFile>  
         
-        <OutputFile id="of1" fileName="results/tester_3_results.dat">
+        <!--OutputFile id="of1" fileName="results/tester_3_results.dat">
             <OutputColumn id="m" quantity="hhpop[0]/na_pop/ionChannel/m/q"/> 
             <OutputColumn id="h" quantity="hhpop[0]/na_pop/ionChannel/h/q"/> 
-        </OutputFile>  
+        </OutputFile-->  
     
     </Simulation>
 
