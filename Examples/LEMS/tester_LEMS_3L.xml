@@ -1,0 +1,63 @@
+<Lems>
+
+    <!-- Example with Simple cell specifying segment details-->
+
+    <!-- This is a file which can be read and executed by the LEMS Interpreter.
+         It imports the LEMS definitions of the core NeuroML 2 Components, 
+         imports in "pure" NeuroML 2 and contains some LEMS elements for running 
+         a simulation -->
+
+
+    <Target component="simulation_1"/>
+
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+
+
+    <!-- Including file with a <neuroml> root, a "real" NeuroML 2 file -->
+    <Include file="../NML/tester_jrose_cell_3L.nml"/>
+
+
+    <Simulation id="simulation_1" length="300ms" step="0.01ms" target="network_1">
+    
+        <Display id="display_1" title="Test for HN_3L cell:" timeScale="1ms" xmin="0" xmax="300" ymin="-90" ymax="50">
+                <Line id="v" quantity="hhpop[0]/v" scale="1mV" color="#ffffff" timeScale="1ms"/>
+                <Line id="spiking" quantity="hhpop[0]/spiking" scale="0.1V"  color="#004040" timeScale="1ms"/>
+                <!--<Line id="l3" quantity="hhpop[0]/debugVal" scale="1V"  color="#999999" timeScale="1ms"/>-->
+        </Display>
+        
+        <Display id="dispaly_2" title="Ex5: HH cell with simple morphology: rate variables" timeScale="1ms" xmin="0" xmax="300" ymin="-0.1" ymax="1.1">
+                <!-- q comes from gateHHrates-->
+                <Line id="m" quantity="hhpop[0]/bio_phys_prop_3L/membraneProperties/na_channel_density/na_channel/m/q" scale="1"  color="#000000" timeScale="1ms"/>
+                <Line id="h" quantity="hhpop[0]/bio_phys_prop_3L/membraneProperties/na_channel_density/na_channel/h/q" scale="1"  color="#ff0000" timeScale="1ms"/>
+                <Line id="n" quantity="hhpop[0]/bio_phys_prop_3L/membraneProperties/k1_channel_density/k1_channel/n/q" scale="1"  color="#0000ff" timeScale="1ms"/>
+        </Display>
+        
+        <Display id="display_3" title="Ex5: HH cell with simple morphology: current densities" timeScale="1ms" xmin="0" xmax="300" ymin="-0.1" ymax="1.1">
+        		<!-- iDensity comes from channelDensity-->
+                <Line id="current_na" quantity="hhpop[0]/bio_phys_prop_3L/membraneProperties/na_channel_density/iDensity" scale="1"  color="#000000" timeScale="1ms"/>
+                <Line id="current_k1" quantity="hhpop[0]/bio_phys_prop_3L/membraneProperties/k1_channel_density/iDensity" scale="1"  color="#ff0000" timeScale="1ms"/>
+        </Display>
+        
+        <Display id="display_4" title="Ex5: HH cell with simple morphology: conductance densities" timeScale="1ms" xmin="0" xmax="300" ymin="-50" ymax="350">
+        	<!-- gDensity comes from channelDensity-->
+                <Line id="gbar_na" quantity="hhpop[0]/bio_phys_prop_3L/membraneProperties/na_channel_density/gDensity" scale="1"  color="#000000" timeScale="1ms"/>
+                <Line id="gbar_k1" quantity="hhpop[0]/bio_phys_prop_3L/membraneProperties/k1_channel_density/gDensity" scale="1"  color="#ff0000" timeScale="1ms"/>
+        </Display>
+    
+    
+        <OutputFile id="of0" fileName="results/tester_results.dat">
+            <OutputColumn id="v" quantity="hhpop[0]/v"/> 
+        </OutputFile>  
+        
+        <OutputFile id="of1" fileName="results/tester_results.dat">
+        	<!-- q comes from gateHHrates-->
+            <OutputColumn id="m" quantity="hhpop[0]/bio_phys_prop_3L/membraneProperties/na_channel_density/na_channel/m/q"/> 
+            <OutputColumn id="h" quantity="hhpop[0]/bio_phys_prop_3L/membraneProperties/na_channel_density/na_channel/h/q"/> 
+            <OutputColumn id="n" quantity="hhpop[0]/bio_phys_prop_3L/membraneProperties/k1_channel_density/k1_channel/n/q"/> 
+        </OutputFile>  
+    
+    </Simulation>
+
+</Lems>
