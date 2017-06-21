@@ -1,6 +1,6 @@
-# README #
+# Leech Tutorial NeuroML #
 
-This README would normally document whatever steps are necessary to get your application up and running.
+Conversion of Genesis model to NeuroML.
 
 ### What is this repository for? ###
 
