@@ -1,4 +1,41 @@
-<neuroml>
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta4.xsd"
+	id="p_channel">
+	
+	<!-- Values from the Genesis file "HNChan.g"
+			function make_P_ron
+    str chanpath = "P_ron"
+    if ({exists {chanpath}})
+        return
+    end
 
+    create  tabchannel  {chanpath}
+    setfield  {chanpath}  \
+         Ek     {EP}      \
+         Gbar   {10e-9}   \
+         Ik     0         \
+         Gk     0         \
+		 Xpower	1 \
+		 Ypower	0 \
+		 Zpower	0  
 
-</neuroml>
+    call    {chanpath}    TABCREATE X 100 -0.100 0.050
+                              //.010 .200       -.057
+    FillTableTau {chanpath} X_A .010 .200 400 {Pshft} -.057
+                          //             -120 0 -.039
+    FillTableInf {chanpath} X_B 0     1  -120 0 -.039
+		// Setting the calc_mode to NO_INTERP for speed 
+		setfield {chanpath} X_A->calc_mode 0 X_B->calc_mode 0
+
+		// tweaking the tables for the tabchan calculation 
+		tweaktau {chanpath} X
+
+		// Filling the tables using B-SPLINE interpolation 
+		call {chanpath} TABFILL X 3000 0
+
+end
+-->	
+	
+	</neuroml>

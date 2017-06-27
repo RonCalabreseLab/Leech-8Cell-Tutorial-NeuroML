@@ -1,4 +1,60 @@
-<neuroml>
+<?xml version="1.0" encoding="UTF-8"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta4.xsd"
+	id="a_channel">
 
+<!-- Values from the Genesis file "HNChan.g"
+// make A channel
+function make_A_ron
+    str chanpath = "A_ron"
+    if ({exists {chanpath}})
+        return
+    end
+
+    create  tabchannel  {chanpath}
+    setfield  {chanpath}  \
+         Ek     {EA}      \
+         Gbar   {80e-9}   \
+         Ik     0         \
+         Gk     0	  \
+		 Xpower	2 \
+		 Ypower	1 \
+		 Zpower	0  
+
+    call    {chanpath}    TABCREATE X 100 -0.100 0.050
+    //                                    0.0028
+    //settab2const {chanpath}  X_A  0  100  0.010  //-0.1 thru 0.05=>0.
+    
+    FillTableTau {chanpath} X_A .005 .011 200 {ashft} -.020
+    FillTableInf {chanpath}  X_B  0   1 -130 {ashft} -.034 
+		/* Setting the calc_mode to NO_INTERP for speed */
+		setfield {chanpath} X_A->calc_mode 0 X_B->calc_mode 0
+
+		/* tweaking the tables for the tabchan calculation */
+		tweaktau {chanpath} X
+
+		/* Filling the tables using B-SPLINE interpolation */
+		call {chanpath} TABFILL X 3000 0
+
+
+    call    {chanpath}    TABCREATE Y 100 -0.100 0.050
+    FillTableTau {chanpath} Y_A .026 .0085 -300 {ashft} -.045
+    FillTableInf {chanpath} Y_B 0     1     160 {ashft} -.053	
+
+		/* Setting the calc_mode to NO_INTERP for speed */
+		setfield {chanpath} Y_A->calc_mode 0 Y_B->calc_mode 0
+
+		/* tweaking the tables for the tabchan calculation */
+		tweaktau {chanpath} Y
+
+		/* Filling the tables using B-SPLINE interpolation */
+		call {chanpath} TABFILL Y 3000 0
+end
+ 
+-->	
+	<ionChannelHH>
+
+	</ionChannelHH>
 
 </neuroml>

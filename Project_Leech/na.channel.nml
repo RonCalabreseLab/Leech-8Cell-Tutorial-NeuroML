@@ -1,4 +1,77 @@
-<neuroml>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta4.xsd"
+	id="na_channel">
+
+	 <!-- Values from the Genesis file "HNChan.g"
+			function make_Na_ron	// Na-current
+    str chanpath = "Na_ron"
+    if ({exists {chanpath}})
+        return 
+    end
+
+    create  tabchannel  {chanpath}
+    setfield  {chanpath}  \
+         Ek     {ENa}     \
+         Gbar   {250e-9}  \
+         Ik     0         \
+         Gk     0	  \
+		 Xpower	3 \
+		 Ypower	1 \
+		 Zpower	0  
+
+    call    {chanpath}    TABCREATE X 100 -0.100 0.050
+                                  
+    settab2const {chanpath}  X_A  0  100  0.0001    // -0.1 thru 0.05=>0.  
+       
+       
+       //                               -150            -.023
+    FillTableInf {chanpath}  X_B  0   1 -150 {nashft_X} -.024
+		
+		/* Setting the calc_mode to NO_INTERP for speed */
+		setfield {chanpath} X_A->calc_mode 0 X_B->calc_mode 0
+
+		/* tweaking the tables for the tabchan calculation */
+		tweaktau {chanpath} X
+
+		/* Filling the tables using B-SPLINE interpolation */
+		call {chanpath} TABFILL X 3000 0
 
 
-</neuroml>
+ call    {chanpath}    TABCREATE Y 100 -0.100 0.050
+ 
+ //                             .004 .006 500            -.023
+ FillTableTau_Na {chanpath} Y_A .004 .006 500 {nashft_Y} -.023
+
+//                                       500            -.025  
+ FillTableInf   {chanpath} Y_B 0     1   500 {nashft_Y} -.025	
+
+		/* Setting the calc_mode to NO_INTERP for speed */
+		setfield {chanpath} Y_A->calc_mode 0 Y_B->calc_mode 0
+
+		/* tweaking the tables for the tabchan calculation */
+		tweaktau {chanpath} Y
+
+		/* Filling the tables using B-SPLINE interpolation */
+		call {chanpath} TABFILL Y 3000 0
+end
+-->	
+	 	 <include href="sigmoid.offset.xml"/>
+	 	 
+    	<ionChannelHH id="na_channel" conductance="250nS" species="na">
+        
+        	<gateHHtauInf id="m" instances="3">
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-29.13mV" scale="8.922mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="3.861ms" rate="-3.434ms" 	midpoint="-51.35mV" scale="5.98mV" /> 
+       		</gateHHtauInf>
+
+       		<gateHHtauInf id="h" instances="1">
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-40mV" scale="-6.048mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="2.834ms" rate="-2.371ms" midpoint="-21.9mV"  scale="2.64mV" /> 
+       		</gateHHtauInf>
+       
+		</ionChannelHH>
+		
+	</neuroml>

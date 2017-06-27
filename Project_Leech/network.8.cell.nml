@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta4.xsd"
+	id="hn8_network">
+	
+	<!-- File contains the 8 cell network -->
+
+	<include href="cell.1L.nml"/>
+	<!--include href="cell.1R.nml"/>
+	<include href="cell.2L.nml"/>
+	<include href="cell.2R.nml"/-->
+	<include href="cell.3L.nml"/>
+	<!--include href="cell.3R.nml"/>
+	<include href="cell.4L.nml"/>
+	<include href="cell.4R.nml"/-->
+
+	<pulseGenerator id="pulseGenStart" delay="5ms" duration="150ms" amplitude="80pA"/>
+		
+	<network id="net_8">
+		
+		<population  id="hn1L_pop" component="HN1L" size="1"/>
+		<population  id="hn3L_pop" component="HN3L" size="1"/>
+		
+		<explicitInput target="hn1L_pop[0]" input="pulseGenStart" destination="synapses"/>
+		<explicitInput target="hn3L_pop[0]" input="pulseGenStart" destination="synapses"/>
+	
+	</network>
+	
+		<!-- Custom component -->
+
+
+</neuroml>

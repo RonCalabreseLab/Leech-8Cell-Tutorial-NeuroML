@@ -1,0 +1,231 @@
+Notes
+
+ <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
+
+ 	xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance"
+
+ 	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 ../Schemas/NeuroML2/NeuroML_v2beta4.xsd"
+
+	id="NML2_SimpleMorphology">
+
+	id="jrose_cell_3L">
+
+	
+
+	<! Notes from Neuroml website >
+
+ 	<! Example of a cell morphology in NeuroML 2 >
+
+ 	<! This is a "pure" NeuroML 2 file. It cannot currently used for simulations with
+
+ 	jLEMS/jNeuroML however, as jLEMS does not yet support multicompartmental cells >
+
+ 	<! Note: no <cells> element >
+
+
+
+	 <include href="jrose_na_ion_channel.nml"/> <! Contains ionChannel Na_Conductance >
+
+	 <ionChannelHH id="leak" conductance="10pS"/> <!For use in example cell below>
+
+
+
+ 	<cell id="cell_HN_3L">
+
+ 
+
+ 		<morphology id="morph_3L">
+
+			<! Note: no <segments> >
+
+			<segment id="0" name="soma"> <! name is optional>
+
+			<! Only one segment needed >
+
+			<segment id="0" name="soma">
+
+ 				<! no parent => root segment >
+
+ 				<!x, y, z, diameter are in microns>
+
+ 				<! proximal is the point closest to the soma in a segment. >
+
+ 				<! If the proximal point is equal to the distal point of the parent segment, 
+
+ 					proximal can be omitted >
+
+ 				<proximal x="0" y="0" z="0" diameter="126.15663"/>
+
+ 				<! distal is the point furthest from the soma in a segment >
+
+ 				<distal x="126.15663" y="0" z="0" diameter="126.15663"/>
+
+ 			</segment>
+
+ 			<segmentGroup id="soma_group">
+
+ 				<member segment="0"/>
+
+ 			<segmentGroup/>
+
+ 		</morphology>
+
+ 
+
+		<biophysicalProperties id="bio_prop_3L">	
+
+		<biophysicalProperties id="bio_phys_prop_3L">	
+
+ 			
+
+ 			<membraneProperties>
+
+				<! RM	6.25 specific membrane resistance in ohm*m^2 >
+
+				<! CM	0.01 specific membrane capacitance in farad/m^2 >
+
+				
+
+				<! CM	0.01 specific membrane capacitance in farad/m^2, this is from Genesis >
+
+ 				<specificCapacitance value="0.01F_per_m2"/>
+
+				<! ELEAK 0.060  Volts>
+
+
+
+				<! ELEAK 0.060  Volts, this is from Genesis >
+
+ 				<! ELEAK if specified, gives an alternate value for initial Em,>
+
+ 				<! ELEAK so that Vm will be initialized to initVm (EREST_ACT) >
+
+ 				<! ELEAK on reset, instead of Em.  Otherwise, ELEAK = EREST_ACT. >
+
+				<! EREST_ACT0.060 resting potential in volts (initial Em and initVm)>
+
+
+
+				<! EREST_ACT0.060 resting potential in volts (initial Em and initVm), this is from Genesis >
+
+ 				<initMembPotential value="60mV"/>
+
+
+
+ 				<! Channel densities >
+
+				<channelDensity id="Na_ron" ionChannel="NaConductance" segmentGroup="soma_group"  condDensity="2e7 S_per_m2" erev="45mV" ion="na"/>
+
+				<! For channels, "dens" =  maximum conductance per unit area of compartment >
+
+				<! For channels, "dens" = maximum conductance per unit area of compartment >
+
+ 				<! For spike elements, "dens" is the spike threshold >
+
+				<! The "na_channel" replaces the "Na_ron" channel in Genesis >
+
+				<channelDensity id="na_channel" ionChannel="na_conductance" segmentGroup="soma_group" condDensity="2e7 S_per_m2" erev="45mV" ion="na"/>
+
+				<! The "k1_channel" replaces the "K1_ron" channel in Genesis >
+
+				<! RM	6.25 specific membrane resistance in ohm*m^2, this is from Genesis >
+
+				<! The "leak_channel" replaces the RM value in Genesis >
+
+				<! The "erev" parameter is the ELEAK in Genesis >
+
+				<! The "condDensity" parameter is equal to 1/RM value in Genesis >				 
+
+				<channelDensity id="leak_channel" ionChannel="leak" 
+
+					condDensity="0.16 S_per_m2" erev="60mV" ion="non_specific"/> 
+
+ 				 
+
+ 			</membraneProperties>
+
+ 			
+
+ 			<intracellularProperties>
+
+				<! RA	0.3  specific axial resistance in ohm*m >
+
+				<resistivity value="0.3ohm_m"/>
+
+
+
+				<! RA	0.3  specific axial resistance in ohm*m, this is from Genesis >
+
+				<resistivity value="0.3 ohm_m"/>
+
+
+
+ 			</intracellularProperties>
+
+ 
+
+ 		</biophysicalProperties>
+ 		
+ 	 In cartesian coordinates, the format for each compartment parameter line
+    in a cell parameter file is
+    
+        name parent x y z dia chan dens [chan dens] ...  
+
+    For polar coordinates, it is
+
+        name parent r theta phi dia chan dens [chan dens] ...
+
+    Here, 'name' gives the name of the compartment, and 'parent' refers to the
+    adjacent compartment to which it is connected.  'parent' may be replaced
+    by '.' to refer to the compartment defined on the preceding line.  For
+    asymmetric compartments, the connection to 'parent' is through the axial
+    resistance (Ra) of 'name'.  The coordinates and diameter (x, y, z, dia)
+    are in microns, all other units are SI (Meter, Kg, Second, Ampere).  In
+    polar mode 'r' is in microns, theta and phi in degrees.  Theta is measured
+    from the z-axis and phi from the x-axis in the x-y plane.  The compartment
+    length, which is not stated explicitly, is calculated from the coodinates
+    of the compartment and its parent.
+
+    'chan' is the name of one of the channel prototypes under the neutral
+    element '/library'.  At present, the supported channel types are
+    hh_channel, tabchannel, tab2Dchannel, tabcurrent, vdep_channel, synchan,
+    hebbsynchan, ddsyn, receptor2, manuelconduct, and graded.  'chan' may also
+    refer to the other neural element types:  spikegen, Ca_concen, difshell,
+    difbuffer, concpool, mmpump, and hillpump.  Presently, the obsolete
+    channelC, channelC2, channelC3, and spike objects are also supported.
+
+    For channels, 'dens' is the conductance density (Gbar or gmax per unit
+    compartment area) in Siemens/m^2.  If a negative value is specified, the
+    absolute value is taken, and it is interpreted as the maximum
+    conductance in Siemens, without scaling by the compartment area.
+
+    For spikegen elements, the 'dens' parameter is the 'thresh' field of the
+    element.  For Ca_concen elements, it is the 'B' field, divided by the
+    volume of the compartment.  However, if the 'thick' field of the Ca_concen
+    element is non-zero, the volume is scaled using the volume of a true shell
+    of thickness 'thick'.  A negative value of 'dens' is used to indicate that
+    it should be taken as an absolute value of B, without scaling.
+
+    A maximum of 30 'chan dens' pairs are allowed in a compartment
+    specification.  The '*compt' option described below provides a way to
+    overcome this limitation.
+
+    Several types of options may be specified in the cell parameter file.
+    These options start with a '*', and affect all lines following them,
+    until canceled by the opposite command.
+
+PARAMETER VALUES
+
+    *set_compt_param variable value
+
+        sets one of the following internal variables used by the cell
+        reader to 'value'.  'value' may be a number, or the name of a
+        globally defined script variable.
+
+        RM            specific membrane resistance in ohm*m^2
+        RA            specific axial resistance in ohm*m
+        CM            specific membrane capacitance in farad/m^2
+        EREST_ACT     resting potential in volts (initial Em and initVm)
+        ELEAK         if specified, gives an alternate value for initial Em,
+                      so that Vm will be initialized to initVm (EREST_ACT)
+                      on reset, instead of Em.  Otherwise, ELEAK = EREST_ACT.
