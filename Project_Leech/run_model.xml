@@ -8,7 +8,7 @@
 
 	<Include file="network.8.cell.nml"/>
 
-    <Simulation id="hn8_simulation" length="300ms" step="0.001ms" target="net_8">
+    <Simulation id="hn8_simulation" length="300ms" step="0.1ms" target="net_8">
     
         <!--Display id="display_1" title="Membrane Potential HN_3L" timeScale="1ms" xmin="0" xmax="530" ymin="-55" ymax="5">
                 <Line id="v" quantity="hhpop[0]/v" scale="1mV" color="#ffffff" timeScale="1ms"/>
@@ -24,10 +24,16 @@
                 <Line id="h1_h2" quantity="hn3L_pop[0]/k_fast_pop_HN3L/k_fast_channel/h1_h2/q" scale="1"  color="#00FF00" timeScale="1ms"/>
         </Display>
             
-        <Display id="display_3" title="Na Gates for HN3L" timeScale="1ms" xmin="0" xmax="530" xtitle="Time (s)" ymin="0" ymax="1">
+        <Display id="display_3" title="Na Gates for HN3L" timeScale="1ms" xmin="0" xmax="530" ymin="0" ymax="1">
                 <Line id="m" quantity="hn3L_pop[0]/na_pop_HN3L/na_channel/m/q" scale="1"  color="#0000FF" timeScale="1ms"/>
                 <Line id="h" quantity="hn3L_pop[0]/na_pop_HN3L/na_channel/h/q" scale="1"  color="#00FF00" timeScale="1ms"/>
         </Display>
+
+	<Display id="display_4" title="K1 Gates for HN3L" timeScale="1ms" xmin="0" xmax="530" ymin="0" ymax="1">
+                <Line id="m" quantity="hn3L_pop[0]/k1_pop_HN3L/k1_channel/m/q" scale="1"  color="#0000FF" timeScale="1ms"/>
+                <Line id="h" quantity="hn3L_pop[0]/k1_pop_HN3L/k1_channel/h/q" scale="1"  color="#00FF00" timeScale="1ms"/>
+        </Display>
+        
         
         <!--OutputFile id="of0" fileName="../leech_tutorial_neuroml/Project_Leech/data_results/hn8_results.dat">
             <OutputColumn id="v" quantity="hhpop[0]/v"/> 

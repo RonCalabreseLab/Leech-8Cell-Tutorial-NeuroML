@@ -4,8 +4,8 @@
 	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta4.xsd"
 	id="k1_channel">
 	
-	<!-- Values from the Genesis file "HNChan.g"
-			function make_K1_ron
+<!-- Values from the Genesis file "HNChan.g"
+function make_K1_ron
     str chanpath = "K1_ron"
     if ({exists {chanpath}})
         return
@@ -49,6 +49,51 @@
 		/* Filling the tables using B-SPLINE interpolation */
 		call {chanpath} TABFILL Y 3000 0
 end
+
+Function Definitions from "filltable.g"
+
+function FillTableTau(gate, table, A, B, C, Shift, E)
+//A- constant, B- amplitude, C- slope, Shift- nshift, E- midpoint
+    str gate
+    str table
+    int i=1
+    float A, B, C, E, Shift, value, tmp
+     for (i = 0; i <= 100; i = {i} + 1)
+        tmp ={C}*((-.100+.0015*i)-{Shift}-{E})
+        value = {A}+{B}/(1+{exp {tmp}})
+        // echo {i}, {value} 
+	setfield {gate} {table}->table[{i}] {value}
+     end
+end
+
+function FillTableInf(gate, table, A, B, C, Shift, E)
+//A- constant, B- amplitude, C- slope, Shift- nshift, E- midpoint
+    str gate
+    str table
+    int i=1
+    float A, B, C, E, Shift, value, tmp
+  	for (i = 0; i <= 100; i = i + 1)
+        tmp ={C}*((-.100+.0015*i)-{Shift}-{E})
+        value = {A}+{B}/(1+{exp {tmp}}) 
+  	setfield {gate} {table}->table[{i}] {value}
+    end
+end
 -->	
-	
-	</neuroml>
+
+<include href="sigmoid.offset.xml"/>
+	 	 
+ <ionChannelHH id="k1_channel" conductance="100nS" species="k">
+        
+        	<gateHHtauInf id="m" instances="2">
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-29.13mV" scale="8.922mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="3.861ms" rate="-3.434ms" midpoint="-51.35mV" scale="5.98mV" /> 
+       		</gateHHtauInf>
+
+       		<gateHHtauInf id="h" instances="1">
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-40mV" scale="-6.048mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="2.834ms" rate="-2.371ms" midpoint="-21.9mV"  scale="2.64mV" /> 
+       		</gateHHtauInf>
+       
+		</ionChannelHH>	
+
+</neuroml>
