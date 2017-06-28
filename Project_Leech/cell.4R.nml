@@ -6,15 +6,28 @@
 
 	<include href="na.channel.nml"/>
 	<include href="k1.channel.nml"/>
-	<include href="k2.channel.nml"/>
+	<!--include href="k2.channel.nml"/>
 	<include href="a.channel.nml"/>
 	<include href="h.channel.nml"/>
 	<include href="ca.fast.channel.nml"/>
 	<include href="ca.slow.channel.nml"/>
-	<include href="p.channel.nml"/>
+	<include href="p.channel.nml"/-->
 	<include href="k.fast.channel.nml"/>
 
-	<ionChannelPassive id="leak_channel_HN4R" conductance="-0.060mS"/>
+	<ionChannelPassive id="leak_channel_HN4R" conductance="6.8nS"/>
 	
+		<pointCellCondBased id="HN4R" C="4pF" v0="-54.56137733296305mV" thresh="-25mV">
+		<channelPopulation id="leak_pop_HN4R" ionChannel="leak_channel_HN3L" erev="-55mV" number="1" />
+        <channelPopulation id="na_pop_HN4R" ionChannel="na_channel" erev="45mV" number="1" />
+        <channelPopulation id="k_fast_pop_HN4R" ionChannel="k_fast_channel" erev="35mV" number="1"/>
+		<channelPopulation id ="k1_pop_HN4R" ionChannel="k1_channel" erev="70mV" number="1"/>
+		<!--channelPopulation id ="k2_pop_HN4R" ionChannel="k2_channel" erev="70mV" number="1"/-->
+		<!--channelPopulation id ="h_pop_HN4R" ionChannel="h_channel" erev="70mV" number="1"/-->
+		<!--channelPopulation id ="a_pop_HN4R" ionChannel="a_channel" erev="70mV" number="1"/-->
+		<!--channelPopulation id ="ca_fast_pop_HN4R" ionChannel="ca_fast_channel" erev="70mV" number="1"/-->
+		<!--channelPopulation id ="ca_slow_pop_HN4R" ionChannel="ca_slow_channel" erev="70mV" number="1"/-->
+		<!--channelPopulation id ="p_pop_HN4R" ionChannel="ca_slow_channel" erev="70mV" number="1"/-->
+		
+	</pointCellCondBased>
 	
 </neuroml>

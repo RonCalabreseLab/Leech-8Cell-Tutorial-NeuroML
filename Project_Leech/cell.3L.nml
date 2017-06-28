@@ -18,9 +18,16 @@
 
 	<pointCellCondBased id="HN3L" C="4pF" v0="-54.56137733296305mV" thresh="-25mV">
 		<channelPopulation id="leak_pop_HN3L" ionChannel="leak_channel_HN3L" erev="-55mV" number="1" />
-        	<channelPopulation id="na_pop_HN3L" ionChannel="na_channel" erev="45mV" number="1" />
-        	<channelPopulation id="k_fast_pop_HN3L" ionChannel="k_fast_channel" erev="35mV" number="1"/>
+        <channelPopulation id="na_pop_HN3L" ionChannel="na_channel" erev="45mV" number="1" />
+        <channelPopulation id="k_fast_pop_HN3L" ionChannel="k_fast_channel" erev="35mV" number="1"/>
 		<channelPopulation id ="k1_pop_HN3L" ionChannel="k1_channel" erev="70mV" number="1"/>
+		<!--channelPopulation id ="k2_pop_HN3L" ionChannel="k2_channel" erev="70mV" number="1"/-->
+		<!--channelPopulation id ="h_pop_HN3L" ionChannel="h_channel" erev="70mV" number="1"/-->
+		<!--channelPopulation id ="a_pop_HN3L" ionChannel="a_channel" erev="70mV" number="1"/-->
+		<!--channelPopulation id ="ca_fast_pop_HN3L" ionChannel="ca_fast_channel" erev="70mV" number="1"/-->
+		<!--channelPopulation id ="ca_slow_pop_HN3L" ionChannel="ca_slow_channel" erev="70mV" number="1"/-->
+		<!--channelPopulation id ="p_pop_HN3L" ionChannel="ca_slow_channel" erev="70mV" number="1"/-->
+		
 	</pointCellCondBased>
 	
 </neuroml>
