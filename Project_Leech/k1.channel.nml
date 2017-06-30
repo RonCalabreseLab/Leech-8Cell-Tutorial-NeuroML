@@ -52,6 +52,7 @@ end
 
 Function Definitions from "filltable.g"
 
+Function below is equal to timecourse in neuroML "gateHHtauInf/ timeCourse":
 function FillTableTau(gate, table, A, B, C, Shift, E)
 //A- constant, B- amplitude, C- slope, Shift- nshift, E- midpoint
     str gate
@@ -66,6 +67,7 @@ function FillTableTau(gate, table, A, B, C, Shift, E)
      end
 end
 
+Function below is equal to steadyState in neuroML "gateHHtauInf/ steadyState"
 function FillTableInf(gate, table, A, B, C, Shift, E)
 //A- constant, B- amplitude, C- slope, Shift- nshift, E- midpoint
     str gate
@@ -78,6 +80,14 @@ function FillTableInf(gate, table, A, B, C, Shift, E)
   	setfield {gate} {table}->table[{i}] {value}
     end
 end
+
+Values for sigmoid.offset.xml
+"offset" = A
+"rate" = B
+"midpoint" = E
+"scale" = 1/c
+
+
 -->	
 
 <include href="sigmoid.offset.xml"/>
@@ -85,13 +95,13 @@ end
  <ionChannelHH id="k1_channel" conductance="100nS" species="k">
         
         	<gateHHtauInf id="m" instances="2">
-            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-29.13mV" scale="8.922mV" />
-            		<timeCourse type="sigmoidOffsetTimeCourse" offset="3.861ms" rate="-3.434ms" midpoint="-51.35mV" scale="5.98mV" /> 
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="21.0mV" scale="-6.993007mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.001ms" rate="0.011ms" midpoint="16.0mV" scale="6.6667mV" /> 
        		</gateHHtauInf>
 
        		<gateHHtauInf id="h" instances="1">
-            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-40mV" scale="-6.048mV" />
-            		<timeCourse type="sigmoidOffsetTimeCourse" offset="2.834ms" rate="-2.371ms" midpoint="-21.9mV"  scale="2.64mV" /> 
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="28.0mV" scale="9.009mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.5ms" rate="0.2ms" midpoint="13.0mV"  scale="-6.993007mV" /> 
        		</gateHHtauInf>
        
 		</ionChannelHH>	

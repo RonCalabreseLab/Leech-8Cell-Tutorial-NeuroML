@@ -1,6 +1,6 @@
 <Lems>
 	<!-- Custom componenet for the sigmoidal offset
-			A + B / 1 + exp(Vm - Vh/scale) -->
+			tau = c + d/ 1+ exp(a(V+b) -->
 	
 	<ComponentType name="sigmoidOffsetTimeCourse" 
         extends="baseVoltageDepTime"

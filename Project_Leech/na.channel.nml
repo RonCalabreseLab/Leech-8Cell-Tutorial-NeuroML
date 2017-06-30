@@ -64,7 +64,7 @@ end
         
         	<gateHHtauInf id="m" instances="3">
             		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-29.13mV" scale="8.922mV" />
-            		<timeCourse type="sigmoidOffsetTimeCourse" offset="3.861ms" rate="-3.434ms" 	midpoint="-51.35mV" scale="5.98mV" /> 
+            		<timeCourse type="fixedTimeCourse" tau="0.0001"/> 
        		</gateHHtauInf>
 
        		<gateHHtauInf id="h" instances="1">

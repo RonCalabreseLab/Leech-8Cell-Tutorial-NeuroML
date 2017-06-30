@@ -37,7 +37,8 @@
         <biophysicalProperties id="bio_phys">
 
             <membraneProperties>
-                        
+                
+		<!-- use channelPopulation instead -->
                 <channelDensity id="leak_chan_den" ionChannel="leak_channel_HN1L" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
                 <channelDensity id="na_chan_den" ionChannel="na_channel" condDensity="2.55 mS_per_cm2" erev="50.0 mV" ion="na"/>
                 <!--channelDensity id="k1_den" ionChannel="k1_channel" condDensity="360 S_per_m2" erev="-77mV" ion="k"/-->
@@ -49,7 +50,7 @@
             </membraneProperties>
 
             <!--intracellularProperties>
-                <resistivity value="0.03 kohm_cm"/>   <!-- Note: not used in single compartment simulations -->
+                <resistivity value="0.03 kohm_cm"/>  
             </intracellularProperties-->
 
         </biophysicalProperties>
