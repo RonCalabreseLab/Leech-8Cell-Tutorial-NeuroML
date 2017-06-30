@@ -23,7 +23,7 @@ function make_CaF_ron
 		 Zpower	0  
 
     call    {chanpath}    TABCREATE X 100 -0.100 0.050
-    
+
     FillTableTau_CaF {chanpath} X_A 
     FillTableInf {chanpath} X_B 0 1 -600 {CaFshft} -.0467
 		/* Setting the calc_mode to NO_INTERP for speed */

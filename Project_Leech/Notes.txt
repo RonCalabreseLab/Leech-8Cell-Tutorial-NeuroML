@@ -21,7 +21,7 @@ Notes
 
 			<segment id="0" name="soma">
 
- 				<x, y, z, diameter are in microns>
+ 				<x, y, z, diameter are in microns (micrometers)>
 
  				<proximal x="0" y="0" z="0" diameter="126.15663"/>
 

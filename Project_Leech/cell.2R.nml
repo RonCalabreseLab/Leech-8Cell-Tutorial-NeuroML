@@ -15,6 +15,6 @@
 			<channelPopulation id="leak_pop_HN1R" ionChannel="leak_channel_HN1L" erev="-55mV" number="1" />
         	<channelPopulation id="na_pop_HN1R" ionChannel="na_channel" erev="45mV" number="1" />
         	<!--channelPopulation id ="k1_pop_HN1R" ionChannel="k1_channel" erev="70mV" number="1"/-->
-        	<!--channelPopulation id ="k2_pop_HN1R" ionChannel="k1_channel" erev="70mV" number="1"/-->
+        	<!--channelPopulation id ="k2_pop_HN1R" ionChannel="k2_channel" erev="70mV" number="1"/-->
 	</pointCellCondBased>
 </neuroml>

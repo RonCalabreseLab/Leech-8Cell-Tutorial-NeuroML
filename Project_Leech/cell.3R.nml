@@ -26,7 +26,7 @@
 		<!--channelPopulation id ="a_pop_HN3R" ionChannel="a_channel" erev="70mV" number="1"/-->
 		<!--channelPopulation id ="ca_fast_pop_HN3R" ionChannel="ca_fast_channel" erev="70mV" number="1"/-->
 		<!--channelPopulation id ="ca_slow_pop_HN3R" ionChannel="ca_slow_channel" erev="70mV" number="1"/-->
-		<!--channelPopulation id ="p_pop_HN3R" ionChannel="ca_slow_channel" erev="70mV" number="1"/-->
+		<!--channelPopulation id ="p_pop_HN3R" ionChannel="p_channel" erev="70mV" number="1"/-->
 		
 	</pointCellCondBased>
 	

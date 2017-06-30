@@ -5,7 +5,7 @@
 	id="k2_channel">
 	
 	<!-- Values from the Genesis file "HNChan.g"
-			function make_K2_ron
+	function make_K2_ron
     str chanpath = "K2_ron"
     if ({exists {chanpath}})
         return

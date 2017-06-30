@@ -60,7 +60,7 @@ end
 -->	
 	 	 <include href="sigmoid.offset.xml"/>
 	 	 
-    	<ionChannelHH id="na_channel" conductance="250nS" species="na">
+    	<ionChannelHH id="na_channel" conductance="2.50nS" species="na">
         
         	<gateHHtauInf id="m" instances="3">
             		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-29.13mV" scale="8.922mV" />
