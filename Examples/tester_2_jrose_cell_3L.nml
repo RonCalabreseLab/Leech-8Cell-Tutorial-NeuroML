@@ -7,9 +7,7 @@
 	 
 	 
     <!-- Single compartment cell with HH channels -->
-     
-    <!-- This is a "pure" NeuroML 2 file. It can be included in a LEMS file for use in a simulaton 
-    by the LEMS interpreter, see LEMS_NML2_Ex5_DetCell.xml -->     
+       <include href="custom_function.xml"/>
 
     <ionChannelHH id="passiveChan" conductance="10pS">
         <notes>Leak conductance</notes>
@@ -19,15 +17,15 @@
     <ionChannelHH id="naChan" conductance="10pS" species="na">
         <notes>Na channel</notes>
 
-        <gateHHrates id="m" instances="3">
-            <forwardRate type="HHExpLinearRate" rate="1per_ms" midpoint="-40mV" scale="10mV"/>
-            <reverseRate type="HHExpRate" rate="4per_ms" midpoint="-65mV" scale="-18mV"/>
-        </gateHHrates>
+           	<gateHHtauInf id="m" instances="3">
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-29.13mV" scale="8.922mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="3.861ms" rate="-3.434ms" 	midpoint="-51.35mV" scale="5.98mV" /> 
+       		</gateHHtauInf>
 
-        <gateHHrates id="h" instances="1">
-            <forwardRate type="HHExpRate" rate="0.07per_ms" midpoint="-65mV" scale="-20mV"/>
-            <reverseRate type="HHSigmoidRate" rate="1per_ms" midpoint="-35mV" scale="10mV"/>
-        </gateHHrates>
+       		<gateHHtauInf id="h" instances="1">
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-40mV" scale="-6.048mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="2.834ms" rate="-2.371ms" midpoint="-21.9mV"  scale="2.641mV" /> 
+       		</gateHHtauInf>
 
     </ionChannelHH>
 
