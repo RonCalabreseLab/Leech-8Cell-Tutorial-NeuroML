@@ -1,0 +1,20 @@
+Notes for neuron
+
+Enter the following in the command line:
+create an object reference 
+objref cell
+
+instantiate the object
+cell = new hhcell()
+
+Use the Neuron tool bar for the following:
+Select "Graph" in the Neurin tool bar
+Select "State axis"
+Right click and select "Plot What?"
+Click show button
+Select "object refs"
+Select the name of the object created "cell" (double click)
+Select "soma" (double click)
+Select which variable you want to see graphed
+Click the "Init & Run" button
+Right click and hold on the graph and select "View" and then select "View Plot"
