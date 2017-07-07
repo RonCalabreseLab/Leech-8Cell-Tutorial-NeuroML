@@ -6,21 +6,6 @@ Notes
 
  	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 ../Schemas/NeuroML2/NeuroML_v2beta4.xsd"
 
-	id="NML2_SimpleMorphology">
-
-	id="jrose_cell_3L">
-
-	 <ionChannelHH id="leak" conductance="10pS"/> <!For use in example cell below>
-
- 	<cell id="cell_HN_3L">
-
- 		<morphology id="morph_3L">
-
-
-			<segment id="0" name="soma"> 
-
-			<segment id="0" name="soma">
-
  				<x, y, z, diameter are in microns (micrometers)>
 
  				<proximal x="0" y="0" z="0" diameter="126.15663"/>
@@ -28,7 +13,6 @@ Notes
  				<! distal is the point furthest from the soma in a segment >
 
  				<distal x="126.15663" y="0" z="0" diameter="126.15663"/>
-
 
  			<membraneProperties>
 
@@ -61,16 +45,9 @@ Notes
 				<channelDensity id="Na_ron" ionChannel="NaConductance" segmentGroup="soma_group"  condDensity="2e7 S_per_m2" erev="45mV" ion="na"/>
 
 				<! For channels, "dens" =  maximum conductance per unit area of compartment >
-
-				<! For channels, "dens" = maximum conductance per unit area of compartment >
-
  				<! For spike elements, "dens" is the spike threshold >
 
-				<! The "na_channel" replaces the "Na_ron" channel in Genesis >
-
 				<channelDensity id="na_channel" ionChannel="na_conductance" segmentGroup="soma_group" condDensity="2e7 S_per_m2" erev="45mV" ion="na"/>
-
-				<! The "k1_channel" replaces the "K1_ron" channel in Genesis >
 
 				<! RM	6.25 specific membrane resistance in ohm*m^2, this is from Genesis >
 

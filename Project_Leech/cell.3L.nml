@@ -13,9 +13,54 @@
 	<!--include href="ca.slow.channel.nml"/-->
 	<!--include href="p.channel.nml"/-->
 	<!--include href="k.fast.channel.nml"/-->
+	
+	<cell id="cell_HN3L">
 
-	<!--ionChannelPassive id="leak_channel_HN3L" conductance="6.8nS"/> <!-- Simulation throws an error when conductance is set to "-0.060mS" -->
+        <morphology id="morph_HN3L">
+            <segment id="0" name="soma">
+                <proximal x="0" y="0" z="0" diameter="17.841242"/> <!--Gives a convenient surface area of 1000.0 um-->
+                <distal x="0" y="0" z="0" diameter="17.841242"/>
+            </segment>
 
+            <segmentGroup id="soma_group">
+                <member segment="0"/>
+            </segmentGroup>
+
+        </morphology>
+
+        <biophysicalProperties id="bio_phys_HN3L">
+
+            <membraneProperties>
+            
+            <!--
+       		<channelPopulation id="leak_pop_HN3L" ionChannel="leak_channel_HN3L" erev="-55mV" number="1" />
+        	<channelPopulation id="na_pop_HN3L" ionChannel="na_channel" erev="45mV" number="1" />
+        	<channelPopulation id="k_fast_pop_HN3L" ionChannel="k_fast_channel" erev="35mV" number="1"/>
+			<channelPopulation id ="k1_pop_HN3L" ionChannel="k1_channel" erev="50mV" number="1"/>
+			<channelPopulation id ="k2_pop_HN3L" ionChannel="k2_channel" erev="70mV" number="1"/>
+			<channelPopulation id ="h_pop_HN3L" ionChannel="h_channel" erev="70mV" number="1"/>
+			<channelPopulation id ="ka_pop_HN3L" ionChannel="ka_channel" erev="70mV" number="1"/>
+			<channelPopulation id ="ca_fast_pop_HN3L" ionChannel="ca_fast_channel" erev="70mV" number="1"/>
+			<channelPopulation id ="ca_slow_pop_HN3L" ionChannel="ca_slow_channel" erev="70mV" number="1"/>
+			<channelPopulation id ="p_pop_HN3L" ionChannel="p_channel" erev="70mV" number="1"/>
+			-->
+                <spikeThresh value="-20mV"/>
+                <specificCapacitance value="1.0 uF_per_cm2"/>
+                <initMembPotential value="-65mV"/>
+
+            </membraneProperties>
+
+            <intracellularProperties>
+                <resistivity value="0.03 kohm_cm"/> <!-- Not sure if this is necessary? -->
+            </intracellularProperties>
+
+        </biophysicalProperties>
+
+	</cell>
+
+<!--
+	<ionChannelPassive id="leak_channel_HN3L" conductance="6.8nS"/> 
+	
 	<pointCellCondBased id="HN3L" C="4pF" v0="-54.56137733296305mV" thresh="-25mV">
 		<channelPopulation id="leak_pop_HN3L" ionChannel="leak_channel_HN3L" erev="-55mV" number="1" />
         <channelPopulation id="na_pop_HN3L" ionChannel="na_channel" erev="45mV" number="1" />
@@ -23,11 +68,12 @@
 		<channelPopulation id ="k1_pop_HN3L" ionChannel="k1_channel" erev="50mV" number="1"/>
 		<!--channelPopulation id ="k2_pop_HN3L" ionChannel="k2_channel" erev="70mV" number="1"/-->
 		<!--channelPopulation id ="h_pop_HN3L" ionChannel="h_channel" erev="70mV" number="1"/-->
-		<!--channelPopulation id ="a_pop_HN3L" ionChannel="a_channel" erev="70mV" number="1"/-->
+		<!--channelPopulation id ="ka_pop_HN3L" ionChannel="ka_channel" erev="70mV" number="1"/-->
 		<!--channelPopulation id ="ca_fast_pop_HN3L" ionChannel="ca_fast_channel" erev="70mV" number="1"/-->
 		<!--channelPopulation id ="ca_slow_pop_HN3L" ionChannel="ca_slow_channel" erev="70mV" number="1"/-->
 		<!--channelPopulation id ="p_pop_HN3L" ionChannel="p_channel" erev="70mV" number="1"/-->
 		
-	</pointCellCondBased-->
+	</pointCellCondBased-
+	-->
 	
 </neuroml>

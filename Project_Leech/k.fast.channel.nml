@@ -35,51 +35,64 @@
 		call {chanpath} TABFILL X 3000 0
 
 end
+
+Equations below are from the paper: 
+A Model of a Segmental Oscillator in the Leech Heartbeat Neuronal Network
+A.A.V. HILL, J. LU, M.A. MASINO, O.H. OLSEN, R.L. CALABRESE
+Biology Department, 1510 Clifton Road, Emory University, Atlanta, GA 30322
+ahill@biology.emory.edu
+Received May 17, 2000; Revised November 17, 2000; Accepted December 5, 2000
+
+Overall Current (I) for K fast channel = ḡKF  * mKF  * (V − EK)
+
+ change in activation gate = dmKF/dt = steady state:  f∞(−100, 0.022, V ) − mKF /  time course: τmKF(V)
+
+
+f∞(a, b, V ) = 1 / 1 + exp(a(V +b))
+Parameters for steady state for m and h:
+"rate" = 1
+"midpoint" = b
+"scale" = 1/a
+
+τmKF (V ) = 1.5 + (8.0 / 1 + exp(-100 (V + 0.022))) + (-2.2 / cosh(100(V + 0.04))) => Value will come from custom component at the end of the file
+Parameters for time course (τ):
+"offset" = c
+"rate" = d
+"midpoint" = b
+"scale" = 1/a
 -->	
-	   <ionChannelHH id="k_fast_channel" conductance="24.1nS" species="k"> 
+
+ <ionChannelHH id="k_fast_channel" conductance="100nS" species="k">
         
-        <notes>Fast K with 2 inactivation time courses</notes>
+        	<gateHHtauInf id="m" instances="1">
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="20.0mV" scale="-12.048192mV" />
+            		<timeCourse type="tauMKF" midpoint="40.0mV" scale="10.0mV" /> 
+       		</gateHHtauInf>
 
-        <gateHHtauInf id="m" instances="4">
-            <steadyState id="m_inf" type="HHSigmoidVariable" rate="1" midpoint="-17.55mV" scale="7.27mV" />
-            <timeCourse id="m_tau" type="sigmoidOffsetTimeCourse" offset="1.94ms" rate="2.66ms" midpoint="8.12mV" scale="-7.96mV" />
-       </gateHHtauInf>
-
-       <gateHHtauInfTwoParts id="h1_h2" instances="1" ratioFirstPart="0.95">
-
-            <firstPart type="gateHHtauInf" id="h_1" instances="1">
-                <steadyState id="h1_inf" type="HHSigmoidVariable" rate="1" midpoint="-45mV" scale="-6mV" />
-                <timeCourse id="h1_tau" type="sigmoidOffsetTimeCourse" offset="1.79ms" rate="515.8ms" midpoint="-147.4mV" scale="-28.66mV" />
-            </firstPart>
-
-            <secondPart type="gateHHtauInf" id="h_2" instances="1">
-                <steadyState id="h2_inf" type="HHSigmoidVariable" rate="1" midpoint="-44.2mV" scale="-1.5mV" />
-                <timeCourse id="h2_tau" type="fixedTimeCourse" tau="116ms" />
-            </secondPart>
-
-       </gateHHtauInfTwoParts>
-
-    </ionChannelHH>
-
-	<!-- Custom component -->
-    <ComponentType name="gateHHtauInfTwoParts" 
-            extends="gateHHtauInf"
-            description="Hodgkin Huxley gate with two parts that both contribute to the gating variable at a certain ratio">
-
-        <Parameter name="ratioFirstPart" dimension="none" />
-
-        <Child name="firstPart" type="baseGate" />
-        <Child name="secondPart" type="baseGate" />
-
+		</ionChannelHH>	
+			<!--Custom tauMKF component -->
+    <ComponentType name="tauMKF" extends="baseVoltageDepTime"
+        description="Voltage-dependent time constant that has a sigmoid shape and an offset">
+        
+        <!--Parameter name="offset" dimension="time" />
+        <Parameter name="rate" dimension="time" /-->
+        <Parameter name="midpoint" dimension="voltage" />
+        <Parameter name="scale" dimension="voltage" />
+        
         <Dynamics>
-
-            <DerivedVariable name="q1" dimension="none" select="firstPart/q" />
-            <DerivedVariable name="q2" dimension="none" select="secondPart/q" />
-
-            <DerivedVariable name="q" dimension="none" exposure="q" value="ratioFirstPart * q1 + (1 - ratioFirstPart) * q2" />
-            <DerivedVariable name="fcond" dimension="none" exposure="fcond" value="q^instances" />
-
+        							<!--
+        							τmKF (V ) = 1.5 + (8.0 / 1 + exp(-100 (V + 0.022))) + (-2.2 / cosh(100(V + 0.04)))
+        							offset = ms
+        							rate =  ms
+        							cosh = exp(v) + exp(-v) / 2 
+        							midpoint = 27.00 mv
+        							scale = 1/300
+        							-->
+        	<DerivedVariable name="v_cosh" exposure="v_cosh" value="((v + midpoint)/scale)" />
+        	<DerivedVariable name="tau_m_KF" exposure="tau_m_KF" value="1.5 + (8.0 / 1 + exp(0 - (v + 0.022)/scale)) + (-2.2 / ((exp(v_cosh) + exp(0 - v_cosh)) / 2))"/>
+        	
+        	<!--DerivedVariable name="t" exposure="t" value="offset + rate * ((exp(2 * v_cosh) + 1) / (2 * exp(v_cosh) ))" /-->
         </Dynamics>
-	</ComponentType>
 
+	</ComponentType>
 	</neuroml>

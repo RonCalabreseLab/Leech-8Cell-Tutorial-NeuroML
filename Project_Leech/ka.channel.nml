@@ -2,12 +2,14 @@
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta4.xsd"
-	id="a_channel">
+	id="ka_channel">
 
 <!-- Values from the Genesis file "HNChan.g"
 // make A channel
 function make_A_ron
+    
     str chanpath = "A_ron"
+   
     if ({exists {chanpath}})
         return
     end
@@ -51,10 +53,49 @@ function make_A_ron
 		/* Filling the tables using B-SPLINE interpolation */
 		call {chanpath} TABFILL Y 3000 0
 end
- 
--->	
-	<ionChannelHH>
 
-	</ionChannelHH>
+Equations below are from the paper: 
+A Model of a Segmental Oscillator in the Leech Heartbeat Neuronal Network
+A.A.V. HILL, J. LU, M.A. MASINO, O.H. OLSEN, R.L. CALABRESE
+Biology Department, 1510 Clifton Road, Emory University, Atlanta, GA 30322
+ahill@biology.emory.edu
+Received May 17, 2000; Revised November 17, 2000; Accepted December 5, 2000
+
+Overall Current (I) for KA channel = ḡKA m^2KA hKA (V−EK);
+ 
+ change in activation gate = dmKA /dt = steady state: f∞(−130, 0.044, V ) − mKA / time course: τ (200, 0.03, 0.005, 0.011, V )
+ change in inactivation gate = hKA/dt =  steady state:  f∞(160, 0.063, V ) − hKA / time course: τ (−300, 0.055, 0.026, 0.0085, V )
+
+
+
+f∞(a, b, V ) = 1 / 1 + exp(a(V +b))
+Parameters for steady state for m and h:
+"rate" = 1
+"midpoint" = b
+"scale" = 1/a
+
+τ(a, b, c, d, V) = c + d / 1 + exp(a(V + b))
+Parameters for time course:
+"offset" = c
+"rate" = d
+"midpoint" = b
+"scale" = 1/a
+
+-->	
+<include href="sigmoid.offset.xml"/>
+	 	 
+ <ionChannelHH id="ka_channel" conductance="100nS" species="k">
+        
+        	<gateHHtauInf id="m" instances="2">
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="44.0mV" scale="-7.6923" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="5.0ms" rate="11.0ms" midpoint="30.0mV" scale="5.0mV" /> 
+       		</gateHHtauInf>
+
+       		<gateHHtauInf id="h" instances="1">
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="63.0mV" scale="6.25mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="26.0ms" rate="8.5ms" midpoint="55.0mV"  scale="-3.3333mV" /> 
+       		</gateHHtauInf>
+       
+		</ionChannelHH>	
 
 </neuroml>

@@ -57,21 +57,71 @@
 		/* Filling the tables using B-SPLINE interpolation */
 		call {chanpath} TABFILL Y 3000 0
 end
--->	
-	 	 <include href="sigmoid.offset.xml"/>
-	 	 
+
+Equations below are from the paper: 
+A Model of a Segmental Oscillator in the Leech Heartbeat Neuronal Network
+A.A.V. HILL, J. LU, M.A. MASINO, O.H. OLSEN, R.L. CALABRESE
+Biology Department, 1510 Clifton Road, Emory University, Atlanta, GA 30322
+ahill@biology.emory.edu
+Received May 17, 2000; Revised November 17, 2000; Accepted December 5, 2000
+
+Overall Current (I) for Na channel = ḡCaF  m^3Na  hNa (V−ENa)
+
+ change in activation gate = dmNa/dt = steady state: f∞(−150, 0.029, V ) − mNa / time course: 0.0001
+ change in inactivation gate = hNa/dt =  steady state:  f∞(500, 0.030, V ) − hNa / time course: τhNa(V)
+
+τhNa(V) = 0.004 + (0.006 / 1 + exp(500(V + 0.028))) + (0.01 / cosh(300(V + 0.027)))  This value will be created custom at the end of this file
+
+f∞(a, b, V ) = 1 / 1 + exp(a(V +b))
+Parameters for steady state for m and h:
+"rate" = 1
+"midpoint" = b
+"scale" = 1/a
+
+Parameters for time course (τ):
+"offset" = c
+"rate" = d
+"midpoint" = b
+"scale" = 1/a
+-->
     	<ionChannelHH id="na_channel" conductance="2.50nS" species="na">
         
         	<gateHHtauInf id="m" instances="3">
-            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-29.13mV" scale="8.922mV" />
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="29.00mV" scale="-6.666666mV" />
             		<timeCourse type="fixedTimeCourse" tau="0.0001"/> 
        		</gateHHtauInf>
 
        		<gateHHtauInf id="h" instances="1">
-            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-40mV" scale="-6.048mV" />
-            		<timeCourse type="sigmoidOffsetTimeCourse" offset="2.834ms" rate="-2.371ms" midpoint="-21.9mV"  scale="2.64mV" /> 
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="30.00mV" scale="2.00mV" />
+            		<timeCourse type="tauHNa" midpoint="27.00mV"  scale="3.333333mV" /> 
        		</gateHHtauInf>
        
 		</ionChannelHH>
 		
+			<!--Custom tauHNa component -->
+    <ComponentType name="tauHNa" extends="baseVoltageDepTime"
+        description="Voltage-dependent time constant that has a sigmoid shape and an offset">
+        
+        <!--Parameter name="offset" dimension="time" />
+        <Parameter name="rate" dimension="time" /-->
+        <Parameter name="midpoint" dimension="voltage" />
+        <Parameter name="scale" dimension="voltage" />
+        
+        <Dynamics>
+        							<!--
+        							τhNa(V) = 0.004 + (0.006 / 1 + exp(500(V + 0.028))) + (0.01 / cosh(300(V + 0.027))) 
+        							offset = ms
+        							rate =  ms
+        							cosh = exp(v) + exp(-v) / 2 
+        							midpoint = 27.00 mv
+        							scale = 1/300
+        							-->
+        	<DerivedVariable name="v_cosh" exposure="v_cosh" value="((v + midpoint)/scale)" />
+        	<DerivedVariable name="tau_hNa" exposure="tau_hNa" value="0.004 + (0.006 / 1 + exp(500 * (v + 0.028))) + (0.01 / ((exp(v_cosh) + exp(0 - v_cosh)) / 2))"/>
+        	
+        	<!--DerivedVariable name="t" exposure="t" value="offset + rate * ((exp(2 * v_cosh) + 1) / (2 * exp(v_cosh) ))" /-->
+        </Dynamics>
+
+	</ComponentType>
+
 	</neuroml>

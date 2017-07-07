@@ -7,7 +7,7 @@
 	
 	<!-- File contains the 8 cell network -->
 
-	<include href="cell.1L.nml"/>
+	<!--include href="cell.1L.nml"/-->
 	<!--include href="cell.1R.nml"/>
 	<include href="cell.2L.nml"/>
 	<include href="cell.2R.nml"/-->

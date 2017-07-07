@@ -1,6 +1,16 @@
 <Lems>
-	<!-- Custom componenet for the sigmoidal offset
-			tau = c + d/ 1+ exp(a(V+b) -->
+	<!-- 
+	Custom componenet for the sigmoidal offset. 
+	This file is representative of the equation: tau = c + d/ 1 + exp(a(V+b)) 
+	Reference file ==> https://github.com/cengique/drosophila-aCC-L3-motoneuron-model/tree/master/NeuroML2/isopotential_NeuroML2 
+			
+			 τ(a, b, c, d, V) = c + d / 1 + exp(a(V + b))
+			 Parameters for time course:
+			"offset" = c
+			"rate" = d
+			"midpoint" = b
+			"scale" = 1/a
+		-->
 	
 	<ComponentType name="sigmoidOffsetTimeCourse" 
         extends="baseVoltageDepTime"
@@ -12,8 +22,9 @@
         <Parameter name="scale" dimension="voltage" />
 
         <Dynamics>
-            <DerivedVariable name="t" exposure="t" value="offset + rate / (1 + exp(0 - (v - midpoint)/scale))" />
+            <DerivedVariable name="t" exposure="t" value="offset + rate / (1 + exp((v + midpoint)/scale))" />
         </Dynamics>
 
     </ComponentType>
+    
 </Lems>

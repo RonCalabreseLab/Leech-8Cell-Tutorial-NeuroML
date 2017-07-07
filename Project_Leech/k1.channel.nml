@@ -4,7 +4,8 @@
 	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta4.xsd"
 	id="k1_channel">
 	
-<!-- Values from the Genesis file "HNChan.g"
+<!-- 
+Values below are from the Genesis file "HNChan.g":
 function make_K1_ron
     str chanpath = "K1_ron"
     if ({exists {chanpath}})
@@ -81,13 +82,30 @@ function FillTableInf(gate, table, A, B, C, Shift, E)
     end
 end
 
-Values for sigmoid.offset.xml
-"offset" = A
-"rate" = B
-"midpoint" = E
-"scale" = 1/c
+Equations below are from the paper: 
+A Model of a Segmental Oscillator in the Leech Heartbeat Neuronal Network
+A.A.V. HILL, J. LU, M.A. MASINO, O.H. OLSEN, R.L. CALABRESE
+Biology Department, 1510 Clifton Road, Emory University, Atlanta, GA 30322
+ahill@biology.emory.edu
+Received May 17, 2000; Revised November 17, 2000; Accepted December 5, 2000
 
+Overall Current (I) for K1 channel = ḡK1  m^2K1  hK1 (V−EK)
 
+ change in activation gate = dmCaS/dt = steady state: f∞(−143, 0.021, V ) − mK 1 /  time course: τ (150, 0.016, 0.001, 0.011, V )
+ change in inactivation gate = hCaS/dt =  steady state:  f (111,0.028,V)−hK1  / time course: τ (−143, 0.013, 0.5, 0.2, V )
+
+f∞(a, b, V ) = 1 / 1 + exp(a(V +b))
+Parameters for steady state for m and h:
+"rate" = 1
+"midpoint" = b
+"scale" = 1/a
+
+τ(a, b, c, d, V) = c + d / 1 + exp(a(V+b)) : This value will come from "sigmoid.offset.xml" file
+Parameters for time course (τ):
+"offset" = c
+"rate" = d
+"midpoint" = b
+"scale" = 1/a
 -->	
 
 <include href="sigmoid.offset.xml"/>

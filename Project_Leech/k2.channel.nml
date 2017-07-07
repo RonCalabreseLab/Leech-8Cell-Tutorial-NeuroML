@@ -35,6 +35,42 @@
 		call {chanpath} TABFILL X 3000 0
 
 end
+
+Equations below are from the paper: 
+A Model of a Segmental Oscillator in the Leech Heartbeat Neuronal Network
+A.A.V. HILL, J. LU, M.A. MASINO, O.H. OLSEN, R.L. CALABRESE
+Biology Department, 1510 Clifton Road, Emory University, Atlanta, GA 30322
+ahill@biology.emory.edu
+Received May 17, 2000; Revised November 17, 2000; Accepted December 5, 2000
+
+Overall Current (I) for K2 channel = ḡK2  * m^2K2  * (V−EK)
+
+ change in activation gate => dmK2/dt = steady state: f∞(−83, 0.02, V ) − mK2 /  time course: τ (200, 0.035, 0.057, 0.043, V )
+
+f∞(a, b, V ) = 1 / 1 + exp(a(V +b))
+Parameters for steady state for m and h:
+"rate" = 1
+"midpoint" = b
+"scale" = 1/a
+
+τ(a, b, c, d, V) = c + d / 1 + exp(a(V + b)) => This value will come from "sigmoid.offset.xml" file
+Parameters for time course (τ):
+"offset" = c
+"rate" = d
+"midpoint" = b
+"scale" = 1/a
 -->	
+
+<include href="sigmoid.offset.xml"/>
+	 	 
+ <ionChannelHH id="k2_channel" conductance="100nS" species="k">
+        
+        	<gateHHtauInf id="m" instances="2">
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="20.0mV" scale="-12.048192mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.057ms" rate="0.043ms" midpoint="35.0mV" scale="5.00mV" /> 
+       		</gateHHtauInf>
+
+		</ionChannelHH>	
+	
 	
 	</neuroml>

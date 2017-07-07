@@ -4,28 +4,18 @@
 	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta4.xsd"
 	id="cell_HN1L">
 
-	<include href="na.channel.nml"/>
+	<!--include href="na.channel.nml"/-->
 	<!--include href="k1.channel.nml"/-->
 	<!--include href="k2.channel.nml"/-->
 	
-	  <ionChannelHH id="leak_channel_HN1L" conductance="10pS"></ionChannelHH>
-        
-    
+	  <!--ionChannelHH id="leak_channel_HN1L" conductance="10pS"></ionChannelHH-->
+	  
+	  	<cell id="cell_HN1L">
 
-	<!--pointCellCondBased id="HN1L" C="4pF" v0="-54.56137733296305mV" thresh="-25mV">
-			<channelPopulation id="leak_pop_HN1L" ionChannel="leak_channel_HN1L" erev="-55mV" number="1" />
-        	<channelPopulation id="na_pop_HN1L" ionChannel="na_channel" erev="45mV" number="1" />
-        	<!-- channelPopulation id ="k1_pop_HN1L" ionChannel="k1_channel" erev="70mV" number="1"/ -->
-        	<!-- channelPopulation id ="k2_pop_HN1L" ionChannel="k2_channel" erev="70mV" number="1"/ -->
-	</pointCellCondBased-->
-	
-	<cell id="HN1L">
-
-        <morphology id="hn1L_morph">
-        
+        <morphology id="morph_HN1L">
             <segment id="0" name="soma">
-                <proximal x="0" y="0" z="0" diameter="17.2"/> 
-                <distal x="0" y="0" z="0" diameter="17.2"/>
+                <proximal x="0" y="0" z="0" diameter="17.841242"/> <!--Gives a convenient surface area of 1000.0 um-->
+                <distal x="0" y="0" z="0" diameter="17.841242"/>
             </segment>
 
             <segmentGroup id="soma_group">
@@ -34,27 +24,44 @@
 
         </morphology>
 
-        <biophysicalProperties id="bio_phys">
+        <biophysicalProperties id="bio_phys_HN1L">
 
             <membraneProperties>
                 
-		<!-- use channelPopulation instead -->
-                <channelDensity id="leak_chan_den" ionChannel="leak_channel_HN1L" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
-                <channelDensity id="na_chan_den" ionChannel="na_channel" condDensity="2.55 mS_per_cm2" erev="50.0 mV" ion="na"/>
-                <!--channelDensity id="k1_den" ionChannel="k1_channel" condDensity="360 S_per_m2" erev="-77mV" ion="k"/-->
-
+            <!--channelPopulation id="leak_pop_HN1L" ionChannel="leak_channel_HN1L" erev="-55mV" number="1" /-->
+        	<channelPopulation id="na_pop_HN1L" ionChannel="na_channel" erev="45mV" number="1" />
+        	<!-- channelPopulation id ="k1_pop_HN1L" ionChannel="k1_channel" erev="70mV" number="1"/ -->
+        	<!-- channelPopulation id ="k2_pop_HN1L" ionChannel="k2_channel" erev="70mV" number="1"/ -->
+                
+                <!--      
+                <channelDensity id="leak" ionChannel="passiveChan" condDensity="3.0 S_per_m2" erev="-54.3mV" ion="non_specific"/>
+                <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
+                <channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
+				-->
+				
                 <spikeThresh value="-20mV"/>
                 <specificCapacitance value="1.0 uF_per_cm2"/>
-                <initMembPotential value="-60mV"/>
+                <initMembPotential value="-65mV"/>
 
             </membraneProperties>
 
-            <!--intracellularProperties>
-                <resistivity value="0.03 kohm_cm"/>  
-            </intracellularProperties-->
+            <intracellularProperties>
+                <resistivity value="0.03 kohm_cm"/> <!-- Not sure if this is necessary? -->
+            </intracellularProperties>
 
         </biophysicalProperties>
 
-    </cell>
+	</cell>
+	
+       <!-- 
+       pointCellCondBased element does not convert to neuron using jnml converter  06-2017
+       
+	<pointCellCondBased id="HN1L" C="4pF" v0="-54.56137733296305mV" thresh="-25mV">
+			<channelPopulation id="leak_pop_HN1L" ionChannel="leak_channel_HN1L" erev="-55mV" number="1" />
+        	<channelPopulation id="na_pop_HN1L" ionChannel="na_channel" erev="45mV" number="1" />
+        	<!-- channelPopulation id ="k1_pop_HN1L" ionChannel="k1_channel" erev="70mV" number="1"/ -->
+        	<!-- channelPopulation id ="k2_pop_HN1L" ionChannel="k2_channel" erev="70mV" number="1"/ -->
+	</pointCellCondBased>
+	-->
 
 </neuroml>

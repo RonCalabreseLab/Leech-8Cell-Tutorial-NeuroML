@@ -53,6 +53,46 @@ function make_CaS_ron
 		call {chanpath} TABFILL Y 3000 0
 end
 
+Equations below are from the paper: 
+A Model of a Segmental Oscillator in the Leech Heartbeat Neuronal Network
+A.A.V. HILL, J. LU, M.A. MASINO, O.H. OLSEN, R.L. CALABRESE
+Biology Department, 1510 Clifton Road, Emory University, Atlanta, GA 30322
+ahill@biology.emory.edu
+Received May 17, 2000; Revised November 17, 2000; Accepted December 5, 2000
+
+Overall Current (I) for Ca slow channel = ḡCaS  m^2CaS  hCaS (V−ECaS)
+
+ change in activation gate = dmCaS/dt = steady state: f∞(−420, 0.0472, V ) − mCaS/ time course: τ (−400, 0.0487, 0.005, 0.134, V )
+ change in inactivation gate = hCaS/dt =  steady state:  f∞(360, 0.055, V ) − hCaS  / time course: τ (−250, 0.043, 0.2, 5.25, V )
+
+f∞(a, b, V ) = 1 / 1 + exp(a(V +b))
+Parameters for steady state for m and h:
+"rate" = 1
+"midpoint" = b
+"scale" = 1/a
+
+τ(a, b, c, d, V) = c + d / 1 + exp(a(V+b)) : This value will come from "sigmoid.offset.xml" file
+Parameters for time course (τ):
+"offset" = c
+"rate" = d
+"midpoint" = b
+"scale" = 1/a
 -->	
+
+<include href="sigmoid.offset.xml"/>
+	 	 
+ <ionChannelHH id="ca_slow_channel" conductance="100nS" species="ca">
+        
+        	<gateHHtauInf id="m" instances="2">
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="47.20mV" scale="-2.380952mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.005ms" rate="0.134ms" midpoint="48.70mV" scale="-2.50mV" /> 
+       		</gateHHtauInf>
+
+       		<gateHHtauInf id="h" instances="1">
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="55.00mV" scale="2.777777mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.2ms" rate="5.25ms" midpoint="43.00mV"  scale="-4.00mV" /> 
+       		</gateHHtauInf>
+       
+		</ionChannelHH>
 	
 	</neuroml>
