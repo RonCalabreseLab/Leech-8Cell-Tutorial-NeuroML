@@ -4,9 +4,9 @@ Conversion of Genesis model to NeuroML.
 
 ### What is this repository for? ###
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+* NeuroML v2.0
+* Neuron
+* JNeuroML
 
 ### How do I get set up? ###
 
