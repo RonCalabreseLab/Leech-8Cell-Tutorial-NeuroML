@@ -35,6 +35,65 @@
                 /* Filling the tables using B-SPLINE interpolation */
                 call {chanpath} TABFILL X 3000 0
 end
+
+Equations below are from the paper: 
+A Model of a Segmental Oscillator in the Leech Heartbeat Neuronal Network
+A.A.V. HILL, J. LU, M.A. MASINO, O.H. OLSEN, R.L. CALABRESE
+Biology Department, 1510 Clifton Road, Emory University, Atlanta, GA 30322
+ahill@biology.emory.edu
+Received May 17, 2000; Revised November 17, 2000; Accepted December 5, 2000
+
+Overall Current (I) for Ca fast channel = ḡh * m^2h  * (V−ECaF)
+
+ change in activation gate = dmCaF /dt = steady state: fh∞(V) − mh / time course: τ (−100, 0.073, 0.7, 1.7, V )
+
+ fh∞(V) = 1 /( 1 + 2exp(180(V+0.047)) + exp(500(V + 0.047)) => This value will be created custom at the end of this file
+Parameters for steady state for m and h:
+"rate" = 1
+"midpoint" = b
+"scale_1" = 1/a1
+"scale_2" = 1/a2
+	
+τ(a, b, c, d, V) = c + d / 1 + exp(a(V+b)) => This value will come from "sigmoid.offset.xml" file
+Parameters for time course (τ):
+"offset" = c
+"rate" = d
+"midpoint" = b
+"scale" = 1/a
 -->	
 	
+	<include href="sigmoid.offset.xml"/>
+	 	 
+ <ionChannelHH id="h_channel" conductance="100nS" >
+        
+        	<gateHHtauInf id="m" instances="2">
+            		<steadyState type="hSteadyState" rate="1" midpoint="47.0mV" scale_1="5.555555mV"  scale_2="2.00mV"/>
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.7ms" rate="1.70ms" midpoint="73.00mV" scale="-10.0mV" /> 
+       		</gateHHtauInf>
+
+		</ionChannelHH>	
+		
+	<!--Custom hSteadyState component -->
+    <ComponentType name="hSteadyState" extends="baseHHVariable"
+        description="Custom steady state activation for h channel.">
+        
+        <Parameter name="rate" dimension="time" />
+        <Parameter name="midpoint" dimension="voltage" />
+        <Parameter name="scale_1" dimension="voltage" />
+        <Parameter name="scale_2" dimension= "voltage"/>
+        
+        <Dynamics>
+        							<!--
+        								fh∞(V) = 1 /( 1 + 2exp(180(V+0.047)) + exp(500(V + 0.047))
+        								rate = 
+        								midpoint = 47.0 mV
+        								scale_1 = 1/180 mV
+        								scale_2 = 1/500 mV
+        							-->
+        	<DerivedVariable name="x" exposure="x" value="rate /( 1 + 2 * exp(( V + midpoint)/scale_1) + exp((V + midpoint)/scale_2))"/>
+        
+        </Dynamics>
+
+	</ComponentType>
+		
 	</neuroml>
