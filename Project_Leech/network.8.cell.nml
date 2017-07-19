@@ -7,7 +7,7 @@
 	
 	<!-- File contains the 8 cell network -->
 
-	<!--include href="cell.1L.nml"/-->
+	<include href="cell.1L.nml"/>
 	<!--include href="cell.1R.nml"/>
 	<include href="cell.2L.nml"/>
 	<include href="cell.2R.nml"/-->
@@ -16,12 +16,12 @@
 	<include href="cell.4L.nml"/>
 	<include href="cell.4R.nml"/-->
 
-	<pulseGenerator id="pulse_gen_1" delay="5ms" duration="150ms" amplitude="80nA"/>
+	<pulseGenerator id="pulse_gen_1" delay="50ms" duration="150ms" amplitude="120pA"/>
 	<pulseGenerator id="pulse_gen_2" delay="20ms" duration="250ms" amplitude="10pA"/>
 		
 	<network id="net_8">
 		
-		<population  id="hn1L_pop" component="HN1L" size="1"/>
+		<population  id="hn1L_pop" component="cell_HN1L" size="1"/>
 		
 		<!-- population  id="hn3L_pop" component="HN3L" size="1"/ -->
 		

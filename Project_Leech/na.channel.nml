@@ -88,7 +88,7 @@ Parameters for time course (τ):
         
         	<gateHHtauInf id="m" instances="3">
             		<steadyState type="HHSigmoidVariable" rate="1" midpoint="29.00mV" scale="-6.666666mV" />
-            		<timeCourse type="fixedTimeCourse" tau="0.0001"/> 
+            		<timeCourse type="fixedTimeCourse" tau="0.0001s"/> 
        		</gateHHtauInf>
 
        		<gateHHtauInf id="h" instances="1">
@@ -106,6 +106,8 @@ Parameters for time course (τ):
         <Parameter name="rate" dimension="time" /-->
         <Parameter name="midpoint" dimension="voltage" />
         <Parameter name="scale" dimension="voltage" />
+        <Constant name="SEC" dimension="time" value="1s"/>
+        <Constant name="VOLT" dimension="voltage" value="1V"/>
         
         <Dynamics>
         							<!--
@@ -117,10 +119,10 @@ Parameters for time course (τ):
         							scale = 1/300
         							-->
                                     <!-- COSH exists in NeuroML CG 2017/07/17 -->
-        	<DerivedVariable name="v_cosh" exposure="v_cosh" value="((v + midpoint)/scale)" />
-        	<DerivedVariable name="tau_hNa" exposure="tau_hNa" value="0.004 + (0.006 / 1 + exp(500 * (v + 0.028))) + (0.01 / ((exp(v_cosh) + exp(0 - v_cosh)) / 2))"/>
+        	<DerivedVariable name="v_cosh"  value="((v + midpoint)/scale)" dimension="none"/>
+        	<DerivedVariable name="tau_hNa"  value="0.004 + (0.006 / 1 + exp(500 * ((v/VOLT) + 0.028))) + (0.01 / ((exp(v_cosh) + exp(0 - v_cosh)) / 2))"/>
         	
-        	<!--DerivedVariable name="t" exposure="t" value="offset + rate * ((exp(2 * v_cosh) + 1) / (2 * exp(v_cosh) ))" /-->
+        	<DerivedVariable name="t" exposure="t" value="tau_hNa * SEC" />
         </Dynamics>
 
 	</ComponentType>

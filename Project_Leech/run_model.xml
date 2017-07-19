@@ -10,27 +10,27 @@
 
     <Simulation id="hn8_simulation" length="300ms" step="0.01ms" target="net_8">
     
-        <!--Display id="display_1" title="Membrane Potential HN_3L" timeScale="1ms" xmin="0" xmax="530" ymin="-55" ymax="5">
-                <Line id="v" quantity="hhpop[0]/v" scale="1mV" color="#ffffff" timeScale="1ms"/>
-        </Display-->
+        <Display id="display_v" title="Membrane Potential" timeScale="1ms" xmin="0" xmax="530" ymin="-55" ymax="5">
+                <Line id="v" quantity="hn1L_pop[0]/v" scale="1mV" color="#ffffff" timeScale="1ms"/>
+        </Display>
         
         <!--bio_phys_prop_3L/membraneProperties/na_channel_density/na_channel-->
-        <Display id="display_1" title="Na Gates for HN1L" timeScale="1ms" xmin="0" xmax="530" ymin="0" ymax="1">
+        <Display id="display_1" title="Na Gates for HN1L" timeScale="1ms" xmin="0" xmax="530" ymin="-0.1" ymax="1.1">
                 <Line id="m" quantity="hn1L_pop[0]/bio_phys/membraneProperties/na_chan_den/na_channel/m/q" scale="1"  color="#000000" timeScale="1ms"/>
                 <Line id="h" quantity="hn1L_pop[0]/bio_phys/membraneProperties/na_chan_den/na_channel/h/q" scale="1"  color="#ff0000" timeScale="1ms"/>
         </Display>
         
-        <!--Display id="display_2" title="K Fast Gates for HN3L" timeScale="1ms" xmin="0" xmax="530" ymin="0" ymax="1">
-                <Line id="m" quantity="hn3L_pop[0]/k_fast_pop_HN3L/k_fast_channel/m/q" scale="1"  color="#000000" timeScale="1ms"/>
-                <Line id="h1_h2" quantity="hn3L_pop[0]/k_fast_pop_HN3L/k_fast_channel/h1_h2/q" scale="1"  color="#00FF00" timeScale="1ms"/>
+        <Display id="display_2" title="K Fast Gates for HN3L" timeScale="1ms" xmin="0" xmax="530" ymin="-0.1" ymax="1.1">
+                <Line id="m" quantity="hn1L_pop[0]/bio_phys/membraneProperties/k1_chan_den/k1_channel/m/q" scale="1"  color="#000000" timeScale="1ms"/>
+                <Line id="h" quantity="hn1L_pop[0]/bio_phys/membraneProperties/k1_chan_den/k1_channel/h/q" scale="1"  color="#00FF00" timeScale="1ms"/>
         </Display>
             
-        <Display id="display_3" title="Na Gates for HN3L" timeScale="1ms" xmin="0" xmax="530" ymin="0" ymax="1">
+       <!-- <Display id="display_3" title="Na Gates for HN3L" timeScale="1ms" xmin="0" xmax="530" ymin="0" ymax="1">
                 <Line id="m" quantity="hn3L_pop[0]/na_pop_HN3L/na_channel/m/q" scale="1"  color="#0000FF" timeScale="1ms"/>
                 <Line id="h" quantity="hn3L_pop[0]/na_pop_HN3L/na_channel/h/q" scale="1"  color="#00FF00" timeScale="1ms"/>
         </Display>
 
-	<Display id="display_4" title="K1 Gates for HN3L" timeScale="1ms" xmin="0" xmax="530" ymin="0" ymax="1">
+	Display id="display_4" title="K1 Gates for HN3L" timeScale="1ms" xmin="0" xmax="530" ymin="0" ymax="1">
                 <Line id="m" quantity="hn3L_pop[0]/k1_pop_HN3L/k1_channel/m/q" scale="1"  color="#f000F0" timeScale="1ms"/>
                 <Line id="h" quantity="hn3L_pop[0]/k1_pop_HN3L/k1_channel/h/q" scale="1"  color="#f0000f" timeScale="1ms"/>
         </Display-->
