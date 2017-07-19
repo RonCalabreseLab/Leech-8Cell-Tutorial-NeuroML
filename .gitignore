@@ -1,3 +1,10 @@
 **/.DS_Store
 *~
 x86_64
+/Project_Leech/cell_HN1L.hoc
+/Project_Leech/k1_channel.mod
+/Project_Leech/na_channel.mod
+/Project_Leech/passive.mod
+/Project_Leech/pulse_gen_1.mod
+/Project_Leech/run_model_nrn.py
+/Project_Leech/time.dat
