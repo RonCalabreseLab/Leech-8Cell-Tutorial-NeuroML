@@ -8,6 +8,10 @@ Conversion of Genesis model to NeuroML.
 * Neuron
 * JNeuroML
 
+## TODO ##
+
+* Move to Github to be compatible with [OpenSourceBrain](http://opensourcebrain.org)
+
 ### 8-cell Model ###
 
 * See: [Calabrese Lab website](http://www.biology.emory.edu/research/Calabrese/INTRO/INDEX.HTML)
