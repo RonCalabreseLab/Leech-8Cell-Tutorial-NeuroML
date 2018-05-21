@@ -16,16 +16,17 @@
 	<include href="cell.4L.nml"/>
 	<include href="cell.4R.nml"/-->
 
-	<pulseGenerator id="pulse_gen_1" delay="50ms" duration="150ms" amplitude="120pA"/>
-	<pulseGenerator id="pulse_gen_2" delay="20ms" duration="250ms" amplitude="10pA"/>
+	<pulseGenerator id="pulse_gen_hn1L" delay="50ms" duration="150ms" amplitude="120pA"/>
+	<!-- pulseGenerator id="pulse_gen_2" delay="20ms" duration="250ms" amplitude="10pA"/-->
 		
 	<network id="net_8">
 		
 		<population  id="hn1L_pop" component="cell_HN1L" size="1"/>
+		<explicitInput target="hn1L_pop[0]" input="pulse_gen_hn1L" />
 		
 		<!-- population  id="hn3L_pop" component="HN3L" size="1"/ -->
 		
-		<explicitInput target="hn1L_pop[0]" input="pulse_gen_1" />
+		
 		
 		<!--explicitInput target="hn3L_pop[0]" input="pulse_gen_2" destination="synapses"/-->
 	
