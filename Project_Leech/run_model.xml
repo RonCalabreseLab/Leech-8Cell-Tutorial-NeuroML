@@ -19,6 +19,7 @@
                 <Line id="m" quantity="hn1L_pop[0]/bio_phys/membraneProperties/na_chan_den/na_channel/m/q" scale="1"  color="#000000" timeScale="1ms"/>
                 <Line id="h" quantity="hn1L_pop[0]/bio_phys/membraneProperties/na_chan_den/na_channel/h/q" scale="1"  color="#ff0000" timeScale="1ms"/>
         </Display>
+
         
         <!-- Display id="display_2" title="K Fast Gates for HN3L" timeScale="1ms" xmin="0" xmax="530" ymin="-0.1" ymax="1.1">
                 <Line id="m" quantity="hn1L_pop[0]/bio_phys/membraneProperties/k1_chan_den/k1_channel/m/q" scale="1"  color="#000000" timeScale="1ms"/>
