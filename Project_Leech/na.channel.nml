@@ -87,12 +87,12 @@ Parameters for time course (τ):
     	<ionChannelHH id="na_channel" conductance="2.50nS" species="na">
         
         	<gateHHtauInf id="m" instances="3">
-            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="29.00mV" scale="-6.666666mV" />
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-29.00mV" scale="6.666666mV" />
             		<timeCourse type="fixedTimeCourse" tau="0.0001s"/> 
        		</gateHHtauInf>
 
        		<gateHHtauInf id="h" instances="1">
-            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="30.00mV" scale="2.00mV" />
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-30.00mV" scale="-2.00mV" />
             		<timeCourse type="tauHNa" midpoint="27.00mV"  scale="3.333333mV" /> 
        		</gateHHtauInf>
        
@@ -120,7 +120,7 @@ Parameters for time course (τ):
         							-->
                                     <!-- COSH exists in NeuroML CG 2017/07/17 -->
         	<DerivedVariable name="v_cosh"  value="((v + midpoint)/scale)" dimension="none"/>
-        	<DerivedVariable name="tau_hNa"  value="0.004 + (0.006 / 1 + exp(500 * ((v/VOLT) + 0.028))) + (0.01 / ((exp(v_cosh) + exp(0 - v_cosh)) / 2))"/>
+        	<DerivedVariable name="tau_hNa"  value="0.004 + (0.006 /( 1 + exp(500 * ((v/VOLT) + 0.028)))) + (0.01 / ((exp(v_cosh) + exp(0 - v_cosh)) / 2))"/>
         	
         	<DerivedVariable name="t" exposure="t" value="tau_hNa * SEC" />
         </Dynamics>

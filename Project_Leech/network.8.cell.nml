@@ -16,7 +16,7 @@
 	<include href="cell.4L.nml"/>
 	<include href="cell.4R.nml"/-->
 
-	<pulseGenerator id="pulse_gen_hn1L" delay="50ms" duration="150ms" amplitude="120pA"/>
+	<pulseGenerator id="pulse_gen_hn1L" delay="50ms" duration="150ms" amplitude="7pA"/>
 	<!-- pulseGenerator id="pulse_gen_2" delay="20ms" duration="250ms" amplitude="10pA"/-->
 		
 	<network id="net_8">
