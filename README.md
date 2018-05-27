@@ -15,3 +15,4 @@ Conversion of Genesis model to NeuroML.
 ### 8-cell Model ###
 
 * See: [Calabrese Lab website](http://www.biology.emory.edu/research/Calabrese/INTRO/INDEX.HTML)
+* And paper by [Hill et al 2001](http://www.biology.emory.edu/research/Calabrese/papers/Hill%20et%20al%202001%20J%20Compu%20Neuro.pdf)
