@@ -50,8 +50,8 @@ Overall Current (I) for K2 channel = ḡK2  * m^2K2  * (V−EK)
 f∞(a, b, V ) = 1 / 1 + exp(a(V +b))
 Parameters for steady state for m and h:
 "rate" = 1
-"midpoint" = b
-"scale" = 1/a
+"midpoint" = -b
+"scale" = -1/a
 
 τ(a, b, c, d, V) = c + d / 1 + exp(a(V + b)) => This value will come from "sigmoid.offset.xml" file
 Parameters for time course (τ):
@@ -61,7 +61,22 @@ Parameters for time course (τ):
 "scale" = 1/a
 -->	
 
-<include href="sigmoid.offset.xml"/>
+<!--include href="sigmoid.offset.xml"/-->
+
+<ComponentType name="sigmoidOffsetTimeCourse" 
+        extends="baseVoltageDepTime"
+        description="Voltage-dependent time constant that has a sigmoid shape and an offset">
+
+        <Parameter name="offset" dimension="time" />
+        <Parameter name="rate" dimension="time" />
+        <Parameter name="midpoint" dimension="voltage" />
+        <Parameter name="scale" dimension="voltage" />
+
+        <Dynamics>
+            <DerivedVariable name="t" exposure="t" value="offset + rate / (1 + exp((v + midpoint)/scale))" />
+        </Dynamics>
+
+    </ComponentType>
 	 	 
  <ionChannelHH id="k2_channel" conductance="100nS" species="k">
         

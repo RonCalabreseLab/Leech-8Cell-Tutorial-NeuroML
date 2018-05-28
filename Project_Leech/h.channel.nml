@@ -58,17 +58,33 @@ Parameters for steady state for m and h:
 Parameters for time course (τ):
 "offset" = c
 "rate" = d
-"midpoint" = b
-"scale" = 1/a
+"midpoint" = -b
+"scale" = -1/a
 -->	
 	
-	<include href="sigmoid.offset.xml"/>
+	<!--include href="sigmoid.offset.xml"/-->
+
+    <ComponentType name="sigmoidOffsetTimeCourse" 
+        extends="baseVoltageDepTime"
+        description="Voltage-dependent time constant that has a sigmoid shape and an offset">
+
+        <Parameter name="offset" dimension="time" />
+        <Parameter name="rate" dimension="time" />
+        <Parameter name="midpoint" dimension="voltage" />
+        <Parameter name="scale" dimension="voltage" />
+
+        <Dynamics>
+            <DerivedVariable name="t" exposure="t" value="offset + rate / (1 + exp(-(v - midpoint)/scale))" />
+        </Dynamics>
+
+    </ComponentType>
 	 	 
- <ionChannelHH id="h_channel" conductance="100nS" >
+ <ionChannelHH id="h_channel" conductance="100nS" species="h" >
         
         	<gateHHtauInf id="m" instances="2">
-            		<steadyState type="hSteadyState" rate="1" midpoint="47.0mV" scale_1="5.555555mV"  scale_2="2.00mV"/>
-            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.7ms" rate="1.70ms" midpoint="73.00mV" scale="-10.0mV" /> 
+            		<steadyState type="hSteadyState" rate="1" midpoint="47.0mV" scale_1="5.555555mV"  scale_2="2.00mV" scale ="0.0mV"/>
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.7ms" rate="1.70ms" midpoint="-73.00mV" 
+                        scale="10.0mV" /> 
        		</gateHHtauInf>
 
 		</ionChannelHH>	
@@ -77,7 +93,7 @@ Parameters for time course (τ):
     <ComponentType name="hSteadyState" extends="baseHHVariable"
         description="Custom steady state activation for h channel.">
         
-        <Parameter name="rate" dimension="time" />
+        <Parameter name="rate" dimension="none" />
         <Parameter name="midpoint" dimension="voltage" />
         <Parameter name="scale_1" dimension="voltage" />
         <Parameter name="scale_2" dimension= "voltage"/>
@@ -90,10 +106,12 @@ Parameters for time course (τ):
         								scale_1 = 1/180 mV
         								scale_2 = 1/500 mV
         							-->
-        	<DerivedVariable name="x" exposure="x" value="rate /( 1 + 2 * exp(( V + midpoint)/scale_1) + exp((V + midpoint)/scale_2))"/>
+        	<DerivedVariable name="x" exposure="x" value="rate / (1 + 2 * exp(( v + midpoint)/scale_1) + exp((v + midpoint)/scale_2))"/>
         
         </Dynamics>
 
 	</ComponentType>
+
+
 		
 	</neuroml>

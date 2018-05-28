@@ -68,8 +68,8 @@ Overall Current (I) for Ca slow channel = ḡCaS  m^2CaS  hCaS (V−ECaS)
 f∞(a, b, V ) = 1 / 1 + exp(a(V +b))
 Parameters for steady state for m and h:
 "rate" = 1
-"midpoint" = b
-"scale" = 1/a
+"midpoint" = -b
+"scale" = -1/a
 
 τ(a, b, c, d, V) = c + d / 1 + exp(a(V+b)) : This value will come from "sigmoid.offset.xml" file
 Parameters for time course (τ):

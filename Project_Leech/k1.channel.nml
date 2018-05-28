@@ -97,8 +97,8 @@ Overall Current (I) for K1 channel = ḡK1  m^2K1  hK1 (V−EK)
 f∞(a, b, V ) = 1 / 1 + exp(a(V +b))
 Parameters for steady state for m and h:
 "rate" = 1
-"midpoint" = b
-"scale" = 1/a
+"midpoint" = -b
+"scale" = -1/a
 
 τ(a, b, c, d, V) = c + d / 1 + exp(a(V+b)) : This value will come from "sigmoid.offset.xml" file
 Parameters for time course (τ):
