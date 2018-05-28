@@ -57,13 +57,13 @@ Parameters for steady state for m and h:
 Parameters for time course (τ):
 "offset" = c
 "rate" = d
-"midpoint" = b
-"scale" = 1/a
+"midpoint" = -b
+"scale" = -1/a
 -->	
 
 <!--include href="sigmoid.offset.xml"/-->
 
-<ComponentType name="sigmoidOffsetTimeCourse" 
+ <ComponentType name="sigmoidOffsetTimeCourse" 
         extends="baseVoltageDepTime"
         description="Voltage-dependent time constant that has a sigmoid shape and an offset">
 
@@ -73,7 +73,7 @@ Parameters for time course (τ):
         <Parameter name="scale" dimension="voltage" />
 
         <Dynamics>
-            <DerivedVariable name="t" exposure="t" value="offset + rate / (1 + exp((v + midpoint)/scale))" />
+            <DerivedVariable name="t" exposure="t" value="offset + rate / (1 + exp(-(v - midpoint)/scale))" />
         </Dynamics>
 
     </ComponentType>
@@ -81,8 +81,9 @@ Parameters for time course (τ):
  <ionChannelHH id="k2_channel" conductance="100nS" species="k">
         
         	<gateHHtauInf id="m" instances="2">
-            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="20.0mV" scale="-12.048192mV" />
-            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.057ms" rate="0.043ms" midpoint="35.0mV" scale="5.00mV" /> 
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-20.0mV" scale="12.048192mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.057ms" rate="0.043ms" midpoint="-35.0mV" 
+            			scale="-5.00mV" /> 
        		</gateHHtauInf>
 
 		</ionChannelHH>	

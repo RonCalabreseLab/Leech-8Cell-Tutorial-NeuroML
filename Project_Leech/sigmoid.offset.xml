@@ -12,7 +12,7 @@
 			"scale" = 1/a
 		-->
 	
-	<ComponentType name="sigmoidOffsetTimeCourse" 
+	 <ComponentType name="sigmoidOffsetTimeCourse" 
         extends="baseVoltageDepTime"
         description="Voltage-dependent time constant that has a sigmoid shape and an offset">
 
@@ -22,7 +22,7 @@
         <Parameter name="scale" dimension="voltage" />
 
         <Dynamics>
-            <DerivedVariable name="t" exposure="t" value="offset + rate / (1 + exp((v + midpoint)/scale))" />
+            <DerivedVariable name="t" exposure="t" value="offset + rate / (1 + exp(-(v - midpoint)/scale))" />
         </Dynamics>
 
     </ComponentType>
