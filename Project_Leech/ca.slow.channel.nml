@@ -75,8 +75,8 @@ Parameters for steady state for m and h:
 Parameters for time course (τ):
 "offset" = c
 "rate" = d
-"midpoint" = b
-"scale" = 1/a
+"midpoint" = -b
+"scale" = -1/a
 -->	
 
 <include href="sigmoid.offset.xml"/>
@@ -84,13 +84,14 @@ Parameters for time course (τ):
  <ionChannelHH id="ca_slow_channel" conductance="100nS" species="ca">
         
         	<gateHHtauInf id="m" instances="2">
-            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="47.20mV" scale="-2.380952mV" />
-            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.005ms" rate="0.134ms" midpoint="48.70mV" scale="-2.50mV" /> 
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-47.20mV" scale="2.380952mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.005ms" rate="0.134ms" midpoint="-48.70mV" scale="2.50mV" /> 
        		</gateHHtauInf>
 
        		<gateHHtauInf id="h" instances="1">
-            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="55.00mV" scale="2.777777mV" />
-            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.2ms" rate="5.25ms" midpoint="43.00mV"  scale="-4.00mV" /> 
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-55.00mV" scale="-2.777777mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.2ms" rate="5.25ms" midpoint="-43.00mV"  
+            			scale="4.00mV" /> 
        		</gateHHtauInf>
        
 		</ionChannelHH>
