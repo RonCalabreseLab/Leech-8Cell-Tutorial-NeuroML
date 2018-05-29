@@ -63,31 +63,32 @@ Overall Current (I) for Ca fast channel = ḡCaF  m^2CaF  hCaF (V−ECaF)
  change in activation gate = dmCaF /dt = steady state: f∞(−600, 0.0467, V ) − mCaF / time course: τmCaF(V)
  change in inactivation gate = hCaF/dt =  steady state:  f∞(350, 0.0555, V )  − hCaF/ time course: τ (270, 0.055, 0.06, 0.31, V )
 
-τ(a, b, c, d, V) = c + d / 1 + e^a(V+b) --- This value will come from "sigmoid.offset.xml" file
-τmCaF (V ) = 0.011 + 0.024 cosh(−330(V + 0.0467)) --- This value will be created custom at the end of this file
+τ(a, b, c, d, V) = c + d / 1 + e^a(V+b) - This value will come from "sigmoid.offset.xml" file
+τmCaF (V ) = 0.011 + 0.024 cosh(−330(V + 0.0467)) - This value will be created custom at the end of this file
 
 Parameters for steady state for m and h:
 "rate" = 1
-"midpoint" = b
-"scale" = 1/a
+"midpoint" = -b
+"scale" = -1/a
 
 Parameters for time course (τ):
 "offset" = c
 "rate" = d
-"midpoint" = b
-"scale" = 1/a
+"midpoint" = -b
+"scale" = -1/a
 -->	
+<include href="sigmoid.offset.xml"/>
 	
 	<ionChannelHH id="ca_fast_channel" conductance="24.1nS" species="ca"> 
         
               	<gateHHtauInf id="m" instances="2">
-            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="21.0mV" scale="-6.993007mV" />
-            		<timeCourse type="tauMCaF" offset="11.0ms" rate="24.0ms" midpoint="46.7mV" scale="-3.0303mV" /> 
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-46.7mV" scale="1.666667mV" />
+            		<timeCourse type="tauMCaF" offset="0.011ms" rate="0.024ms" midpoint="-46.7mV" scale="3.0303mV" /> 
        		</gateHHtauInf>
 
        		<gateHHtauInf id="h" instances="1">
-            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="28.0mV" scale="9.009mV" />
-            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.5ms" rate="0.2ms" midpoint="13.0mV"  scale="-6.993007mV" /> 
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-55.5mV" scale="-2.85714mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.06ms" rate="0.31ms" midpoint="-55.5mV"  scale="-3.37mV" /> 
        		</gateHHtauInf>
     
     </ionChannelHH>
@@ -103,15 +104,15 @@ Parameters for time course (τ):
         
         <Dynamics>
         	<!--
-        							τmCaF (V ) = 0.011 + 0.024 cosh(−330(V + 0.0467))
+        							τmCaF (V ) = 0.011 + 0.024 / cosh(−330(V + 0.0467))
         							offset = 11.0ms
         							rate = 24.0ms
         							cosh = exp(v) + exp(-v) / 2
         							midpoint = 46.7mV
         							scale = 1/-330
         	-->
-        	<DerivedVariable name="v_cosh" exposure="v_cosh" value="((v + midpoint) / scale)" />
-        	<DerivedVariable name="t" exposure="t" value="offset + rate * ((exp(v_cosh) + exp(0 - v_cosh)) / 2)" />
+        	<DerivedVariable name="v_cosh" value="-(v - midpoint)/scale" dimension="none"/>
+        	<DerivedVariable name="t" exposure="t" value="offset + rate / ((exp(v_cosh) + exp(0 - v_cosh))/ 2)" />
         </Dynamics>
 
 	</ComponentType>
