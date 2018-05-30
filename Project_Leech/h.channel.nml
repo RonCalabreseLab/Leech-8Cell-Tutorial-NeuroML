@@ -65,7 +65,7 @@ Parameters for time course (τ):
 	<include href="sigmoid.offset.xml"/>
 
 	 	 
- <ionChannelHH id="h_channel" conductance="100nS" species="h" >
+ <ionChannelHH id="h_channel" conductance="100nS" species="non_specific" >
         
         	<gateHHtauInf id="m" instances="2">
             		<steadyState type="hSteadyState" rate="1" midpoint="47.0mV" scale_1="5.555555mV"  scale_2="2.00mV" scale ="0.0mV"/>
