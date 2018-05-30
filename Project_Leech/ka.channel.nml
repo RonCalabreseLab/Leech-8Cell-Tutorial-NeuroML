@@ -83,18 +83,17 @@ Parameters for time course:
 
 -->	
 <include href="sigmoid.offset.xml"/>
-	 	 
  <ionChannelHH id="ka_channel" conductance="100nS" species="k">
         
         	<gateHHtauInf id="m" instances="2">
-            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="44.0mV" scale="-7.6923" />
-            		<timeCourse type="sigmoidOffsetTimeCourse" offset="5.0ms" rate="11.0ms" midpoint="-30.0mV" 
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-44.0mV" scale="7.6923mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.005ms" rate="0.011ms" midpoint="-30.0mV" 
                         scale="-5.0mV" /> 
        		</gateHHtauInf>
 
        		<gateHHtauInf id="h" instances="1">
-            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="63.0mV" scale="6.25mV" />
-            		<timeCourse type="sigmoidOffsetTimeCourse" offset="26.0ms" rate="8.5ms" midpoint="-55.0mV"  
+            		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-63.0mV" scale="-6.25mV" />
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.026ms" rate="0.0085ms" midpoint="-55.0mV"  
                         scale="3.3333mV" /> 
        		</gateHHtauInf>
        

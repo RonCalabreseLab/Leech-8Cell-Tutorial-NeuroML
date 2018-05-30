@@ -79,7 +79,7 @@ Parameters for time course (τ):
 "scale" = -1/a
 -->	
 
-<include href="sigmoid.offset.xml"/>
+<include href="sigmoid.offset.xml"/> 
 	 	 
  <ionChannelHH id="ca_slow_channel" conductance="100nS" species="ca">
         
