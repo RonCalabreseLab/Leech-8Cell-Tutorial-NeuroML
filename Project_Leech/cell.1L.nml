@@ -15,8 +15,8 @@
 
         <morphology id="morph_HN1L">
             <segment id="0" name="soma">
-                <proximal x="0" y="0" z="0" diameter="17.841242um"/> <!--Gives a convenient surface area of 1000.0 um^2-->
-                <distal x="17.841242um" y="0" z="0" diameter="17.841242um"/>
+                <proximal x="0" y="0" z="0" diameter="17.841242"/> <!--Gives a convenient surface area of 1000.0 um^2-->
+                <distal x="17.841242" y="0" z="0" diameter="17.841242"/>
             </segment>
 
             <segmentGroup id="soma_group">
@@ -44,7 +44,7 @@
 
 				-->
             <channelDensity id="leak" ionChannel="passive" condDensity="0.2 S_per_m2" erev="-40.0mV" ion="non_specific"/>
-            <channelDensity id="k1_chan_den" ionChannel="k1_channel" condDensity="1.5 mS_per_cm2" erev="-70mV" ion="k"/>
+            <channelDensity id="k1_chan_den" ionChannel="k1_channel" condDensity="15 mS_per_cm2" erev="-70mV" ion="k"/>
             <channelDensity id="k2_chan_den" ionChannel="k2_channel" condDensity="7.5 mS_per_cm2" erev="-70mV" ion="k"/>
             <channelDensity id="na_chan_den" ionChannel="na_channel" condDensity="25.5 mS_per_cm2" erev="45.0mV" ion="na"/>
 			
