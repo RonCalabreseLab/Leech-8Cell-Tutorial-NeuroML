@@ -35,7 +35,7 @@
         	<channelPopulation id ="k2_pop_HN1L" ionChannel="k2_channel" erev="70mV" number="1"/-->
                 
                 <!--
-                    The following values were taken from the cell_1L.p file and converted
+                    The following values were taken from the cell_1L.p file and converted to the appropriate units
                 RM = membrane resistance and was converted to the conductance density for leak channel(g = 1/RM)
                 RA = resistivity(1 ohm*m = 0.1 kohm*cm)
                 CM = specific capacitance(1 F/m^2 = 100 uF/cm^2)
@@ -43,7 +43,7 @@
                 ELEAK = erev for leak channel
 
 				-->
-            <channelDensity id="leak" ionChannel="passive" condDensity="0.2 S_per_m2" erev="-40.0mV" ion="non_specific"/>
+            <channelDensity id="leak" ionChannel="passive" condDensity="10 S_per_m2" erev="-40.0mV" ion="non_specific"/>
             <channelDensity id="k1_chan_den" ionChannel="k1_channel" condDensity="15 mS_per_cm2" erev="-70mV" ion="k"/>
             <channelDensity id="k2_chan_den" ionChannel="k2_channel" condDensity="7.5 mS_per_cm2" erev="-70mV" ion="k"/>
             <channelDensity id="na_chan_den" ionChannel="na_channel" condDensity="25.5 mS_per_cm2" erev="45.0mV" ion="na"/>
