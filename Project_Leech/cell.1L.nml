@@ -38,18 +38,19 @@
                     The following values were taken from the cell_1L.p file and converted to the appropriate units
                 RM = membrane resistance and was converted to the conductance density for leak channel(g = 1/RM)
                 RA = resistivity(1 ohm*m = 0.1 kohm*cm)
-                CM = specific capacitance(1 F/m^2 = 100 uF/cm^2)
+                CM = specific capacitance(1 F/m^2)
                 EREST_ACT = init membrane potential
                 ELEAK = erev for leak channel
+                Channel Density values are found by dividing the dens value in the .p file by the surface area, which is 50,000 um2
 
 				-->
-            <channelDensity id="leak" ionChannel="passive" condDensity="10 S_per_m2" erev="-40.0mV" ion="non_specific"/>
-            <channelDensity id="k1_chan_den" ionChannel="k1_channel" condDensity="15 mS_per_cm2" erev="-70mV" ion="k"/>
-            <channelDensity id="k2_chan_den" ionChannel="k2_channel" condDensity="7.5 mS_per_cm2" erev="-70mV" ion="k"/>
-            <channelDensity id="na_chan_den" ionChannel="na_channel" condDensity="25.5 mS_per_cm2" erev="45.0mV" ion="na"/>
+            <channelDensity id="leak" ionChannel="passive" condDensity="0.2 S_per_m2" erev="-40.0mV" ion="non_specific"/>
+            <channelDensity id="k1_chan_den" ionChannel="k1_channel" condDensity="3 S_per_m2" erev="-70mV" ion="k"/>
+            <channelDensity id="k2_chan_den" ionChannel="k2_channel" condDensity="1.5 S_per_m2" erev="-70mV" ion="k"/>
+            <channelDensity id="na_chan_den" ionChannel="na_channel" condDensity="5.1 S_per_m2" erev="45.0mV" ion="na"/>
 			
             <spikeThresh value="-20mV"/>
-            <specificCapacitance value="1.0 uF_per_cm2"/>
+            <specificCapacitance value="0.01 F_per_m2"/>
             <initMembPotential value="-63mV"/>
 
             </membraneProperties>
