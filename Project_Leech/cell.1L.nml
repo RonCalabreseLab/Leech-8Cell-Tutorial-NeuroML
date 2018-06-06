@@ -15,8 +15,8 @@
 
         <morphology id="morph_HN1L">
             <segment id="0" name="soma">
-                <proximal x="0" y="0" z="0" diameter="17.841242"/> <!--Gives a convenient surface area of 1000.0 um^2-->
-                <distal x="17.841242" y="0" z="0" diameter="17.841242"/>
+                <proximal x="0" y="0" z="0" diameter="126.15663"/> <!--Gives a convenient surface area of 1000.0 um^2-->
+                <distal x="126.15663" y="0" z="0" diameter="126.15663"/>
             </segment>
 
             <segmentGroup id="soma_group">
