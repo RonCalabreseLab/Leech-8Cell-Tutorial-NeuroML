@@ -44,6 +44,7 @@
                 Channel Density values are found by dividing the dens value in the .p file by the surface area, which is 50,000 um2
 
 				-->
+            
             <channelDensity id="leak" ionChannel="passive" condDensity="0.2 S_per_m2" erev="-40.0mV" ion="non_specific"/>
             <channelDensity id="k1_chan_den" ionChannel="k1_channel" condDensity="3 S_per_m2" erev="-70mV" ion="k"/>
             <channelDensity id="k2_chan_den" ionChannel="k2_channel" condDensity="1.5 S_per_m2" erev="-70mV" ion="k"/>

@@ -13,6 +13,17 @@
         <Display id="display_v" title="Membrane Potential" timeScale="1ms" xmin="0" xmax="530" ymin="-55" ymax="50">
                 <Line id="v" quantity="hn1L_pop[0]/v" scale="1mV" color="#ffffff" timeScale="1ms"/>
         </Display>
+
+         <Display id="display_I" title="Membrane Current" timeScale="1ms" xmin="0" xmax="530" ymin="-60" ymax="60">
+                <Line id="na" quantity="hn1L_pop[0]/bio_phys/membraneProperties/na_chan_den/iDensity" scale="0.1uA_per_cm2" color="#ffffff" timeScale="1ms" value = ""/>
+                 <Line id="k1" quantity="hn1L_pop[0]/bio_phys/membraneProperties/k1_chan_den/iDensity" scale="0.4uA_per_cm2" color="#ff0000ff" timeScale="1ms" value = ""/>
+                 <Line id="k2" quantity="hn1L_pop[0]/bio_phys/membraneProperties/k2_chan_den/iDensity" scale="0.4uA_per_cm2" color="#FFFF00" timeScale="1ms" value = ""/>
+                <!--Line id="h" quantity="hn1L_pop[0]/bio_phys_HN4L/membraneProperties/h_chan_den/iDensity" scale="0.4uA_per_cm2" color="#00FF0eF" timeScale="1ms" value = ""/>
+                <Line id="caf" quantity="hn1L_pop[0]/bio_phys_HN4L/membraneProperties/caf_chan_den/iDensity" scale="0.4uA_per_cm2" color="#ADFF2F" timeScale="1ms" value = ""/>
+                <Line id="cas" quantity="hn1L_pop[0]/bio_phys_HN4L/membraneProperties/cas_chan_den/iDensity" scale="0.4uA_per_cm2" color="#FFA500" timeScale="1ms" value = ""/>
+                <Line id="p" quantity="hn1L_pop[0]/bio_phys_HN4L/membraneProperties/p_chan_den/iDensity" scale="0.4uA_per_cm2" color="#800080" timeScale="1ms" value = ""/>
+                <Line id="kf" quantity="hn1L_pop[0]/bio_phys_HN4L/membraneProperties/kf_chan_den/iDensity" scale="0.4uA_per_cm2" color="#000000" timeScale="1ms" value = ""/-->
+        </Display>
         
         <!--bio_phys_prop_3L/membraneProperties/na_channel_density/na_channel-->
         <!--Display id="display_1" title="Na Gates for HN1L" timeScale="1ms" xmin="0" xmax="530" ymin="-0.1" ymax="1.1">
