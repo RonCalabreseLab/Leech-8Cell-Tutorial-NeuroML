@@ -22,7 +22,7 @@
 		
 	<network id="net_8">
 		
-		<population  id="hn1L_pop" component="cell_HN1L" size="1"/>
+		<population  id="hn1L_pop" component="cell_HN4L" size="1"/>
 		<explicitInput target="hn1L_pop[0]" input="pulse_gen_hn1L" />
 
 		<!--population  id="hn4L_pop" component="cell_HN4L" size="1"/>
