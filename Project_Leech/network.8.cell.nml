@@ -16,17 +16,17 @@
 	<include href="cell.4L.nml"/>
 	<!--include href="cell.4R.nml"/-->
 
-	<pulseGenerator id="pulse_gen_hn1L" delay="50ms" duration="500ms" amplitude="100pA"/>
+	<pulseGenerator id="pulse_gen_hn1L" delay="50ms" duration="500ms" amplitude="0pA"/>
 	<!--pulseGenerator id="pulse_gen_hn4L" delay="50ms" duration="500ms" amplitude="0pA"/-->
 	<!--pulseGenerator id="pulse_gen_hn1R" delay="20ms" duration="250ms" amplitude="10pA"/-->
 		
 	<network id="net_8">
 		
-		<population  id="hn1L_pop" component="cell_HN4L" size="1"/>
-		<explicitInput target="hn1L_pop[0]" input="pulse_gen_hn1L" />
+		<population  id="hn1L_pop" component="cell_HN1L" size="1"/>
+		<!--explicitInput target="hn1L_pop[0]" input="pulse_gen_hn1L" /-->
 
-		<!--population  id="hn4L_pop" component="cell_HN4L" size="1"/>
-		<explicitInput target="hn4L_pop[0]" input="pulse_gen_hn4L" /-->
+		<population  id="hn4L_pop" component="cell_HN4L" size="1"/>
+		<!--explicitInput target="hn4L_pop[0]" input="pulse_gen_hn4L" /-->
 
 		<!--population  id="hn1R_pop" component="cell_HN1R" size="1"/>
 		<explicitInput target="hn1R_pop[0]" input="pulse_gen_hn1R" /-->

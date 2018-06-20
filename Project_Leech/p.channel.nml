@@ -68,7 +68,7 @@ Parameters for time course (τ):
  		<ionChannelHH id="p_channel" conductance="100nS" species ="na">
         
         		<gateHHtauInf id="m" instances="1">
-            			<steadyState type="HHSigmoidVariable" rate="1" midpoint="-39.00mV" scale="8.3333333mV"  />
+            			<steadyState type="HHSigmoidVariable" rate="1" midpoint="-39.00mV" scale="8.33mV"  />
             			<timeCourse type="sigmoidOffsetTimeCourse" offset="0.01ms" rate="0.2ms" midpoint="-57.00mV" 
             				scale="-2.50mV" /> 
        			</gateHHtauInf>

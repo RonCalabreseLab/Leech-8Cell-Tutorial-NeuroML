@@ -92,7 +92,7 @@ Parameters for time course (τ):
         								scale_1 = 1/180 mV
         								scale_2 = 1/500 mV
         							-->
-        	<DerivedVariable name="x" exposure="x" value="rate / (1 + 2 * exp(( v + midpoint)/scale_1) + exp((v + midpoint)/scale_2))"/>
+        	<DerivedVariable name="x" exposure="x" value="rate / (1 + (2 * exp(( v + midpoint)/scale_1)) + exp((v + midpoint)/scale_2))"/>
         
         </Dynamics>
 
