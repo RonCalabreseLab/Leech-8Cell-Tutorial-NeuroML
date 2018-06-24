@@ -43,21 +43,24 @@
 
 		<population  id="hn4L_pop" component="cell_HN4L" size="1"/>
 		<population  id="hn4R_pop" component="cell_HN4R" size="1"/>
-		<!--explicitInput target="hn4L_pop[0]" input="pulse_gen_hn4L" /-->
+		<!--explicitInput target="hn4L_pop[0]" input="pulse_gen_hn1L" /-->
 
 		<!--population  id="hn1R_pop" component="cell_HN1R" size="1"/>
 		<explicitInput target="hn1R_pop[0]" input="pulse_gen_hn1R" /-->
 
 		<!-- population  id="hn3L_pop" component="HN3L" size="1"/ -->
 		<!--explicitInput target="hn3L_pop[0]" input="pulse_gen_2" destination="synapses"/-->
-
+	
+		<!--
 		<projection postsynapticPopulation ="hn4R_pop" presynapticPopulation ="hn4L_pop" synapse ="SynS4R4L"/>
 
 		<projection postsynapticPopulation ="hn4L_pop" presynapticPopulation ="hn4R_pop" synapse ="SynS4L4R"/>
-
-
+		-->
+		<synapticConnection to = "hn4R_pop[0]" from = "hn4L_pop[0]" synapse ="SynS4R4L"/>
+		<synapticConnection to = "hn4L_pop[0]" from = "hn4R_pop[0]" synapse ="SynS4L4R"/>
 	
 	</network>
+		
 
 		<!-- Custom component -->
 
