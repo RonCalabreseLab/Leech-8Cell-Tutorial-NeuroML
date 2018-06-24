@@ -14,28 +14,51 @@
 	<!--include href="cell.3L.nml"/-->
 	<!--include href="cell.3R.nml"/-->
 	<include href="cell.4L.nml"/>
-	<!--include href="cell.4R.nml"/-->
+	<include href="cell.4R.nml"/>
 
-	<pulseGenerator id="pulse_gen_hn1L" delay="50ms" duration="500ms" amplitude="0pA"/>
+	<pulseGenerator id="pulse_gen_hn1L" delay="50ms" duration="0ms" amplitude="0pA"/>
 	<!--pulseGenerator id="pulse_gen_hn4L" delay="50ms" duration="500ms" amplitude="0pA"/-->
 	<!--pulseGenerator id="pulse_gen_hn1R" delay="20ms" duration="250ms" amplitude="10pA"/-->
+
+	 <!--synapses id = "syns4L"-->
+	    <!-- Synapse from 4L to 1L -->
+	    <!--expTwoSynapse id = "SynS1L4L" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "0.010999ms" tauRise = "0.002ms"/-->
+	    <!-- Synapse from 4L to 2L -->
+	    <!--expTwoSynapse id = "SynS2L4L" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "0.010999ms" tauRise = "0.002ms"/-->
+	    <!-- Synapse from 4L to 4R -->
+	    <expTwoSynapse id = "SynS4R4L" erev ="-62.5mV" gbase = "59nS" tauDecay = "0.010999s" tauRise = "0.002s"/>
+	<!--/synapses-->
+
+
+	 <!--synapses id = "syns4R"-->
+        <!-- Synapse from 4R to 4L -->
+        <expTwoSynapse id = "SynS4L4R" erev ="-62.5mV" gbase = "59nS" tauDecay = "0.010999s" tauRise = "0.002s"/>
+        <!--/synapses-->
+	
 		
 	<network id="net_8">
 		
-		<population  id="hn1L_pop" component="cell_HN1L" size="1"/>
+		<!--population  id="hn1L_pop" component="cell_HN1L" size="1"/-->
 		<!--explicitInput target="hn1L_pop[0]" input="pulse_gen_hn1L" /-->
 
 		<population  id="hn4L_pop" component="cell_HN4L" size="1"/>
+		<population  id="hn4R_pop" component="cell_HN4R" size="1"/>
 		<!--explicitInput target="hn4L_pop[0]" input="pulse_gen_hn4L" /-->
 
 		<!--population  id="hn1R_pop" component="cell_HN1R" size="1"/>
 		<explicitInput target="hn1R_pop[0]" input="pulse_gen_hn1R" /-->
-		
+
 		<!-- population  id="hn3L_pop" component="HN3L" size="1"/ -->
 		<!--explicitInput target="hn3L_pop[0]" input="pulse_gen_2" destination="synapses"/-->
+
+		<projection postsynapticPopulation ="hn4R_pop" presynapticPopulation ="hn4L_pop" synapse ="SynS4R4L"/>
+
+		<projection postsynapticPopulation ="hn4L_pop" presynapticPopulation ="hn4R_pop" synapse ="SynS4L4R"/>
+
+
 	
 	</network>
-	
+
 		<!-- Custom component -->
 
 

@@ -47,7 +47,7 @@
 			-->
 
 			  <!--
-                    The following values were taken from the cell_1L.p file and converted to the appropriate units
+                    The following values were taken from the cell_4L.p file and converted to the appropriate units
                 RM = membrane resistance and was converted to the conductance density for leak channel(g = 1/RM)
                 RA = resistivity(1 ohm*m = 0.1 kohm*cm)
                 CM = specific capacitance(1 F/m^2)
@@ -80,7 +80,9 @@
                 <resistivity value="0.03 kohm_cm"/> <!-- Not sure if this is necessary? -->
             </intracellularProperties>
 
+
         </biophysicalProperties>
+       
 
 	</cell>
 
