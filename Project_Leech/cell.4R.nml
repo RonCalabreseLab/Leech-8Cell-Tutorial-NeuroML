@@ -67,7 +67,7 @@
             <channelDensity id="h_chan_den" ionChannel="h_channel" condDensity="0.08 S_per_m2" erev="-21.0mV" ion="non_specific"/>
             <channelDensity id="caf_chan_den" ionChannel="ca_fast_channel" condDensity="0.1 S_per_m2" erev="135.0mV" ion="ca"/>
             <channelDensity id="cas_chan_den" ionChannel="ca_slow_channel" condDensity="0.064 S_per_m2" erev="135.0mV" ion="ca"/>
-            <channelDensity id="p_chan_den" ionChannel="p_channel" condDensity="0.14 S_per_m2" erev="45.0mV" ion="na"/>
+            <channelDensity id="p_chan_den" ionChannel="p_channel" condDensity="0.1 S_per_m2" erev="45.0mV" ion="na"/>
             <channelDensity id="kf_chan_den" ionChannel="k_fast_channel" condDensity="0 S_per_m2" erev="-70.0mV" ion="k"/>
                 <spikeThresh value="-20mV"/>
                 <specificCapacitance value="0.01 F_per_m2"/>

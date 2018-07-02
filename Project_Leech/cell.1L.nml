@@ -41,7 +41,7 @@
                 CM = specific capacitance(1 F/m^2)
                 EREST_ACT = init membrane potential
                 ELEAK = erev for leak channel
-                Channel Density values are found by dividing the dens value in the .p file by the surface area, which is 50,000 um2
+                Channel Density values are found by dividing the dens value in the .p file by the surface area, which is 50,000 um2(5e-8 m2)
 
 				-->
             

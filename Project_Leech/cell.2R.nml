@@ -4,16 +4,16 @@
 	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta4.xsd"
 	id="cell_HN2R">
 
-	<!--include href="na.channel.nml"/-->
-	<!--include href="k1.channel.nml"/-->
-	<!--include href="k2.channel.nml"/-->
+	<include href="na.channel.nml"/>
+    <include href="k1.channel.nml"/>
+    <include href="k2.channel.nml"/>
 	
 	 	<cell id="cell_HN2R">
 
         <morphology id="morph_HN2R">
-            <segment id="0" name="soma">
-                <proximal x="0" y="0" z="0" diameter="17.841242"/> <!--Gives a convenient surface area of 1000.0 um-->
-                <distal x="0" y="0" z="0" diameter="17.841242"/>
+             <segment id="0" name="soma">
+                <proximal x="0" y="0" z="0" diameter="126.15663"/> <!--Gives a convenient surface area of 1000.0 um^2-->
+                <distal x="126.15663" y="0" z="0" diameter="126.15663"/>
             </segment>
 
             <segmentGroup id="soma_group">
@@ -36,10 +36,14 @@
                 <channelDensity id="naChans" ionChannel="naChan" condDensity="120.0 mS_per_cm2" erev="50.0 mV" ion="na"/>
                 <channelDensity id="kChans" ionChannel="kChan" condDensity="360 S_per_m2" erev="-77mV" ion="k"/>
 				-->
-				
+				 <channelDensity id="leak" ionChannel="passive" condDensity="0.2 S_per_m2" erev="-40.0mV" ion="non_specific"/>
+                <channelDensity id="na_chan_den" ionChannel="na_channel" condDensity="5.0 S_per_m2" erev="45.0 mV" ion="na"/>
+                <channelDensity id="k1_chan_den" ionChannel="k1_channel" condDensity="3.0 S_per_m2" erev="-70.0mV" ion="k"/>
+                <channelDensity id="k2_chan_den" ionChannel="k2_channel" condDensity="1.5 S_per_m2" erev="-70.0mV" ion="k"/>
+                
                 <spikeThresh value="-20mV"/>
-                <specificCapacitance value="1.0 uF_per_cm2"/>
-                <initMembPotential value="-65mV"/>
+                <specificCapacitance value="0.01 F_per_m2"/>
+                <initMembPotential value="-63mV"/>
 
             </membraneProperties>
 
@@ -58,9 +62,9 @@
 	<pointCellCondBased id="HN1R" C="4pF" v0="-54.56137733296305mV" thresh="-25mV">
 			<channelPopulation id="leak_pop_HN1R" ionChannel="leak_channel_HN1L" erev="-55mV" number="1" />
         	<channelPopulation id="na_pop_HN1R" ionChannel="na_channel" erev="45mV" number="1" />
-        	<!--channelPopulation id ="k1_pop_HN1R" ionChannel="k1_channel" erev="70mV" number="1"/-->
+        	<channelPopulation id ="k1_pop_HN1R" ionChannel="k1_channel" erev="70mV" number="1"/-->
         	<!--channelPopulation id ="k2_pop_HN1R" ionChannel="k2_channel" erev="70mV" number="1"/-->
-	</pointCellCondBased>
+	<!--/pointCellCondBased>
 	-->
 	
 </neuroml>

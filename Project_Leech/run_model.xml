@@ -11,7 +11,7 @@
     <Simulation id="hn8_simulation" length="3000ms" step="0.01ms" target="net_8">
     
         <Display id="display_v" title="Membrane Potential" timeScale="1ms" xmin="0" xmax="530" ymin="-55" ymax="50">
-                <Line id="v" quantity="hn4L_pop[0]/v" scale="1mV" color="#ffffff" timeScale="1ms"/>
+                <Line id="v" quantity="hn1L_pop[0]/v" scale="1mV" color="#ffffff" timeScale="1ms"/>
         </Display>
 
 
