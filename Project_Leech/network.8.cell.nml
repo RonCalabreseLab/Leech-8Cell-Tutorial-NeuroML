@@ -85,47 +85,55 @@
 	
 <!--pop and synapse connections -->
 		<population  id="hn1L_pop" component="cell_HN1L" size="1"/>
+		<population  id="hn1R_pop" component="cell_HN1R" size="1"/>
+		<population  id="hn2L_pop" component="cell_HN2L" size="1"/>
+		<population  id="hn2R_pop" component="cell_HN2R" size="1"/>
+		<population  id="hn3L_pop" component="cell_HN3L" size="1"/>
+		<population  id="hn3R_pop" component="cell_HN3R" size="1"/>
+		<population  id="hn4L_pop" component="cell_HN4L" size="1"/>
+		<population  id="hn4R_pop" component="cell_HN4R" size="1"/>
+
+
 		<synapticConnection to = "hn3L_pop[0]" from = "hn1L_pop[0]" synapse ="SynS3L1L"/>
 		<synapticConnection to = "hn4L_pop[0]" from = "hn1L_pop[0]" synapse ="SynS4L1L"/>
 
 <!--pop and synapse connections -->
-		<population  id="hn1R_pop" component="cell_HN1R" size="1"/>
+		
 		<synapticConnection to = "hn3R_pop[0]" from = "hn1R_pop[0]" synapse ="SynS3R1R"/>
 		<synapticConnection to = "hn4R_pop[0]" from = "hn1R_pop[0]" synapse ="SynS4R1R"/>
 
 
 
 <!--pop and synapse connections -->
-		<population  id="hn2L_pop" component="cell_HN2L" size="1"/>
+		
 		<synapticConnection to = "hn3L_pop[0]" from = "hn2L_pop[0]" synapse ="SynS3L2L"/>
 		<synapticConnection to = "hn4L_pop[0]" from = "hn2L_pop[0]" synapse ="SynS4L2L"/>
 
 <!--pop and synapse connections -->
-		<population  id="hn2R_pop" component="cell_HN2R" size="1"/>
+		
 		<synapticConnection to = "hn3R_pop[0]" from = "hn2R_pop[0]" synapse ="SynS3R2R"/>
 		<synapticConnection to = "hn4R_pop[0]" from = "hn2R_pop[0]" synapse ="SynS4R2R"/>
 
 <!--pop and synapse connections -->	
-		<population  id="hn3L_pop" component="cell_HN3L" size="1"/>
+		
 		<synapticConnection to = "hn2L_pop[0]" from = "hn3L_pop[0]" synapse ="SynS2L3L"/>
 		<synapticConnection to = "hn1L_pop[0]" from = "hn3L_pop[0]" synapse ="SynS1L3L"/>
 		<synapticConnection to = "hn3R_pop[0]" from = "hn3L_pop[0]" synapse ="SynS3R3L"/>
 
 <!--pop and synapse connections -->
-		<population  id="hn3R_pop" component="cell_HN3R" size="1"/>
+		
 		<synapticConnection to = "hn2R_pop[0]" from = "hn3R_pop[0]" synapse ="SynS2R3R"/>
 		<synapticConnection to = "hn1R_pop[0]" from = "hn3R_pop[0]" synapse ="SynS1R3R"/>
 		<synapticConnection to = "hn3L_pop[0]" from = "hn3R_pop[0]" synapse ="SynS3L3R"/>
 
 <!--pop and synapse connections -->
-		<population  id="hn4L_pop" component="cell_HN4L" size="1"/>
+		
 		<synapticConnection to = "hn2L_pop[0]" from = "hn4L_pop[0]" synapse ="SynS2L4L"/>
 		<synapticConnection to = "hn1L_pop[0]" from = "hn4L_pop[0]" synapse ="SynS1L4L"/>
 		<synapticConnection to = "hn4R_pop[0]" from = "hn4L_pop[0]" synapse ="SynS4R4L"/>
 
 <!--pop and synapse connections -->
-		<population  id="hn4R_pop" component="cell_HN4R" size="1"/>
-
+		
 		<synapticConnection to = "hn1R_pop[0]" from = "hn4R_pop[0]" synapse ="SynS1R4R"/>
 		<synapticConnection to = "hn2R_pop[0]" from = "hn4R_pop[0]" synapse ="SynS2R4R"/>
 		<synapticConnection to = "hn4L_pop[0]" from = "hn4R_pop[0]" synapse ="SynS4L4R"/>

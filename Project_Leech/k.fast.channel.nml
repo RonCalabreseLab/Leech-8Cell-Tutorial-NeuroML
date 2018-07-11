@@ -78,6 +78,8 @@ Parameters for time course (τ):
         <Parameter name="rate" dimension="time" /-->
         <Parameter name="midpoint" dimension="voltage" />
         <Parameter name="scale" dimension="voltage" />
+        <Constant name="SEC" dimension="time" value="1s"/>
+        <Constant name="VOLT" dimension="voltage" value="1V"/>
         
         <Dynamics>
         							<!--
@@ -91,7 +93,7 @@ Parameters for time course (τ):
         	<DerivedVariable name="v_cosh" value="((v + midpoint)/scale)" dimension = "none" />
         	<!--DerivedVariable name="tau_m_KF" value="1.5 + (8.0 / 1 + exp(0 - (v + 0.022)/scale)) + (-2.2 / ((exp(v_cosh) + exp(0 - v_cosh)) / 2))"/-->
         	
-        	<DerivedVariable name="t" exposure="t" value="1.5 + (8.0 / 1 + exp(0 - (v + 0.022)/scale)) + (-2.2 / ((exp(v_cosh) + exp(0 - v_cosh)) / 2))"  dimension = "time" />
+        	<DerivedVariable name="t" exposure="t" value="(1.5 + (8.0 / 1 + exp(0 - (v + 0.022*VOLT)/scale)) + (-2.2 / ((exp(v_cosh) + exp(0 - v_cosh)) / 2)))*SEC"/>
         </Dynamics>
 
 	</ComponentType>
