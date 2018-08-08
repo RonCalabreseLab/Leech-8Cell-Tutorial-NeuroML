@@ -22,62 +22,62 @@
 
 	<!--synapses id = "syns1L"-->
 	    <!-- Synapse from 1L to 3L -->
-	    <expTwoSynapse id = "SynS3L1L" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "0.549ms" tauRise = "0.009ms"/>
+	    <expTwoSynapse id = "SynS3L1L" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "550ms" tauRise = "9ms"/>
 	    <!-- Synapse from 1L to 4L -->
-	    <expTwoSynapse id = "SynS4L1L" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "0.549ms" tauRise = "0.009ms"/>
+	    <expTwoSynapse id = "SynS4L1L" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "550ms" tauRise = "9ms"/>
 
 	 <!--synapses id = "syns1R"-->
 	    <!-- Synapse from 1R to 3R -->
-	    <expTwoSynapse id = "SynS3R1R" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "0.549ms" tauRise = "0.009ms"/>
+	    <expTwoSynapse id = "SynS3R1R" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "550ms" tauRise = "9ms"/>
 	    <!-- Synapse from 1R to 4R -->
-	    <expTwoSynapse id = "SynS4R1R" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "0.549ms" tauRise = "0.009ms"/>
+	    <expTwoSynapse id = "SynS4R1R" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "550ms" tauRise = "9ms"/>
 
 	 <!--synapses id = "syns2L"-->
 	    <!-- Synapse from 2L to 3L -->
-	    <expTwoSynapse id = "SynS3L2L" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "0.549ms" tauRise = "0.009ms"/>
+	    <expTwoSynapse id = "SynS3L2L" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "550ms" tauRise = "9ms"/>
 	    <!-- Synapse from 2L to 4L -->
-	    <expTwoSynapse id = "SynS4L2L" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "0.549ms" tauRise = "0.009ms"/>
+	    <expTwoSynapse id = "SynS4L2L" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "550ms" tauRise = "9ms"/>
 
 	 <!--synapses id = "syns2R"-->
 	    <!-- Synapse from 2R to 3R -->
-	    <expTwoSynapse id = "SynS3R2R" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "0.549ms" tauRise = "0.009ms"/>
+	    <expTwoSynapse id = "SynS3R2R" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "550ms" tauRise = "9ms"/>
 	    <!-- Synapse from 2R to 4R -->
-	    <expTwoSynapse id = "SynS4R2R" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "0.549ms" tauRise = "0.009ms"/>
+	    <expTwoSynapse id = "SynS4R2R" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "550ms" tauRise = "9ms"/>
 
 	<!--synapses id = "syns3L"-->
 	    <!-- Synapse from 3L to 1L -->
-	    <expTwoSynapse id = "SynS1L3L" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "0.010999ms" tauRise = "0.002ms"/>
+	    <expTwoSynapse id = "SynS1L3L" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "10ms" tauRise = "2ms"/>
 	    <!-- Synapse from 3L to 2L -->
-	    <expTwoSynapse id = "SynS2L3L" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "0.010999ms" tauRise = "0.002ms"/>
+	    <expTwoSynapse id = "SynS2L3L" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "10ms" tauRise = "2ms"/>
 	    <!-- Synapse from 3L to 3R -->
-	    <expTwoSynapse id = "SynS3R3L" erev ="-62.5mV" gbase = "59nS" tauDecay = "0.010999s" tauRise = "0.002s"/>
+	    <expTwoSynapse id = "SynS3R3L" erev ="-62.5mV" gbase = "59nS" tauDecay = "11ms" tauRise = "2.5ms"/>
 
 
 	<!--synapses id = "syns3R"-->
 	    <!-- Synapse from 3R to 1R -->
-	    <expTwoSynapse id = "SynS1R3R" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "0.010999ms" tauRise = "0.002ms"/>
+	    <expTwoSynapse id = "SynS1R3R" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "10ms" tauRise = "2ms"/>
 	    <!-- Synapse from 3R to 2R -->
-	    <expTwoSynapse id = "SynS2R3R" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "0.010999ms" tauRise = "0.002ms"/>
+	    <expTwoSynapse id = "SynS2R3R" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "10ms" tauRise = "2ms"/>
 	    <!-- Synapse from 3R to 3L -->
-	    <expTwoSynapse id = "SynS3L3R" erev ="-62.5mV" gbase = "59nS" tauDecay = "0.010999s" tauRise = "0.002s"/>
+	    <expTwoSynapse id = "SynS3L3R" erev ="-62.5mV" gbase = "59nS" tauDecay = "11ms" tauRise = "2.5ms"/>
 
 	 <!--synapses id = "syns4L"-->
 	    <!-- Synapse from 4L to 1L -->
-	    <expTwoSynapse id = "SynS1L4L" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "0.010999ms" tauRise = "0.002ms"/>
+	    <expTwoSynapse id = "SynS1L4L" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "10ms" tauRise = "2ms"/>
 	    <!-- Synapse from 4L to 2L -->
-	    <expTwoSynapse id = "SynS2L4L" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "0.010999ms" tauRise = "0.002ms"/>
+	    <expTwoSynapse id = "SynS2L4L" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "10ms" tauRise = "2ms"/>
 	    <!-- Synapse from 4L to 4R -->
-	    <expTwoSynapse id = "SynS4R4L" erev ="-62.5mV" gbase = "59nS" tauDecay = "0.010999s" tauRise = "0.002s"/>
+	    <expTwoSynapse id = "SynS4R4L" erev ="-62.5mV" gbase = "59nS" tauDecay = "11ms" tauRise = "2.5ms"/>
 	<!--/synapses-->
 
 
 	 <!--synapses id = "syns4R"-->
 	  <!-- Synapse from 4R to 1R -->
-	    <expTwoSynapse id = "SynS1R4R" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "0.010999ms" tauRise = "0.002ms"/>
+	    <expTwoSynapse id = "SynS1R4R" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "10ms" tauRise = "2ms"/>
 	    <!-- Synapse from 4R to 2R -->
-	    <expTwoSynapse id = "SynS2R4R" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "0.010999ms" tauRise = "0.002ms"/>
+	    <expTwoSynapse id = "SynS2R4R" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "10ms" tauRise = "2ms"/>
         <!-- Synapse from 4R to 4L -->
-        <expTwoSynapse id = "SynS4L4R" erev ="-62.5mV" gbase = "59nS" tauDecay = "0.010999s" tauRise = "0.002s"/>
+        <expTwoSynapse id = "SynS4L4R" erev ="-62.5mV" gbase = "59nS" tauDecay = "11ms" tauRise = "2.5ms"/>
         <!--/synapses-->
 	
 		
@@ -95,7 +95,7 @@
 
 
 		<synapticConnection to = "hn3L_pop[0]" from = "hn1L_pop[0]" synapse ="SynS3L1L"/>
-		<synapticConnection to = "hn4L_pop[0]" from = "hn1L_pop[0]" synapse ="SynS4L1L"/>
+		<synapticConnection id= "4L1L_conn" to = "hn4L_pop[0]" from = "hn1L_pop[0]" synapse ="SynS4L1L"/>
 
 <!--pop and synapse connections -->
 		
