@@ -112,7 +112,7 @@ Parameters for time course (τ):
         							scale = 1/-330
         	-->
         	<DerivedVariable name="v_cosh" value="-(v - midpoint)/scale" dimension="none"/>
-        	<DerivedVariable name="t" exposure="t" value="offset + rate / ((exp(v_cosh) + exp(0 - v_cosh))/ 2)" />
+        	<DerivedVariable name="t0" exposure="t" value="offset + rate / ((exp(v_cosh) + exp(0 - v_cosh))/ 2)" />
         </Dynamics>
 
 	</ComponentType>

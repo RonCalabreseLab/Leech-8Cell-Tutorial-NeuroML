@@ -25,9 +25,10 @@
         <Parameter name="rate" dimension="time" />
         <Parameter name="midpoint" dimension="voltage" />
         <Parameter name="scale" dimension="voltage" />
-
+        <Constant name="SEC" dimension="time" value="1s"/>
         <Dynamics>
-            <DerivedVariable name="t" exposure="t" value="offset + rate / (1 + exp(-(v - midpoint)/scale))" />
+
+            <DerivedVariable name="t0" exposure="t" value="(offset + rate / (1 + exp(-(v - midpoint)/scale)))*SEC" dimension = "time" />
         </Dynamics>
 
     </ComponentType>
