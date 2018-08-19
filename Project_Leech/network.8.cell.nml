@@ -7,14 +7,9 @@
 	
 	<!-- File contains the 8 cell network -->
 
-	<include href="cell.1L.nml"/>
-	<include href="cell.1R.nml"/>
-	<include href="cell.2L.nml"/>
-	<include href="cell.2R.nml"/>
-	<include href="cell.3L.nml"/>
-	<include href="cell.3R.nml"/>
-	<include href="cell.4L.nml"/>
-	<include href="cell.4R.nml"/>
+	<include href="cell.1.nml"/>
+	<include href="cell.2.nml"/>
+	<include href="cell.3,4.nml"/>
 
 	<pulseGenerator id="pulse_gen_hn1L" delay="50ms" duration="0ms" amplitude="0pA"/>
 	<!--pulseGenerator id="pulse_gen_hn4L" delay="50ms" duration="500ms" amplitude="0pA"/-->
@@ -84,14 +79,14 @@
 	<network id="net_8">
 	
 <!--pop and synapse connections -->
-		<population  id="hn1L_pop" component="cell_HN1L" size="1"/>
-		<population  id="hn1R_pop" component="cell_HN1R" size="1"/>
-		<population  id="hn2L_pop" component="cell_HN2L" size="1"/>
-		<population  id="hn2R_pop" component="cell_HN2R" size="1"/>
-		<population  id="hn3L_pop" component="cell_HN3L" size="1"/>
-		<population  id="hn3R_pop" component="cell_HN3R" size="1"/>
-		<population  id="hn4L_pop" component="cell_HN4L" size="1"/>
-		<population  id="hn4R_pop" component="cell_HN4R" size="1"/>
+		<population  id="hn1L_pop" component="cell_HN1" size="1"/>
+		<population  id="hn1R_pop" component="cell_HN1" size="1"/>
+		<population  id="hn2L_pop" component="cell_HN2" size="1"/>
+		<population  id="hn2R_pop" component="cell_HN2" size="1"/>
+		<population  id="hn3L_pop" component="cell_HN3,4" size="1"/>
+		<population  id="hn3R_pop" component="cell_HN3,4" size="1"/>
+		<population  id="hn4L_pop" component="cell_HN3,4" size="1"/>
+		<population  id="hn4R_pop" component="cell_HN3,4" size="1"/>
 
 
 		<synapticConnection to = "hn3L_pop[0]" from = "hn1L_pop[0]" synapse ="SynS3L1L"/>

@@ -28,7 +28,7 @@
         <Constant name="SEC" dimension="time" value="1s"/>
         <Dynamics>
 
-            <DerivedVariable name="t0" exposure="t" value="(offset + rate / (1 + exp(-(v - midpoint)/scale)))*SEC" dimension = "time" />
+            <DerivedVariable name="t0" exposure="t" value="(offset + rate / (1 + exp(-(v - midpoint)/scale)))*SEC"/>
         </Dynamics>
 
     </ComponentType>

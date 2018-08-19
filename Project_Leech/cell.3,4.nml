@@ -2,24 +2,22 @@
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta4.xsd"
-	id="cell_HN4L">
-
-	<include href="passive.channel.nml"/>
+	id="cell_HN3,4">
+    <include href="passive.channel.nml"/>
 	<include href="na.channel.nml"/>
 	<include href="k1.channel.nml"/>
 	<include href="k2.channel.nml"/>
-	<include href="Ka.channel.nml"/>
+	<include href="ka.channel.nml"/>
 	<include href="h.channel.nml"/>
 	<include href="ca.fast.channel.nml"/>
 	<include href="ca.slow.channel.nml"/>
 	<include href="p.channel.nml"/>
 	<include href="k.fast.channel.nml"/>
-
-	<cell id="cell_HN4L">
-
-        <morphology id="morph_HN4L">
+	
+	<cell id="cell_HN3,4">
+        <morphology id="morph_HN3,4">
             <segment id="0" name="soma">
-                <proximal x="0" y="0" z="0" diameter="126.15663"/> <!--Gives a convenient surface area of 1000.0 um-->
+                <proximal x="0" y="0" z="0" diameter="126.15663"/> <!--Gives a convenient surface area of 1000.0 um^2-->
                 <distal x="126.15663" y="0" z="0" diameter="126.15663"/>
             </segment>
 
@@ -29,35 +27,20 @@
 
         </morphology>
 
-        <biophysicalProperties id="bio_phys_HN4L">
+        <biophysicalProperties id="bio_phys_HN3,4">
 
             <membraneProperties>
-            
-            <!--
-       		<channelPopulation id="leak_pop_HN3L" ionChannel="leak_channel_HN3L" erev="-55mV" number="1" />
-        	<channelPopulation id="na_pop_HN3L" ionChannel="na_channel" erev="45mV" number="1" />
-        	<channelPopulation id="k_fast_pop_HN3L" ionChannel="k_fast_channel" erev="35mV" number="1"/>
-			<channelPopulation id ="k1_pop_HN3L" ionChannel="k1_channel" erev="50mV" number="1"/>
-			<channelPopulation id ="k2_pop_HN3L" ionChannel="k2_channel" erev="70mV" number="1"/>
-			<channelPopulation id ="h_pop_HN3L" ionChannel="h_channel" erev="70mV" number="1"/>
-			<channelPopulation id ="ka_pop_HN3L" ionChannel="ka_channel" erev="70mV" number="1"/>
-			<channelPopulation id ="ca_fast_pop_HN3L" ionChannel="ca_fast_channel" erev="70mV" number="1"/>
-			<channelPopulation id ="ca_slow_pop_HN3L" ionChannel="ca_slow_channel" erev="70mV" number="1"/>
-			<channelPopulation id ="p_pop_HN3L" ionChannel="p_channel" erev="70mV" number="1"/>
-			-->
 
-			  <!--
-                    The following values were taken from the cell_4L.p file and converted to the appropriate units
+			<!--
+                    The following values were taken from the cell_3L.p file and converted to the appropriate units
                 RM = membrane resistance and was converted to the conductance density for leak channel(g = 1/RM)
                 RA = resistivity(1 ohm*m = 0.1 kohm*cm)
                 CM = specific capacitance(1 F/m^2)
-                EREST_ACT = init membrane potential V->mV
+                EREST_ACT = init membrane potential
                 ELEAK = erev for leak channel
-                Channel Density values are found by dividing the dens value in the .p file by the surface area, which is 50,000 um2
-                
-                
-            -->
-           
+                Channel Density values are found by dividing the dens value in the .p file by the surface area, which is 50,000 um2(5e-8 m2)
+    
+                -->
             <channelDensity id="leak" ionChannel="passive" condDensity="0.16 S_per_m2" erev="-60.0mV" ion="non_specific"/>
             <channelDensity id="na_chan_den" ionChannel="na_channel" condDensity="4.0 S_per_m2" erev="45.0mV" ion="na"/>
             <channelDensity id="k1_chan_den" ionChannel="k1_channel" condDensity="2.0 S_per_m2" erev="-70.0mV" ion="k"/>
@@ -68,11 +51,10 @@
             <channelDensity id="cas_chan_den" ionChannel="ca_slow_channel" condDensity="0.064 S_per_m2" erev="135.0mV" ion="ca"/>
             <channelDensity id="p_chan_den" ionChannel="p_channel" condDensity="0.14 S_per_m2" erev="45.0mV" ion="na"/>
             <channelDensity id="kf_chan_den" ionChannel="k_fast_channel" condDensity="0 S_per_m2" erev="-70.0mV" ion="k"/>
-    
 
-            <spikeThresh value="-20mV"/>
-            <specificCapacitance value="0.01 F_per_m2"/>
-            <initMembPotential value="-60mV"/>
+                <spikeThresh value="-20mV"/>
+                <specificCapacitance value="0.01 F_per_m2"/>
+                <initMembPotential value="-65mV"/>
 
             </membraneProperties>
 
@@ -80,10 +62,7 @@
                 <resistivity value="0.03 kohm_cm"/> <!-- Not sure if this is necessary? -->
             </intracellularProperties>
 
-
         </biophysicalProperties>
-       
 
 	</cell>
-
 </neuroml>
