@@ -6,7 +6,7 @@
     <Include file="Networks.xml"/>
     <Include file="Simulation.xml"/>
 
-	<Include file="network.8.cell.nml"/>
+	<Include file="NeuroML2/network.8.cell.nml"/>
 
     <Simulation id="hn8_simulation" length="3000ms" step="0.01ms" target="net_8">
     
