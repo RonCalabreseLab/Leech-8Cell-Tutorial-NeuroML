@@ -148,7 +148,7 @@
 		
 		<!--synapticConnection to = "hn1L_pop[0]" from = "hn4L_pop[0]" synapse ="SynS1L4L"/-->
 		<projection postsynapticPopulation ="hn1L_pop" presynapticPopulation ="hn4L_pop" synapse ="SynS1L4L">
-				<connection preCellId="../hn4L_pop/0/cell_HN3,4"  postCellId="../hn1L_pop/0/cell_HN1"/>
+				<connection preCellId="../hn4L_pop/cell_HN3,4"  postCellId="../hn1L_pop/cell_HN1"/>
 				<!--connection id= "ConS3R3L" pre_cell_id= "hn3R_pop[0]" post_cell_id= "hn3L_pop[0]"/>	
 				<connection id= "ConS3L3R" pre_cell_id= "hn3L_pop[0]" post_cell_id= "hn3R_pop[0]"/>
 				<connection id= "ConS4R4L" pre_cell_id= "hn4R_pop[0]" post_cell_id= "hn4L_pop[0]"/>
