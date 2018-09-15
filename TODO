@@ -1,8 +1,6 @@
 - Netbeans does XSL checking
-- jnml crash state dump shows broken components
 - use projection instead of connection?
 - use jnml -graph, -graph3 (using latest version)
-- merge LR cells into same file and add them into separate populations
 - OSB tutorials; needs account (Padraid will give an access code
   for easy registration)
 - biorxiv paper on OSB, under review in Neuron. Has figures on tutorial;
@@ -12,4 +10,7 @@
 - blockingPlasticSynapse -> has sub component that modulates output voltageConcDep (in Synapse.xml, example #6 NMDA)
 - analogSynapse has access to voltages (Vpeer), but I need to detect the spikes (OnCondition or OnEvent)
 - create plotting all synaptic values to test this!
-- add the m gate inside the analogsynapse (test it separately first)
+
++ jnml crash state dump shows broken components
++ add the m gate inside the analogsynapse (test it separately first)
++ merge LR cells into same file and add them into separate populations
