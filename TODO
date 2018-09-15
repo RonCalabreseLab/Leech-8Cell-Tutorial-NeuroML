@@ -1,6 +1,6 @@
 - Netbeans does XSL checking
 - use projection instead of connection?
-- use jnml -graph, -graph3 (using latest version)
+- use jnml -graph, -graph3 (using latest version) - can't find this on the Github repo
 - OSB tutorials; needs account (Padraid will give an access code
   for easy registration)
 - biorxiv paper on OSB, under review in Neuron. Has figures on tutorial;
