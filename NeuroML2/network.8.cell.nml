@@ -15,6 +15,35 @@
 	<!--pulseGenerator id="pulse_gen_hn4L" delay="50ms" duration="500ms" amplitude="0pA"/-->
 	<!--pulseGenerator id="pulse_gen_hn1R" delay="20ms" duration="250ms" amplitude="10pA"/-->
 
+	<!--SYN TYPE A -->
+	<!-- Synapse from 1L to 3L -->
+	<!-- Synapse from 1L to 4L -->
+	<!-- Synapse from 1R to 3R -->
+	<!-- Synapse from 1R to 4R -->
+	<!-- Synapse from 2L to 3L -->
+	<!-- Synapse from 2L to 4L -->
+	<!-- Synapse from 2R to 3R -->
+	<!-- Synapse from 2R to 4R -->
+	 <expTwoSynapse id = "SynA" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "550ms" tauRise = "9ms"/>
+
+	<!--SYN TYPE B -->
+	<!-- Synapse from 3L to 1L -->
+	<!-- Synapse from 3L to 2L -->
+	<!-- Synapse from 3R to 1R -->
+	<!-- Synapse from 3R to 2R -->
+	<!-- Synapse from 4L to 1L -->
+	<!-- Synapse from 4L to 2L -->
+	<!-- Synapse from 4R to 1R -->
+	<!-- Synapse from 4R to 2R -->
+	 <expTwoSynapse id = "SynB" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "10ms" tauRise = "2ms"/>
+
+	<!--SYN TYPE C -->
+	<!-- Synapse from 3L to 3R -->
+	<!-- Synapse from 3R to 3L -->
+	<!-- Synapse from 4L to 4R -->
+	<!-- Synapse from 4R to 4L -->
+	<expTwoSynapse id = "SynC" erev ="-62.5mV" gbase = "59nS" tauDecay = "11ms" tauRise = "2.5ms"/>
+
 	<!--synapses id = "syns1L"-->
 	    <!-- Synapse from 1L to 3L -->
 	    <expTwoSynapse id = "SynS3L1L" erev ="-62.5mV" gbase = "6.0nS" tauDecay = "550ms" tauRise = "9ms"/>
@@ -47,7 +76,6 @@
 	    <!-- Synapse from 3L to 3R -->
 	    <expTwoSynapse id = "SynS3R3L" erev ="-62.5mV" gbase = "59nS" tauDecay = "11ms" tauRise = "2.5ms"/>
 
-
 	<!--synapses id = "syns3R"-->
 	    <!-- Synapse from 3R to 1R -->
 	    <expTwoSynapse id = "SynS1R3R" erev ="-62.5mV" gbase = "7.9nS" tauDecay = "10ms" tauRise = "2ms"/>
@@ -78,7 +106,7 @@
 		
 	<network id="net_8">
 	
-<!--pop and synapse connections -->
+<!--pop and synapstic projections & connections -->
 		<population  id="hn1L_pop" component="cell_HN1" size="1"/>
 		<population  id="hn1R_pop" component="cell_HN1" size="1"/>
 		<population  id="hn2L_pop" component="cell_HN2" size="1"/>
@@ -88,75 +116,70 @@
 		<population  id="hn4L_pop" component="cell_HN3,4" size="1"/>
 		<population  id="hn4R_pop" component="cell_HN3,4" size="1"/>
 
-		
-		<synapticConnection to = "hn3L_pop[0]" from = "hn1L_pop[0]" synapse ="SynS3L1L"/>
-		<synapticConnection id= "4L1L_conn" to = "hn4L_pop[0]" from = "hn1L_pop[0]" synapse ="SynS4L1L"/>
 
-<!--pop and synapse connections -->
-		
-		<synapticConnection to = "hn3R_pop[0]" from = "hn1R_pop[0]" synapse ="SynS3R1R"/>
-		<synapticConnection to = "hn4R_pop[0]" from = "hn1R_pop[0]" synapse ="SynS4R1R"/>
-
-
-
-<!--pop and synapse connections -->
-		
-		<synapticConnection to = "hn3L_pop[0]" from = "hn2L_pop[0]" synapse ="SynS3L2L"/>
-		<synapticConnection to = "hn4L_pop[0]" from = "hn2L_pop[0]" synapse ="SynS4L2L"/>
-
-<!--pop and synapse connections -->
-		
-		<synapticConnection to = "hn3R_pop[0]" from = "hn2R_pop[0]" synapse ="SynS3R2R"/>
-		<synapticConnection to = "hn4R_pop[0]" from = "hn2R_pop[0]" synapse ="SynS4R2R"/>
-
-<!--pop and synapse connections -->	
-		
-		<synapticConnection to = "hn2L_pop[0]" from = "hn3L_pop[0]" synapse ="SynS2L3L"/>
-		<synapticConnection to = "hn1L_pop[0]" from = "hn3L_pop[0]" synapse ="SynS1L3L"/>
-		<synapticConnection to = "hn3R_pop[0]" from = "hn3L_pop[0]" synapse ="SynS3R3L"/>
-
-<!--pop and synapse connections -->
-		
-		<synapticConnection to = "hn2R_pop[0]" from = "hn3R_pop[0]" synapse ="SynS2R3R"/>
-		<synapticConnection to = "hn1R_pop[0]" from = "hn3R_pop[0]" synapse ="SynS1R3R"/>
-		<synapticConnection to = "hn3L_pop[0]" from = "hn3R_pop[0]" synapse ="SynS3L3R"/>
-
-<!--pop and synapse connections -->
-		
-		<synapticConnection to = "hn2L_pop[0]" from = "hn4L_pop[0]" synapse ="SynS2L4L"/>
-		<synapticConnection to = "hn1L_pop[0]" from = "hn4L_pop[0]" synapse ="SynS1L4L"/>
-		<synapticConnection to = "hn4R_pop[0]" from = "hn4L_pop[0]" synapse ="SynS4R4L"/>
-
-<!--pop and synapse connections -->
-		
-		<synapticConnection to = "hn1R_pop[0]" from = "hn4R_pop[0]" synapse ="SynS1R4R"/>
-		<synapticConnection to = "hn2R_pop[0]" from = "hn4R_pop[0]" synapse ="SynS2R4R"/>
-		<synapticConnection to = "hn4L_pop[0]" from = "hn4R_pop[0]" synapse ="SynS4L4R"/>
-		
-		
-		<!--explicitInput target="hn4L_pop[0]" input="pulse_gen_hn1L" /-->
-
-		<!--population  id="hn1R_pop" component="cell_HN1R" size="1"/>
-		<explicitInput target="hn1R_pop[0]" input="pulse_gen_hn1R" /-->
-
-		<!-- population  id="hn3L_pop" component="HN3L" size="1"/ -->
-		<!--explicitInput target="hn3L_pop[0]" input="pulse_gen_2" destination="synapses"/-->
-
-		<!--projection postsynapticPopulation ="hn4L_pop" presynapticPopulation ="hn4R_pop" synapse ="SynS4L4R">
-
-		</projection-->
-		
-		<!--synapticConnection to = "hn1L_pop[0]" from = "hn4L_pop[0]" synapse ="SynS1L4L"/-->
-		<projection postsynapticPopulation ="hn1L_pop" presynapticPopulation ="hn4L_pop" synapse ="SynS1L4L">
-				<connection preCellId="../hn4L_pop/cell_HN3,4"  postCellId="../hn1L_pop/cell_HN1"/>
-				<!--connection id= "ConS3R3L" pre_cell_id= "hn3R_pop[0]" post_cell_id= "hn3L_pop[0]"/>	
-				<connection id= "ConS3L3R" pre_cell_id= "hn3L_pop[0]" post_cell_id= "hn3R_pop[0]"/>
-				<connection id= "ConS4R4L" pre_cell_id= "hn4R_pop[0]" post_cell_id= "hn4L_pop[0]"/>
-				<connection id= "ConS4L4R" pre_cell_id= "hn4L_pop[0]" post_cell_id= "hn4R_pop[0]"/-->		
-
-		</projection>
-
+	<projection postsynapticPopulation ="hn3L_pop" presynapticPopulation ="hn1L_pop" synapse ="SynA">
+		<connection preCellId="../hn1L_pop/cell_HN1"  postCellId="../hn3L_pop/cell_HN3,4"/>
+	</projection>
+	<projection postsynapticPopulation ="hn4L_pop" presynapticPopulation ="hn1L_pop" synapse ="SynA">
+		<connection preCellId="../hn1L_pop/cell_HN1"  postCellId="../hn4L_pop/cell_HN3,4"/>
+	</projection>
+	<projection postsynapticPopulation ="hn3R_pop" presynapticPopulation ="hn1R_pop" synapse ="SynA">
+		<connection preCellId="../hn1R_pop/cell_HN1"  postCellId="../hn3R_pop/cell_HN3,4"/>
+	</projection>
+	<projection postsynapticPopulation ="hn4R_pop" presynapticPopulation ="hn1R_pop" synapse ="SynA">
+		<connection preCellId="../hn1R_pop/cell_HN1"  postCellId="../hn4R_pop/cell_HN3,4"/>
+	</projection>
+	<projection postsynapticPopulation ="hn3L_pop" presynapticPopulation ="hn2L_pop" synapse ="SynA">
+		<connection preCellId="../hn2L_pop/cell_HN2"  postCellId="../hn3L_pop/cell_HN3,4"/>
+	</projection>
+	<projection postsynapticPopulation ="hn4L_pop" presynapticPopulation ="hn2L_pop" synapse ="SynA">
+		<connection preCellId="../hn2L_pop/cell_HN2"  postCellId="../hn4L_pop/cell_HN3,4"/>
+	</projection>
+	<projection postsynapticPopulation ="hn3R_pop" presynapticPopulation ="hn2R_pop" synapse ="SynA">
+		<connection preCellId="../hn2R_pop/cell_HN2"  postCellId="../hn3R_pop/cell_HN3,4"/>
+	</projection>
+	<projection postsynapticPopulation ="hn4R_pop" presynapticPopulation ="hn2R_pop" synapse ="SynA">
+		<connection preCellId="../hn2R_pop/cell_HN2"  postCellId="../hn4R_pop/cell_HN3,4"/>
+	</projection>
 	
+	
+	<projection postsynapticPopulation ="hn1L_pop" presynapticPopulation ="hn3L_pop" synapse ="SynB">
+		<connection preCellId="../hn3L_pop/cell_HN3,4"  postCellId="../hn1L_pop/cell_HN1"/>
+	</projection>
+	<projection postsynapticPopulation ="hn2L_pop" presynapticPopulation ="hn3L_pop" synapse ="SynB">
+		<connection preCellId="../hn3L_pop/cell_HN3,4"  postCellId="../hn2L_pop/cell_HN2"/>
+	</projection>
+	<projection postsynapticPopulation ="hn1R_pop" presynapticPopulation ="hn3R_pop" synapse ="SynB">
+		<connection preCellId="../hn3R_pop/cell_HN3,4"  postCellId="../hn1R_pop/cell_HN1"/>
+	</projection>
+	<projection postsynapticPopulation ="hn2R_pop" presynapticPopulation ="hn3R_pop" synapse ="SynB">
+		<connection preCellId="../hn3R_pop/cell_HN3,4"  postCellId="../hn2R_pop/cell_HN2"/>
+	</projection>
+	<projection postsynapticPopulation ="hn1L_pop" presynapticPopulation ="hn4L_pop" synapse ="SynB">
+		<connection preCellId="../hn4L_pop/cell_HN3,4"  postCellId="../hn1L_pop/cell_HN1"/>	
+	</projection>
+	<projection postsynapticPopulation ="hn2L_pop" presynapticPopulation ="hn4L_pop" synapse ="SynB">
+		<connection preCellId="../hn4L_pop/cell_HN3,4"  postCellId="../hn2L_pop/cell_HN2"/>
+	</projection>
+	<projection postsynapticPopulation ="hn1R_pop" presynapticPopulation ="hn4R_pop" synapse ="SynB">
+		<connection preCellId="../hn4R_pop/cell_HN3,4"  postCellId="../hn1R_pop/cell_HN1"/>
+	</projection>
+	<projection postsynapticPopulation ="hn2R_pop" presynapticPopulation ="hn4R_pop" synapse ="SynB">
+		<connection preCellId="../hn4R_pop/cell_HN3,4"  postCellId="../hn2R_pop/cell_HN2"/>
+	</projection>
+	<projection postsynapticPopulation ="hn3R_pop" presynapticPopulation ="hn3L_pop" synapse ="SynC">
+		<connection preCellId="../hn3L_pop/cell_HN3,4"   postCellId="../hn3R_pop/cell_HN3,4"/>
+	</projection>
+	<projection postsynapticPopulation ="hn3L_pop" presynapticPopulation ="hn3R_pop" synapse ="SynC">
+		<connection preCellId="../hn3R_pop/cell_HN3,4"   postCellId="../hn3L_pop/cell_HN3,4"/>
+	</projection>
+	<projection postsynapticPopulation ="hn4R_pop" presynapticPopulation ="hn4L_pop" synapse ="SynC">
+		<connection preCellId="../hn4L_pop/cell_HN3,4"   postCellId="../hn4R_pop/cell_HN3,4"/>
+	</projection>
+	<projection postsynapticPopulation ="hn4L_pop" presynapticPopulation ="hn4R_pop" synapse ="SynC">
+		<connection preCellId="../hn4R_pop/cell_HN3,4"   postCellId="../hn4L_pop/cell_HN3,4"/>
+	</projection>
+
 	</network>
 		
 	
