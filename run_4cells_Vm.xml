@@ -1,0 +1,30 @@
+<Lems>
+  <!-- Run the simulation and show two windows with the membrane
+       potentials of all 4 left and right cells. -->
+  <Target component="hn8_simulation"/>
+
+  <Include file="Cells.xml"/>
+  <Include file="Networks.xml"/>
+  <Include file="Simulation.xml"/>
+  <Include file="NeuroML2/network.8.cell.nml"/>
+
+  <Simulation id="hn8_simulation" length="3000ms" step="0.01ms" target="net_8">
+    
+    <Display id="display_vL" title="Membrane Potentials (Left)" timeScale="1ms"
+	     xmin="0" xmax="3000" ymin="-70" ymax="0">
+      <Line id="v1L" quantity="hn1L_pop[0]/v" scale="1mV" color="#ffffff" timeScale="1ms"/>
+      <Line id="v2L" quantity="hn2L_pop[0]/v" scale="1mV" color="#ff00ff" timeScale="1ms"/>
+      <Line id="v3L" quantity="hn3L_pop[0]/v" scale="1mV" color="#00ffff" timeScale="1ms"/>
+      <Line id="v4L" quantity="hn4L_pop[0]/v" scale="1mV" color="#FFFF00" timeScale="1ms"/>
+    </Display>
+    <Display id="display_vR" title="Membrane Potentials (Right)" timeScale="1ms"
+	     xmin="0" xmax="3000" ymin="-70" ymax="0">
+      <Line id="v1R" quantity="hn1R_pop[0]/v" scale="1mV" color="#ffffff" timeScale="1ms"/>
+      <Line id="v2R" quantity="hn2R_pop[0]/v" scale="1mV" color="#ff00ff" timeScale="1ms"/>
+      <Line id="v3R" quantity="hn3R_pop[0]/v" scale="1mV" color="#00ffff" timeScale="1ms"/>
+      <Line id="v4R" quantity="hn4R_pop[0]/v" scale="1mV" color="#FFFF00" timeScale="1ms"/>
+    </Display>
+    
+  </Simulation>
+
+</Lems>
