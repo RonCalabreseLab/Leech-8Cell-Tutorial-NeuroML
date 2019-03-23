@@ -228,7 +228,7 @@ PROCEDURE rates() {
     m_inf = m_steadyState_x ? path based, prefix = m_
     
     ? DerivedVariable is based on path: timeCourse/t, on: Component(id=m type=gateHHtauInf), from timeCourse; Component(id=null type=tauMCaF)
-    m_tauUnscaled = m_timeCourse_t ? path based, prefix = m_
+    m_tauUnscaled = m_timeCourse_t0 ? path based, prefix = m_
     
     m_tau = m_tauUnscaled  /  m_rateScale ? evaluable
     h_steadyState_x = h_steadyState_rate  / (1 + exp(0 - (v -  h_steadyState_midpoint )/ h_steadyState_scale )) ? evaluable
@@ -243,7 +243,7 @@ PROCEDURE rates() {
     h_inf = h_steadyState_x ? path based, prefix = h_
     
     ? DerivedVariable is based on path: timeCourse/t, on: Component(id=h type=gateHHtauInf), from timeCourse; Component(id=null type=sigmoidOffsetTimeCourse)
-    h_tauUnscaled = h_timeCourse_t ? path based, prefix = h_
+    h_tauUnscaled = h_timeCourse_t0 ? path based, prefix = h_
     
     h_tau = h_tauUnscaled  /  h_rateScale ? evaluable
     
