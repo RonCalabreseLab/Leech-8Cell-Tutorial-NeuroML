@@ -63,7 +63,6 @@ NEURON {
     RANGE h_timeCourse_t                    : exposure
     RANGE m_timeCourse_v_cosh               : derived variable
     RANGE m_tauUnscaled                     : derived variable
-    RANGE h_timeCourse_t0                   : derived variable
     RANGE h_tauUnscaled                     : derived variable
     RANGE conductanceScale                  : derived variable
     RANGE fopen0                            : derived variable
@@ -140,7 +139,7 @@ ASSIGNED {
     
     h_steadyState_x                        : derived variable
     
-    h_timeCourse_t0 : no units???          : derived variable
+    h_timeCourse_t : no units???           : derived variable
     
     h_rateScale                            : derived variable
     
@@ -231,7 +230,7 @@ PROCEDURE rates() {
     
     m_tau = m_tauUnscaled  /  m_rateScale ? evaluable
     h_steadyState_x = h_steadyState_rate  / (1 + exp(0 - (v -  h_steadyState_midpoint )/ h_steadyState_scale )) ? evaluable
-    h_timeCourse_t0 = ( h_timeCourse_offset  +  h_timeCourse_rate  / (1 + exp(-(v -  h_timeCourse_midpoint )/ h_timeCourse_scale )))* h_timeCourse_SEC ? evaluable
+    h_timeCourse_t = ( h_timeCourse_offset  +  h_timeCourse_rate  / (1 + exp(-(v -  h_timeCourse_midpoint )/ h_timeCourse_scale )))* h_timeCourse_SEC ? evaluable
     ? DerivedVariable is based on path: q10Settings[*]/q10, on: Component(id=h type=gateHHtauInf), from q10Settings; null
     ? Path not present in component, using factor: 1
     
