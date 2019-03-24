@@ -56,9 +56,7 @@ import time
 
 import hashlib
 h = neuron.h
-h.load_file("stdlib.hoc")
-
-h.load_file("stdgui.hoc")
+h.load_file("nrngui.hoc")
 
 h("objref p")
 h("p = new PythonObject()")
@@ -424,6 +422,34 @@ class NeuronSimulation():
 
         h.steps_per_ms = 1/h.dt
 
+        # ######################   Display: self.display_display_vL
+        self.display_display_vL = h.Graph(0)
+        self.display_display_vL.size(0,h.tstop,-80.0,50.0)
+        self.display_display_vL.view(0, -80.0, h.tstop, 130.0, 80, 330, 330, 250)
+        h.graphList[0].append(self.display_display_vL)
+        # Line, plotting: hn1L_pop[0]/v
+        self.display_display_vL.addexpr("a_hn1L_pop[0].soma.v(0.5)", "a_hn1L_pop[0].soma.v(0.5)", 1, 1, 0.8, 0.9, 2)
+        # Line, plotting: hn2L_pop[0]/v
+        self.display_display_vL.addexpr("a_hn2L_pop[0].soma.v(0.5)", "a_hn2L_pop[0].soma.v(0.5)", 2, 1, 0.8, 0.9, 2)
+        # Line, plotting: hn3L_pop[0]/v
+        self.display_display_vL.addexpr("a_hn3L_pop[0].soma.v(0.5)", "a_hn3L_pop[0].soma.v(0.5)", 3, 1, 0.8, 0.9, 2)
+        # Line, plotting: hn4L_pop[0]/v
+        self.display_display_vL.addexpr("a_hn4L_pop[0].soma.v(0.5)", "a_hn4L_pop[0].soma.v(0.5)", 4, 1, 0.8, 0.9, 2)
+
+        # ######################   Display: self.display_display_vR
+        self.display_display_vR = h.Graph(0)
+        self.display_display_vR.size(0,h.tstop,-80.0,50.0)
+        self.display_display_vR.view(0, -80.0, h.tstop, 130.0, 80, 330, 330, 250)
+        h.graphList[0].append(self.display_display_vR)
+        # Line, plotting: hn1R_pop[0]/v
+        self.display_display_vR.addexpr("a_hn1R_pop[0].soma.v(0.5)", "a_hn1R_pop[0].soma.v(0.5)", 1, 1, 0.8, 0.9, 2)
+        # Line, plotting: hn2R_pop[0]/v
+        self.display_display_vR.addexpr("a_hn2R_pop[0].soma.v(0.5)", "a_hn2R_pop[0].soma.v(0.5)", 2, 1, 0.8, 0.9, 2)
+        # Line, plotting: hn3R_pop[0]/v
+        self.display_display_vR.addexpr("a_hn3R_pop[0].soma.v(0.5)", "a_hn3R_pop[0].soma.v(0.5)", 3, 1, 0.8, 0.9, 2)
+        # Line, plotting: hn4R_pop[0]/v
+        self.display_display_vR.addexpr("a_hn4R_pop[0].soma.v(0.5)", "a_hn4R_pop[0].soma.v(0.5)", 4, 1, 0.8, 0.9, 2)
+
 
 
         # ######################   File to save: time.dat (time)
@@ -436,6 +462,9 @@ class NeuronSimulation():
         self.initialized = False
 
         self.sim_end = -1 # will be overwritten
+
+        h.nrncontrolmenu()
+
 
     def run(self):
 
@@ -483,6 +512,8 @@ class NeuronSimulation():
 
         if self.sim_end < 0: self.sim_end = time.time()
 
+        self.display_display_vL.exec_menu("View = plot")
+        self.display_display_vR.exec_menu("View = plot")
 
         # ######################   File to save: time.dat (time)
         py_v_time = [ t/1000 for t in h.v_time.to_python() ]  # Convert to Python list for speed...
@@ -500,9 +531,6 @@ class NeuronSimulation():
         print("Finished saving results in %f seconds"%(save_time))
 
         print("Done")
-
-        quit()
-
 
 if __name__ == '__main__':
 

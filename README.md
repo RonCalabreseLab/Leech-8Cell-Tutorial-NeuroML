@@ -1,18 +1,79 @@
-# Leech Tutorial NeuroML #
+# Calabrese Lab Leech Tutorial NeuroML Version #
 
-Conversion of Genesis model to NeuroML.
+This is an in-progress conversion of
+the
+[Calabrese Lab 8-cell Leech Tutorial](http://www.biology.emory.edu/research/Calabrese/INTRO/INDEX.HTML) that
+is described in paper
+by
+[Hill et al 2001](http://www.biology.emory.edu/research/Calabrese/papers/Hill%20et%20al%202001%20J%20Compu%20Neuro.pdf)from
+the [Genesis simulator](http://genesis-sim.org/GENESIS) language to
+a [NeuroML model description language](https://www.neuroml.org/home)
+format. The current version of the NeuroML v2 leech tutorial files can
+be found under the folder `NeuroML2`. We aim to export the NeuroML
+model defition targeting
+the [Neuron simulator](https://www.neuron.yale.edu) language for
+running the model.
 
-### Technologies ###
+## Running the model in jNeuroML
 
-* NeuroML v2.0 -> Lookup refs in [Parser.java](https://github.com/LEMS/jLEMS/blob/master/src/main/java/org/lemsml/jlems/core/expression/Parser.java)
-* Neuron
-* JNeuroML
+The model can be run directly
+in [jNeuroML](https://github.com/NeuroML/jNeuroML) simulator v0.8.3
+using one of the [LEMS model defitinion](http://lems.github.io/LEMS/)
+files at the base directory:
 
-## TODO ##
+```bash
+jnml run_4cells_Vm.xml
+```
 
-* Move to Github to be compatible with [OpenSourceBrain](http://opensourcebrain.org)
+This will load the model files under `NeuroML2` and produce the graphs
+defined in the LEMS `.xml` files. See other LEMS files for different
+run scenarios.
 
-### 8-cell Model ###
+## Converting the model in Neuron
 
-* See: [Calabrese Lab website](http://www.biology.emory.edu/research/Calabrese/INTRO/INDEX.HTML)
-* And paper by [Hill et al 2001](http://www.biology.emory.edu/research/Calabrese/papers/Hill%20et%20al%202001%20J%20Compu%20Neuro.pdf)
+LEMS files that define the model and network can be converted to
+Neuron HOC/Python format using:
+
+```bash
+jnml run_4cells_Vm.xml -neuron -outputdir Exports/Neuron-8cell/
+```
+
+Then, you would need to navigate to the output folder
+`Exports/Neuron-8cell/`, and compile the MOD files for Neuron (only
+once after conversion):
+
+```bash
+cd Exports/Neuron-8cell/
+nrnivmodl
+```
+
+You can make multiple exports with different LEMS files. Just make
+sure to use different export folders.
+
+## Running the model in Neuron
+
+Navigate to the desired exports folder and run Neuron (requires Python
+version):
+
+```bash
+nrngui -python run_4cells_Vm_nrn.py
+```
+
+## Status of the model
+
+- Slow synapses (SynS) that include membrane voltage modulation are
+  not implemented because they require custom NeuroML components.
+- Some discrepancies between neuron models exist, which may require
+  fine tuning ion channels.
+
+### Credits
+
+- [Boima Reuben Massaquoi](https://www.linkedin.com/in/b-m-19099/) `<reubmann AT gmail.com>`
+- [John Rose](https://www.linkedin.com/in/john-rose-42007612b/)
+- [Cengiz Gunay](https://www.linkedin.com/in/cengiz-gunay-5010a89/) [cengique @ GitHub](https://github.com/cengique) `<cengique AT users.sf.net>, <cgunay AT ggc.edu>`
+- [Ron Calabrese](http://www.biology.emory.edu/index.cfm?faculty=20)
+
+### Future directions
+
+* Collaborate with [OpenSourceBrain](http://opensourcebrain.org)
+
