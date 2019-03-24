@@ -118,66 +118,66 @@
 
 
 	<projection postsynapticPopulation ="hn3L_pop" presynapticPopulation ="hn1L_pop" synapse ="SynA">
-		<connection preCellId="../hn1L_pop/cell_HN1[0]"  postCellId="../hn3L_pop/cell_HN3,4[0]"/>
+		<connection preCellId="../hn1L_pop[0]"  postCellId="../hn3L_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn4L_pop" presynapticPopulation ="hn1L_pop" synapse ="SynA">
-		<connection preCellId="../hn1L_pop/cell_HN1[0]"  postCellId="../hn4L_pop/cell_HN3,4[0]"/>
+		<connection preCellId="../hn1L_pop[0]"  postCellId="../hn4L_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn3R_pop" presynapticPopulation ="hn1R_pop" synapse ="SynA">
-		<connection preCellId="../hn1R_pop/cell_HN1[0]"  postCellId="../hn3R_pop/cell_HN3,4[0]"/>
+		<connection preCellId="../hn1R_pop[0]"  postCellId="../hn3R_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn4R_pop" presynapticPopulation ="hn1R_pop" synapse ="SynA">
-		<connection preCellId="../hn1R_pop/cell_HN1[0]"  postCellId="../hn4R_pop/cell_HN3,4[0]"/>
+		<connection preCellId="../hn1R_pop[0]"  postCellId="../hn4R_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn3L_pop" presynapticPopulation ="hn2L_pop" synapse ="SynA">
-		<connection preCellId="../hn2L_pop/cell_HN2[0]"  postCellId="../hn3L_pop/cell_HN3,4[0]"/>
+		<connection preCellId="../hn2L_pop[0]"  postCellId="../hn3L_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn4L_pop" presynapticPopulation ="hn2L_pop" synapse ="SynA">
-		<connection preCellId="../hn2L_pop/cell_HN2[0]"  postCellId="../hn4L_pop/cell_HN3,4[0]"/>
+		<connection preCellId="../hn2L_pop[0]"  postCellId="../hn4L_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn3R_pop" presynapticPopulation ="hn2R_pop" synapse ="SynA">
-		<connection preCellId="../hn2R_pop/cell_HN2[0]"  postCellId="../hn3R_pop/cell_HN3,4[0]"/>
+		<connection preCellId="../hn2R_pop[0]"  postCellId="../hn3R_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn4R_pop" presynapticPopulation ="hn2R_pop" synapse ="SynA">
-		<connection preCellId="../hn2R_pop/cell_HN2[0]"  postCellId="../hn4R_pop/cell_HN3,4[0]"/>
+		<connection preCellId="../hn2R_pop[0]"  postCellId="../hn4R_pop[0]"/>
 	</projection>
 	
 	
 	<projection postsynapticPopulation ="hn1L_pop" presynapticPopulation ="hn3L_pop" synapse ="SynB">
-		<connection preCellId="../hn3L_pop/cell_HN3,4[0]"  postCellId="../hn1L_pop/cell_HN1[0]"/>
+		<connection preCellId="../hn3L_pop[0]"  postCellId="../hn1L_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn2L_pop" presynapticPopulation ="hn3L_pop" synapse ="SynB">
-		<connection preCellId="../hn3L_pop/cell_HN3,4[0]"  postCellId="../hn2L_pop/cell_HN2[0]"/>
+		<connection preCellId="../hn3L_pop[0]"  postCellId="../hn2L_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn1R_pop" presynapticPopulation ="hn3R_pop" synapse ="SynB">
-		<connection preCellId="../hn3R_pop/cell_HN3,4[0]"  postCellId="../hn1R_pop/cell_HN1[0]"/>
+		<connection preCellId="../hn3R_pop[0]"  postCellId="../hn1R_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn2R_pop" presynapticPopulation ="hn3R_pop" synapse ="SynB">
-		<connection preCellId="../hn3R_pop/cell_HN3,4[0]"  postCellId="../hn2R_pop/cell_HN2[0]"/>
+		<connection preCellId="../hn3R_pop[0]"  postCellId="../hn2R_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn1L_pop" presynapticPopulation ="hn4L_pop" synapse ="SynB">
-		<connection preCellId="../hn4L_pop/cell_HN3,4[0]"  postCellId="../hn1L_pop/cell_HN1[0]"/>	
+		<connection preCellId="../hn4L_pop[0]"  postCellId="../hn1L_pop[0]"/>	
 	</projection>
 	<projection postsynapticPopulation ="hn2L_pop" presynapticPopulation ="hn4L_pop" synapse ="SynB">
-		<connection preCellId="../hn4L_pop/cell_HN3,4[0]"  postCellId="../hn2L_pop/cell_HN2[0]"/>
+		<connection preCellId="../hn4L_pop[0]"  postCellId="../hn2L_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn1R_pop" presynapticPopulation ="hn4R_pop" synapse ="SynB">
-		<connection preCellId="../hn4R_pop/cell_HN3,4[0]"  postCellId="../hn1R_pop/cell_HN1[0]"/>
+		<connection preCellId="../hn4R_pop[0]"  postCellId="../hn1R_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn2R_pop" presynapticPopulation ="hn4R_pop" synapse ="SynB">
-		<connection preCellId="../hn4R_pop/cell_HN3,4[0]"  postCellId="../hn2R_pop/cell_HN2[0]"/>
+		<connection preCellId="../hn4R_pop[0]"  postCellId="../hn2R_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn3R_pop" presynapticPopulation ="hn3L_pop" synapse ="SynC">
-		<connection preCellId="../hn3L_pop/cell_HN3,4[0]"   postCellId="../hn3R_pop/cell_HN3,4[0]"/>
+		<connection preCellId="../hn3L_pop[0]"   postCellId="../hn3R_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn3L_pop" presynapticPopulation ="hn3R_pop" synapse ="SynC">
-		<connection preCellId="../hn3R_pop/cell_HN3,4[0]"   postCellId="../hn3L_pop/cell_HN3,4[0]"/>
+		<connection preCellId="../hn3R_pop[0]"   postCellId="../hn3L_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn4R_pop" presynapticPopulation ="hn4L_pop" synapse ="SynC">
-		<connection preCellId="../hn4L_pop/cell_HN3,4[0]"   postCellId="../hn4R_pop/cell_HN3,4[0]"/>
+		<connection preCellId="../hn4L_pop[0]"   postCellId="../hn4R_pop[0]"/>
 	</projection>
 	<projection postsynapticPopulation ="hn4L_pop" presynapticPopulation ="hn4R_pop" synapse ="SynC">
-		<connection preCellId="../hn4R_pop/cell_HN3,4[0]"   postCellId="../hn4L_pop/cell_HN3,4[0]"/>
+		<connection preCellId="../hn4R_pop[0]"   postCellId="../hn4L_pop[0]"/>
 	</projection>
 
 	</network>
