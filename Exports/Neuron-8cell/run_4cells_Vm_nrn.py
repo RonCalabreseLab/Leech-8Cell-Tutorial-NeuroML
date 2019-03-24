@@ -170,12 +170,12 @@ class NeuronSimulation():
         # ######################   Population: hn3L_pop
         print("Population hn3L_pop contains 1 instance(s) of component: cell_HN3,4 of type: cell")
 
-        h.load_file("cell_HN3,4.hoc")
+        h.load_file("cell_HN34.hoc")
         a_hn3L_pop = []
         h("{ n_hn3L_pop = 1 }")
         h("objectvar a_hn3L_pop[n_hn3L_pop]")
         for i in range(int(h.n_hn3L_pop)):
-            h("a_hn3L_pop[%i] = new cell_HN3,4()"%i)
+            h("a_hn3L_pop[%i] = new cell_HN34()"%i)
             h("access a_hn3L_pop[%i].soma"%i)
 
             self.next_global_id+=1
@@ -190,14 +190,14 @@ class NeuronSimulation():
         h('{fih_ion_hn3L_pop = new FInitializeHandler(1, "initialiseIons_hn3L_pop()")}')
 
         # ######################   Population: hn3R_pop
-        print("Population hn3R_pop contains 1 instance(s) of component: cell_HN3,4 of type: cell")
+        print("Population hn3R_pop contains 1 instance(s) of component: cell_HN34 of type: cell")
 
-        h.load_file("cell_HN3,4.hoc")
+        h.load_file("cell_HN34.hoc")
         a_hn3R_pop = []
         h("{ n_hn3R_pop = 1 }")
         h("objectvar a_hn3R_pop[n_hn3R_pop]")
         for i in range(int(h.n_hn3R_pop)):
-            h("a_hn3R_pop[%i] = new cell_HN3,4()"%i)
+            h("a_hn3R_pop[%i] = new cell_HN34()"%i)
             h("access a_hn3R_pop[%i].soma"%i)
 
             self.next_global_id+=1
@@ -212,14 +212,14 @@ class NeuronSimulation():
         h('{fih_ion_hn3R_pop = new FInitializeHandler(1, "initialiseIons_hn3R_pop()")}')
 
         # ######################   Population: hn4L_pop
-        print("Population hn4L_pop contains 1 instance(s) of component: cell_HN3,4 of type: cell")
+        print("Population hn4L_pop contains 1 instance(s) of component: cell_HN34 of type: cell")
 
-        h.load_file("cell_HN3,4.hoc")
+        h.load_file("cell_HN34.hoc")
         a_hn4L_pop = []
         h("{ n_hn4L_pop = 1 }")
         h("objectvar a_hn4L_pop[n_hn4L_pop]")
         for i in range(int(h.n_hn4L_pop)):
-            h("a_hn4L_pop[%i] = new cell_HN3,4()"%i)
+            h("a_hn4L_pop[%i] = new cell_HN34()"%i)
             h("access a_hn4L_pop[%i].soma"%i)
 
             self.next_global_id+=1
@@ -234,14 +234,14 @@ class NeuronSimulation():
         h('{fih_ion_hn4L_pop = new FInitializeHandler(1, "initialiseIons_hn4L_pop()")}')
 
         # ######################   Population: hn4R_pop
-        print("Population hn4R_pop contains 1 instance(s) of component: cell_HN3,4 of type: cell")
+        print("Population hn4R_pop contains 1 instance(s) of component: cell_HN34 of type: cell")
 
-        h.load_file("cell_HN3,4.hoc")
+        h.load_file("cell_HN34.hoc")
         a_hn4R_pop = []
         h("{ n_hn4R_pop = 1 }")
         h("objectvar a_hn4R_pop[n_hn4R_pop]")
         for i in range(int(h.n_hn4R_pop)):
-            h("a_hn4R_pop[%i] = new cell_HN3,4()"%i)
+            h("a_hn4R_pop[%i] = new cell_HN34()"%i)
             h("access a_hn4R_pop[%i].soma"%i)
 
             self.next_global_id+=1

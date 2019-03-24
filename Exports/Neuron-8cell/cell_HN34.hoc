@@ -1,7 +1,7 @@
-// Cell: cell_HN3,4
+// Cell: cell_HN34
 /*
 {
-  "id" : "cell_HN3,4",
+  "id" : "cell_HN34",
   "sections" : [ {
     "name" : "soma",
     "id" : "0",
@@ -103,7 +103,7 @@
 
 load_file("subiter.hoc")
 
-begintemplate cell_HN3,4
+begintemplate cell_HN34
 
 public init, topol, basic_shape, subsets, geom, memb
 public x, y, z, position
@@ -267,6 +267,6 @@ proc position() { local i
 }
 
 
-endtemplate cell_HN3,4
+endtemplate cell_HN34
 
 
