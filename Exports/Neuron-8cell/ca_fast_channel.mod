@@ -62,7 +62,6 @@ NEURON {
     
     RANGE h_timeCourse_t                    : exposure
     RANGE m_timeCourse_v_cosh               : derived variable
-    RANGE m_timeCourse_t0                   : derived variable
     RANGE m_tauUnscaled                     : derived variable
     RANGE h_timeCourse_t0                   : derived variable
     RANGE h_tauUnscaled                     : derived variable
@@ -127,7 +126,7 @@ ASSIGNED {
     
     m_timeCourse_v_cosh                    : derived variable
     
-    m_timeCourse_t0 : no units???          : derived variable
+    m_timeCourse_t : no units???           : derived variable
     
     m_rateScale                            : derived variable
     
@@ -217,7 +216,7 @@ PROCEDURE rates() {
     
     m_steadyState_x = m_steadyState_rate  / (1 + exp(0 - (v -  m_steadyState_midpoint )/ m_steadyState_scale )) ? evaluable
     m_timeCourse_v_cosh = -(v -  m_timeCourse_midpoint )/ m_timeCourse_scale ? evaluable
-    m_timeCourse_t0 = m_timeCourse_offset  +  m_timeCourse_rate  / ((exp( m_timeCourse_v_cosh ) + exp(0 -  m_timeCourse_v_cosh ))/ 2) ? evaluable
+    m_timeCourse_t = m_timeCourse_offset  +  m_timeCourse_rate  / ((exp( m_timeCourse_v_cosh ) + exp(0 -  m_timeCourse_v_cosh ))/ 2) ? evaluable
     ? DerivedVariable is based on path: q10Settings[*]/q10, on: Component(id=m type=gateHHtauInf), from q10Settings; null
     ? Path not present in component, using factor: 1
     
@@ -228,7 +227,7 @@ PROCEDURE rates() {
     m_inf = m_steadyState_x ? path based, prefix = m_
     
     ? DerivedVariable is based on path: timeCourse/t, on: Component(id=m type=gateHHtauInf), from timeCourse; Component(id=null type=tauMCaF)
-    m_tauUnscaled = m_timeCourse_t0 ? path based, prefix = m_
+    m_tauUnscaled = m_timeCourse_t ? path based, prefix = m_
     
     m_tau = m_tauUnscaled  /  m_rateScale ? evaluable
     h_steadyState_x = h_steadyState_rate  / (1 + exp(0 - (v -  h_steadyState_midpoint )/ h_steadyState_scale )) ? evaluable
@@ -243,7 +242,7 @@ PROCEDURE rates() {
     h_inf = h_steadyState_x ? path based, prefix = h_
     
     ? DerivedVariable is based on path: timeCourse/t, on: Component(id=h type=gateHHtauInf), from timeCourse; Component(id=null type=sigmoidOffsetTimeCourse)
-    h_tauUnscaled = h_timeCourse_t0 ? path based, prefix = h_
+    h_tauUnscaled = h_timeCourse_t ? path based, prefix = h_
     
     h_tau = h_tauUnscaled  /  h_rateScale ? evaluable
     
