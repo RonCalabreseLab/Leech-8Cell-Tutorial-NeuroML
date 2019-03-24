@@ -9,7 +9,7 @@
 
 	<include href="cell.1.nml"/>
 	<include href="cell.2.nml"/>
-	<include href="cell.3,4.nml"/>
+	<include href="cell.34.nml"/>
 
 	<pulseGenerator id="pulse_gen_hn1L" delay="50ms" duration="0ms" amplitude="0pA"/>
 	<!--pulseGenerator id="pulse_gen_hn4L" delay="50ms" duration="500ms" amplitude="0pA"/-->
@@ -111,10 +111,10 @@
 		<population  id="hn1R_pop" component="cell_HN1" size="1"/>
 		<population  id="hn2L_pop" component="cell_HN2" size="1"/>
 		<population  id="hn2R_pop" component="cell_HN2" size="1"/>
-		<population  id="hn3L_pop" component="cell_HN3,4" size="1"/>
-		<population  id="hn3R_pop" component="cell_HN3,4" size="1"/>
-		<population  id="hn4L_pop" component="cell_HN3,4" size="1"/>
-		<population  id="hn4R_pop" component="cell_HN3,4" size="1"/>
+		<population  id="hn3L_pop" component="cell_HN34" size="1"/>
+		<population  id="hn3R_pop" component="cell_HN34" size="1"/>
+		<population  id="hn4L_pop" component="cell_HN34" size="1"/>
+		<population  id="hn4R_pop" component="cell_HN34" size="1"/>
 
 
 	<projection postsynapticPopulation ="hn3L_pop" presynapticPopulation ="hn1L_pop" synapse ="SynA">

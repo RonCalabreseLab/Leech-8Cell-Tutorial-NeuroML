@@ -2,7 +2,7 @@
 <neuroml xmlns="http://www.neuroml.org/schema/neuroml2"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta4.xsd"
-	id="cell_HN3,4">
+	id="cell_HN34">
     <include href="passive.channel.nml"/>
 	<include href="na.channel.nml"/>
 	<include href="k1.channel.nml"/>
@@ -14,8 +14,8 @@
 	<include href="p.channel.nml"/>
 	<include href="k.fast.channel.nml"/>
 	
-	<cell id="cell_HN3,4">
-        <morphology id="morph_HN3,4">
+	<cell id="cell_HN34">
+        <morphology id="morph_HN34">
             <segment id="0" name="soma">
                 <proximal x="0" y="0" z="0" diameter="126.15663"/> <!--Gives a convenient surface area of 1000.0 um^2-->
                 <distal x="126.15663" y="0" z="0" diameter="126.15663"/>
@@ -27,7 +27,7 @@
 
         </morphology>
 
-        <biophysicalProperties id="bio_phys_HN3,4">
+        <biophysicalProperties id="bio_phys_HN34">
 
             <membraneProperties>
 

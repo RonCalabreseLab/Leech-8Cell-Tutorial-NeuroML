@@ -14,7 +14,7 @@ Components:
     ca_slow_channel (Type: ionChannelHH:  conductance=1.0000000000000001E-7 (SI conductance))
     p_channel (Type: ionChannelHH:  conductance=1.0000000000000001E-7 (SI conductance))
     k_fast_channel (Type: ionChannelHH:  conductance=1.0000000000000001E-7 (SI conductance))
-    cell_HN3,4 (Type: cell)
+    cell_HN34 (Type: cell)
     pulse_gen_hn1L (Type: pulseGenerator:  delay=0.05 (SI time) duration=0.0 (SI time) amplitude=0.0 (SI current))
     SynA (Type: expTwoSynapse:  tauRise=0.009000000000000001 (SI time) tauDecay=0.55 (SI time) peakTime=0.037630007059901986 (SI time) waveformFactor=1.088626918162898 (dimensionless) gbase=6.000000000000001E-9 (SI conductance) erev=-0.0625 (SI voltage))
     SynB (Type: expTwoSynapse:  tauRise=0.002 (SI time) tauDecay=0.01 (SI time) peakTime=0.00402359478108525 (SI time) waveformFactor=1.8691859765265255 (dimensionless) gbase=7.900000000000001E-9 (SI conductance) erev=-0.0625 (SI voltage))
@@ -168,7 +168,7 @@ class NeuronSimulation():
         h('{fih_ion_hn2R_pop = new FInitializeHandler(1, "initialiseIons_hn2R_pop()")}')
 
         # ######################   Population: hn3L_pop
-        print("Population hn3L_pop contains 1 instance(s) of component: cell_HN3,4 of type: cell")
+        print("Population hn3L_pop contains 1 instance(s) of component: cell_HN34 of type: cell")
 
         h.load_file("cell_HN34.hoc")
         a_hn3L_pop = []
