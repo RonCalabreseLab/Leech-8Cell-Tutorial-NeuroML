@@ -122,7 +122,7 @@ Parameters for time course (τ):
         	<DerivedVariable name="v_cosh"  value="((v + midpoint)/scale)" dimension="none"/>
         	<DerivedVariable name="tau_hNa"  value="0.004 + (0.006 /( 1 + exp(500 * ((v/VOLT) + 0.028)))) + (0.01 / ((exp(v_cosh) + exp(0 - v_cosh)) / 2))" dimension = "none"/>
         	
-        	<DerivedVariable name="t0" exposure="t" value="tau_hNa * SEC" dimension = "time"/>
+        	<DerivedVariable name="t" exposure="t" value="tau_hNa * SEC" dimension = "time"/>
         </Dynamics>
 
 	</ComponentType>
