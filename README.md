@@ -68,10 +68,14 @@ nrngui -python run_4cells_Vm_nrn.py
 
 ### Credits
 
-- [Boima Reuben Massaquoi](https://www.linkedin.com/in/b-m-19099/) `<reubmann AT gmail.com>`
-- [John Rose](https://www.linkedin.com/in/john-rose-42007612b/)
-- [Cengiz Gunay](https://www.linkedin.com/in/cengiz-gunay-5010a89/) [cengique @ GitHub](https://github.com/cengique) `<cengique AT users.sf.net>, <cgunay AT ggc.edu>`
-- [Ron Calabrese](http://www.biology.emory.edu/index.cfm?faculty=20)
+- [Boima Reuben Massaquoi](https://www.linkedin.com/in/b-m-19099/), `<reubmann AT gmail.com>` - Functional NeuroML version, synapses
+- [John Rose](https://www.linkedin.com/in/john-rose-42007612b/) - Initial NeuroML code with ion channels
+- [Cengiz Gunay](https://www.linkedin.com/in/cengiz-gunay-5010a89/), [cengique @ GitHub](https://github.com/cengique), `<cengique AT users.sf.net>, <cgunay AT ggc.edu>` - Project lead and technical support, some bugfixes, and documentation
+- [Ron Calabrese](http://www.biology.emory.edu/index.cfm?faculty=20) - Principal investigator and original Leech Tutorial author
+- Special thanks
+  to [Padraig Gleeson](http://www.opensourcebrain.org/users/4) for
+  help with NeuroML, recommendations, and fixing several bugs
+
 
 ### Future directions
 
