@@ -29,7 +29,7 @@ This will allow the tutorial to find the support files it needs.
 The tutorial has introductory material and help contained within it.  You should
 not need to access any of the material contained in the "tutorial", "intro",
 or "model" directories directly--they merely contain support files for the
-tutorial.
+tutorial. There is also an [online guide for the tutorial](http://www.biology.emory.edu/research/Calabrese/INTRO/INDEX.HTML).
 
 ## Notes
 

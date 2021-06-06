@@ -5,12 +5,10 @@ This is an in-progress conversion of the
 is described in paper by
 [Hill et al 2001](http://www.biology.emory.edu/research/Calabrese/papers/Hill%20et%20al%202001%20J%20Compu%20Neuro.pdf) from the [Genesis simulator](http://genesis-sim.org/GENESIS) language to
 a [NeuroML model description language](https://www.neuroml.org/home)
-format. The original Genesis scripts can be found in the [genesis-scripts](genesis-scripts/) folder. 
+format. The original Genesis scripts can be found in the [`genesis-scripts`](genesis-scripts/) folder. 
 The current version of the NeuroML v2 leech tutorial files can
-be found under the folder `NeuroML2`. We aim to export the NeuroML
-model defition targeting
-the [Neuron simulator](https://www.neuron.yale.edu) language for
-running the model.
+be found under the [`NeuroML2`](NeuroML2/) folder. The current NeuroML
+model can be exported to the [Neuron simulator](https://www.neuron.yale.edu) language and simulated.
 
 ## Running the model in jNeuroML
 
