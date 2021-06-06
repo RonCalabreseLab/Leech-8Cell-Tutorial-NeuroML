@@ -1,11 +1,12 @@
-# Calabrese Lab Leech Tutorial NeuroML Version #
+# Calabrese Lab Leech Tutorial, NeuroML Version #
 
 This is an in-progress conversion of the
 [Calabrese Lab 8-cell Leech Tutorial](http://www.biology.emory.edu/research/Calabrese/INTRO/INDEX.HTML) that
 is described in paper by
 [Hill et al 2001](http://www.biology.emory.edu/research/Calabrese/papers/Hill%20et%20al%202001%20J%20Compu%20Neuro.pdf) from the [Genesis simulator](http://genesis-sim.org/GENESIS) language to
 a [NeuroML model description language](https://www.neuroml.org/home)
-format. The current version of the NeuroML v2 leech tutorial files can
+format. The original Genesis scripts can be found in the [genesis-scripts](genesis-scripts/) folder. 
+The current version of the NeuroML v2 leech tutorial files can
 be found under the folder `NeuroML2`. We aim to export the NeuroML
 model defition targeting
 the [Neuron simulator](https://www.neuron.yale.edu) language for
@@ -68,13 +69,19 @@ nrngui -python run_4cells_Vm_nrn.py
 - [Boima Reuben Massaquoi](https://www.linkedin.com/in/b-m-19099/), `<reubmann AT gmail.com>` - Functional NeuroML version, synapses
 - [John Rose](https://www.linkedin.com/in/john-rose-42007612b/) - Initial NeuroML code with ion channels
 - [Cengiz Gunay](https://www.linkedin.com/in/cengiz-gunay-5010a89/), [cengique @ GitHub](https://github.com/cengique), `<cengique AT users.sf.net>, <cgunay AT ggc.edu>` - Project lead and technical support, some bugfixes, and documentation
-- [Ron Calabrese](http://www.biology.emory.edu/index.cfm?faculty=20) - Principal investigator and original Leech Tutorial author
+- [Ron Calabrese](http://www.biology.emory.edu/index.cfm?faculty=20) - Principal investigator and one of original Leech Tutorial authors
 - Special thanks
   to [Padraig Gleeson](http://www.opensourcebrain.org/users/4) for
-  help with NeuroML, recommendations, and fixing several bugs
+  help with NeuroML, recommendations, and fixing several bugs; and
+  to [Ankur Singha](https://www.opensourcebrain.org/users/434) for
+  help with documentation and NeuroFedora; and the [International Neuroinformatics Coordinating Facility (INCF)](https://summerofcode.withgoogle.com) organization for hosting our project.
 
 
 ### Future directions
 
+* Participating in the
+  2021 [Google Summer of Code (GSoC)](https://summerofcode.withgoogle.com)
+  with project
+  [Re-creating the Leech Heartbeat Network Model Tutorial using the Neuron Simulator in Python and NeuroML](https://summerofcode.withgoogle.com/projects/#6589927334084608) under the [International Neuroinformatics Coordinating Facility (INCF)](https://summerofcode.withgoogle.com) organization.
 * Collaborate with [OpenSourceBrain](http://opensourcebrain.org)
 
