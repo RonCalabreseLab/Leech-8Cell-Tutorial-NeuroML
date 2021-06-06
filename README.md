@@ -1,12 +1,9 @@
 # Calabrese Lab Leech Tutorial NeuroML Version #
 
-This is an in-progress conversion of
-the
+This is an in-progress conversion of the
 [Calabrese Lab 8-cell Leech Tutorial](http://www.biology.emory.edu/research/Calabrese/INTRO/INDEX.HTML) that
-is described in paper
-by
-[Hill et al 2001](http://www.biology.emory.edu/research/Calabrese/papers/Hill%20et%20al%202001%20J%20Compu%20Neuro.pdf)from
-the [Genesis simulator](http://genesis-sim.org/GENESIS) language to
+is described in paper by
+[Hill et al 2001](http://www.biology.emory.edu/research/Calabrese/papers/Hill%20et%20al%202001%20J%20Compu%20Neuro.pdf) from the [Genesis simulator](http://genesis-sim.org/GENESIS) language to
 a [NeuroML model description language](https://www.neuroml.org/home)
 format. The current version of the NeuroML v2 leech tutorial files can
 be found under the folder `NeuroML2`. We aim to export the NeuroML
