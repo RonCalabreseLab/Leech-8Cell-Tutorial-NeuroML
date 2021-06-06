@@ -1,0 +1,174 @@
+------------------------------------------------------------------------------
+
+       LEECH HEART INTERNEURON 8-CELL TUTORIAL HELP
+       Andrew Hill, Steve Van Hooser, Ron Calabrese
+
+------------------------------------------------------------------------------
+
+This tutorial allows one to study a network model of the
+leech heart interneuron by Andrew Hill and Ron Calabrese.
+
+Note:  This help describes how to run the model, perform
+experiments, and view the results.  For a general
+introduction to the leech heart interneuron circuit or
+a technical description of the model, please see the
+"Introduction".  For help using one of the specific 
+experiment tools, use the "Help" button on its window.
+
+------------------------------------------------------------------------------
+
+TABLE OF CONTENTS:
+
+(1).  Viewing the introductory material
+
+(2).  Showing, hiding, and viewing graphs
+
+(3).  Experiments
+
+(4).  Running the model and setting initial conditions
+
+------------------------------------------------------------------------------
+
+(1).  VIEWING THE INTRODUCTORY MATERIAL
+
+The "Introduction" is an HTML document which can be viewed
+in a web browser.  Clicking on the introduction button
+brings up a small window with a text field that says:
+"netscape <filename>", where <filename> is the name of the
+introduction document.  If you use a different web browser,
+simply change the name from "netscape" to the name of your
+browser.  If you do not have an web browser at all, please
+see the Calabrese lab FTP site for a postscript version of
+the introduction.  Use username "anonymous" and get the file
+pub/tutorials/intro.ps on calabreselx.biology.emory.edu.
+
+------------------------------------------------------------------------------
+
+(2).  SHOWING, HIDING, and VIEWING GRAPHS
+
+There are six windows containing graphs of the activity
+of the network which can be alternatively shown and hidden.
+Two contain membrane voltage traces, and four contain
+current traces for the various currents in HN cell 4L
+(this cell was arbitrarily chosen).
+
+To show the membrane voltage for all of the left or right
+cells, click "Show Left Vm's" or "Show Right Vm's".  A
+window will pop up with the appropriate voltage traces,
+and the button will change its name to
+"Hide <Left/Right> Vm's".  Clicking on "Hide..." will
+hide the window.
+
+To show the ionic current flowing in HN cell 4L, click
+on either "Show 4L INa, IK" or "Show 4L Ih, ICa, IP".
+The former shows the fast sodium current and the three
+potassium currents, and the later shows the current
+activated by hyperpolarization, the fast and slow calcium
+currents, and the persistent sodium current.  Clicking on
+the button again will hide the window, just like the
+membrane voltage windows above.
+
+To show the synaptic current flowing into cell 4L, click
+on either "Show 4R->4L currents" or "Show 1,2L->4L currents".
+These show the synaptic currents to cell 4L from cell 4R or
+from cells 1,2L, respectively.  Clicking on the button again
+will hide the window, just like the above windows.
+
+All of the graphs have several features in common.  First,
+all graphs have a "scale" button which can be used to
+change the minimum and maximum values for the x- and y-axes.
+Second, there is a button on the top of the set of graphs
+labeled "Autoscale", which will automatically adjust the 
+time axes to run from time 0 to until the end of the
+currently-running simulation (as determined by the value
+in the "Time (sec)" field).  Finally, one can adjust the
+scale of an axis graphically by clicking on the maximal or
+minimal label, holding down, and dragging to a new value.
+For example, to change the voltage axis to be from (0..-0.060)
+to (0..-0.030), simply click on the label "-0.060", drag
+until hitting the value -0.030 on the axis, and release.
+The graph will redraw with the new scale.  To change it back,
+simply grab onto the "-0.030" label, and drag off the graph
+until hitting -0.060 and release.
+
+------------------------------------------------------------------------------
+
+(3).  EXPERIMENTS
+
+At present, one can perform three manipulations on the
+model.  First, one may change its parameters using the
+"Parameter Editor"--simply click on the button to use
+it.  The Parameter Editor has its own help feature, so
+look there for detailed information on using the editor.
+
+Second, one may inject current into any of the cells by
+clicking on the "Current Injection" button and adjusting
+the value for each cell.  Remember that the units are in
+Amps, and that typical current injections for neurons are
+in the tenths of a nano-Amp range.  To inject 0.1e-9 into 
+the HN cell 4L, simply edit the text field next to "cell_4L"
+to read 0.1e-9, and then either press return or click on
+the label "cell_4L".
+
+Finally, one may disable cells and synapses.  While in
+principle one may set the synaptic weights of any cell in
+which one is not interested to zero to remove its
+contribution, one can save time by not computing the
+activity of that cell at all.  The "Disable Cells and
+Synapses" tool allows one to "disable" these cells so they
+are not updated in the simulation.  Further, it is common
+to set the value of a synaptic weight to zero and then return
+it to its original value.  One can do this by entering the
+specific values in the "Parameter Editor", but a feature
+to do this more quickly has been added in the "Disable
+Cells and Synapses" tool.  See that tool's help button for
+more information.  Special note:  If you disable a cell,
+be sure to disable the synapses leading away from the cell
+because otherwise the disabled cell will continue to output
+the same synaptic current it did the instant it was disabled.
+
+------------------------------------------------------------------------------
+
+(4).  RUNNING THE MODEL AND SETTING INITIAL CONDITIONS
+
+To run the model, simply specify how long the simulation
+should last in the "Time" field and then click "Run".  
+Clicking "Stop" during a simulation will stop the simulation.
+Clicking "Reset" will reset the simulation clock and return
+the values of the simulation components to the original initial
+values.  (Note that this leaves the parameters of the model
+untouched, but returns variables such as the current flowing
+into the cell and the membrane voltage to their original initial
+values.)  Clicking "Exit Tutorial" will quit the program and
+GENESIS.
+
+The "Kick" button and the "Initial Cond" button allow the
+initial conditions to be adjusted for different model
+parameters.  This is important for two reasons:  first,
+it is possible to start two cells which normally fire out
+of phase in exactly the same state, and, since this is a 
+computer simulation without noise, the model doesn't start
+oscillating.  Second, even if the cells are started at
+slightly different values, it may take a long time before
+the cells settle into their oscillation pattern.
+
+The "Kick" command solves both of these problems--it briefly
+injects negative current into all of the cells to quiet
+them, and then releases one group of cells which fire
+together in the animal.  It runs, in total, for 0.4 sec, and
+restores any previous injection value when it is finished.
+
+If one is using a set of parameters that take a long time
+to settle down, one may want to let the system settle down
+one time and then save the state of the network for later
+restoration.  Pressing "Initial Cond" exposes a hidden set
+of buttons that allow the user to do just this.  Simply type
+the name of a file to save and either press return or click
+the label of the text edit box.  To restore a set of
+conditions that were saved, enter the name in the "Restore"
+text box and either press return or click the text box label.
+To restore the default initial condition, simply click the
+button with that label.  Clicking "Initial Cond" again will
+hide the buttons from the user.
+
+------------------------------------------------------------------------------

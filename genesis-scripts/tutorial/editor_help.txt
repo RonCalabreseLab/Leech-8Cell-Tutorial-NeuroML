@@ -1,0 +1,189 @@
+------------------------------------------------------------------------------
+
+       LEECH HEART INTERNEURON 8-CELL MODEL PARAMETER EDITOR
+            Andrew Hill, Steve Van Hooser, Ron Calabrese
+
+------------------------------------------------------------------------------
+
+The model editor allows one to edit the conductances of ionic
+channels in the individual cells of the model and to edit the
+strength of the synaptic connections between the cells.  One
+can save these settings to a file, restore settings from a
+previously saved file, or restore the original settings used
+by Andrew Hill in his paper.
+
+Note:  This help describes how to edit the parameters of the
+model.  For a general introduction to the leech heart
+interneuron circuit or a technical description of the model,
+please see the "Introduction".  For help running the model
+or displaying graphs, see "Help" in the "Windows:" section of
+the window titled "Leech Heart Interneuron 8-Cell Model".
+
+------------------------------------------------------------------------------
+
+TABLE OF CONTENTS:
+
+(1).  Understanding the network schematic
+
+(2).  Editing the ionic conductances of a cell
+
+(3).  Editing the strengths of the synaptic connections
+
+(4).  Saving and restoring parameters
+
+------------------------------------------------------------------------------
+
+(1).  UNDERSTANDING THE NETWORK SCHEMATIC
+
+The model simulates four bilateral pairs of inhibitory
+neurons in the first four ganglia (G1-G4) in the medicinal
+leech.  The heart interneuron cells are labeled according
+to the ganglion and the side of the animal in which it
+resides.  Thus, HN4L is the cell on the left in ganglion 4.
+The cell pairs in ganglia 3 and 4 oscillate out of phase,
+while the cells in ganglia 1 and 2 fire out of phase with
+the G3 and G4 cells on the same lateral side.
+
+  -----------------------------------------------------
+  |          ___________________________________      | 
+  |   G1:    |    HN1L(+)            HN1R(-)   |      | 
+  |          -----------------|-----------------      |
+  |                           |                       |
+  |          _________________|_________________      |
+  |   G2:    |    HN2L(+)            HN2R(-)   |      |
+  |          -----------------|-----------------      | 
+  |                           |                       |
+  |          _________________|_________________      |
+  |   G3:    |    HN3L(-)            HN3R(+)   |      |
+  |          -----------------|-----------------      |
+  |                           |                       |
+  |          _________________|_________________      |
+  |   G4:    |    HN4L(-)            HN4R(+)   |      |
+  |          -----------------------------------      |
+  |                                                   |
+  |    The HN cells in the first four ganglia in      |
+  |    the leech. +/- indicate phase relationships.   |
+  |        (Synaptic connections not shown.)          |
+  -----------------------------------------------------
+        
+The bilateral pairs in G3 and G4 are reciprocally
+inhibitory.  The connections between the cell pairs in the
+animal and in the model include both spike-mediated
+synapses and graded synapses.  In the model editor
+schematic, each line between the pairs represents both the
+spike-mediated _and_ graded connections between the cells,
+with a dot indicating the post-synaptic cell.  The cells
+themselves are represented by a filled circle.
+
+The cell pairs in G1 and G2 are not reciprocally inhibitory.
+Each HN neuron in G1 and G2 makes reciprocally inhibitory
+connections with the G3 and G4 neuron on the same side of
+the animal.  For example, HN1L has reciprocally inhibitory
+connections with HN3L and HN4L.  (In the animal, these
+connections probably include both spike-mediated and graded
+synapses, but only the spike-mediated contribution is
+modeled.)  These synapses are not made close to the cell
+bodies of the cells in G1 or G2, but rather on distal
+processes of these cells located in G3 and G4.  As is typical
+in the literature, a square is drawn between G3 and G4 to
+represent these processes.  Since the HN1's and HN2's on
+identical sides fire in phase, and since they both make
+reciprocal connections between the same cells in G3 and G4
+on the same side, we do not draw one square for each cell
+but instead draw one square for each side.  Thus, we draw
+one square to represent HN1L and HN2L, and another to
+represent HN1R and HN2R.  In addition, we draw one line
+to represent the connection from both HN1 and HN2 cells
+to the post-synaptic G3 or G4 cell. 
+ 
+------------------------------------------------------------------------------
+
+(2).  EDITING THE IONIC CONDUCTANCES OF A CELL
+
+To edit the ionic conductances of an HN3 or HN4 cell,
+simply click on the circle representing the cell.  To
+edit the ionic conductances of an HN1 or HN2 cell, click
+on the square representing its processes--clicking on a
+square will bring up a window for each of the two cells
+the square represents.
+
+In the cell window, the original values for the
+conductances used in Andrew Hill's paper are given in
+parentheses for reference.  Note: One needs to hit return
+or click the field label to register the entry of a new
+value.
+
+Example:
+
+To change the value of the h current in HN3R to 1e-9,
+click on the filled circle labeled HN3R to bring up the
+window of conductances, click on the text field labeled
+"h", and change the value to 1e-9.  Click the "h" label
+or hit return to register the changes.
+
+------------------------------------------------------------------------------
+
+(3).  EDITING THE STRENGTHS OF THE SYNAPTIC CONNECTIONS
+
+To edit the strengths of the synaptic connections
+between cells, click on the "Show Weights" button in
+the editor window.  An editable text field containing
+the current value of the weight for each connection
+will appear.  Recall that in the schematic, each line
+represents two synaptic connections-- a spike-mediated
+synapse and a graded synapse in the case of the G3 and
+G4 reciprocal connections or an HN1 and HN2 to HN3 or
+HN4 connection in the case of the G1,2 to G3 or G4
+reciprocal connections.  Thus, two text fields will
+appear for each line drawn on the schematic.  To make
+it easier to see which line is associated with a
+particular text field, each text field is drawn in
+the same color as its corresponding line.  In the case
+of G3 or G4 bilateral connections, one text field is
+labeled with an "s" for the spike-mediated connection,
+and one is labeled with a "g" for the graded synapse.
+In the case of the G1,2 to G3 or G4 connections, one
+text field is labeled with a "1" for the G1 to G3 or
+G4 connection, and the other is labeled with a "2" for
+the G2 to G3 or G4 connection.  For all connections,
+the strength used in Andrew Hill's paper is given in
+parentheses for reference.
+
+Examples:
+
+To set the graded synapse connection from HN4L to HN4R
+to zero, click on "Show Weights" in the model editor
+window, and locate the text field beginning with a "g"
+nearest the line from HN4L to HN4R.  Notice that the
+line from HN4L to HN4R is in red, and that the two text
+field nearest the line are also drawn in red.  Change
+the value of the "g" field from its present value
+(the default is 3e-8) to 0 and click the label or hit
+return to register the change.
+
+To set the (spike-mediated) connection from HN2L to HN3L
+to 0, find the line running from the square labeled
+"HN1,2L" to HN3L.  Notice that the line itself is red,
+and that the two text fields nearest the line are red
+as well.  Find the text field beginning "2", and set
+the value to 0.  Again, click the label or hit return
+to register the change.
+
+------------------------------------------------------------------------------
+
+(4).  SAVING AND RESTORING PARAMETERS
+
+To save a set of parameters to a file, enter the file
+name in the "Save" text field and click the "Save"
+label.  To restore a set of parameters from an existing
+file, enter the file name in the "Restore" text field
+and click on the label "Restore".  To restore the
+original parameters used in Andrew Hill's paper,
+click on "Use Defaults".
+
+Note:  For technical reasons, one needs to have write
+permission for the tutorial directory in order to load
+files.  If this is not possible, look at the file
+"README" in the tutorial directory for a work-around.
+
+------------------------------------------------------------------------------

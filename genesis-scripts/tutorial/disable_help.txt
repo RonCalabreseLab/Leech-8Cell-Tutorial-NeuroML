@@ -1,0 +1,23 @@
+-------------------------------------------------------------------
+
+          DISABLE/ENABLE CELLS & SYNAPSES
+
+-------------------------------------------------------------------
+
+To disable a cell or a synapse, click on it.  To re-enable it,
+click on it again.  
+
+Cells turn dark gray when they are disabled, and are green when
+they are enabled.  The variables in disabled cells are frozen,
+but they will continue to produce the same synaptic current as
+they did the instant before they were disabled.  We recommend
+disabling the connections going away from any disabled cells to
+totally remove their contribution.
+
+Synapses turn white when disabled, and are black when enabled.
+When a synapse is re-enabled, it takes the value it had before
+it was disabled.  If one disables a synapse and then edits its
+synaptic weight in the Parameter Editor, the synapse will 
+automatically be re-enabled and will take the value specified
+in the Parameter Editor.
+

@@ -1,0 +1,60 @@
+\documentstyle[12pt]{article}
+
+\setlength{\headheight}{0in}
+\setlength{\topmargin}{0in}
+\setlength{\textheight}{8.5in}
+
+\title{Temporary Title}
+\author{Steve Van Hooser}
+\date{Time and Date}
+
+\begin{document}
+
+
+{\bf Figure 6:  Synaptic Currents}
+
+The spike-mediated synaptic current is modeled as an alpha function with
+experimentally-determined (Simon et al. 1994) time constants:
+
+\begin{displaymath}I_{\mathrm{SynS}} = \overline{g}_{\mathrm{SynS}} {\sum_{\mathrm{spikes}}}{f_{\mathrm{SynS}}(t-t_{\mathrm{spike}}) (V-E_{\mathrm{Syn}}),}\end{displaymath} with
+
+\begin{displaymath}f_{\mathrm{SynS}}(t) = \frac{a}{\tau_{\mathrm{fall}}-\tau_{\mathrm{rise}}}(e^{-t/\tau_{\mathrm{fall}}}-e^{-t/\tau_{\mathrm{rise}}})(V-E_{\mathrm{Syn}}).\end{displaymath}
+
+For all synapses except the G3,4 to G1,2 connections, $\tau_{\mathrm{rise}} = 0.0025\mathrm{sec}$ and $\tau_{\mathrm{fall}} = 0.011\mathrm{sec}$.  For the G3,4 to G1,2
+connections, $\tau_{\mathrm{rise}} = 0.010\mathrm{sec}$, and $\tau_{\mathrm{fall}} = 0.055\mathrm{sec}$. $a$ was chosen so the function $f_{\mathrm{SynS}}(t)$ has a maximum of 1.  
+
+To more accurately model the spike-mediated synaptic conductance, this alpha function
+needs to be corrected for a dependence on the presynaptic voltage.  The correction factor $m_{\mathrm{spike}}$ has Hodgkin-Huxley kinetics with a time constant of 0.2 sec
+and the following steady-state activation function: 
+
+\begin{displaymath}m_{\mathrm{spike}} = 0.1 + \frac{0.9}{1+e^{-1000(V+0.4)}}
+\end{displaymath}
+
+
+
+The equation 
+for the graded synapse is more complicated--the current is approximately proportional to a factor $[\mathrm{P}]$, which itself is proportional to the 
+presynaptic calcium concentration.  At each time step, the factor $[\mathrm{P}]$ increases by the amount of calcium ions that flow into the cell via ion 
+channels (``$I_{Ca}$'' factor), and decreases by an amount that is both voltage-dependent and proportional to the calcium already present
+(``$B$''
+and ``$A$'' factors).  These equations result from a fit to data obtained from simultaneous measurements of presynaptic calcium current and 
+postsynaptic synaptic current (see Angstadt and Calabrese 1991 and Nadim et al. 1995 for more details).
+
+\begin{displaymath}
+I_{\mathrm{SynG}} = \overline{g}_{\mathrm{SynG}}\frac{[\mathrm{P}]^3}{10^5+[\mathrm{P}]^3}(V-E_{\mathrm{SynS}})\end{displaymath}
+
+ \begin{displaymath}\frac{d[\mathrm{P}]}{dt} = I_{\mathrm{Ca}}(t) - B[\mathrm{P}]\end{displaymath}
+
+ \begin{displaymath}I_{Ca}(t) = \mathrm{max}(0,-(I_{\mathrm{CaF}}(t)+I_{\mathrm{CaS}}(t))-A(t,V)), B = 10 {\mathrm{s}^{-1}}\end{displaymath}
+
+ \begin{displaymath}\frac{dA(t,V)}{dt} = \frac{A_\infty(V) - A(t,V)}{0.2}\end{displaymath}
+
+ \begin{displaymath}A_\infty(V) = 0.1/(1+\mathrm{exp}(-100(V+0.020)))\end{displaymath}
+
+\end{document}
+
+
+
+
+\end{document}
+

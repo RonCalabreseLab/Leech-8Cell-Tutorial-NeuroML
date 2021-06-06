@@ -1,0 +1,590 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+   <META NAME="GENERATOR" CONTENT="Mozilla/4.08 [en] (X11; I; Linux 2.0.36 i686) [Netscape]">
+</HEAD>
+<BODY>
+
+<CENTER>
+<H1>
+<B>A Tutorial of the Leech Heart Interneuron 8-Cell Model</B></H1></CENTER>
+
+<CENTER>Andrew Hill, Steve Van Hooser, and Ron Calabrese
+<BR><I>{ahill,vanhoosr,rcalabre}@biology.emory.edu</I>
+<BR>(Model by Andrew Hill,
+<BR>Tutorial by Steve Van Hooser)</CENTER>
+
+<P><BR>
+<H3>
+Table of contents:</H3>
+
+<OL>
+<LI>
+<A HREF="#The Leech Heart Interneuron Circuit">The Leech Heart Interneuron
+Circuit</A></LI>
+
+<BR>&nbsp;
+<LI>
+<A HREF="#An Eight Cell Model of the Beat Timing Circuit">An Eight Cell
+Model of the Beat Timing Circuit</A></LI>
+
+<BR>&nbsp;
+<LI>
+<A HREF="#Questions and Experiments">Questions and Experiments</A></LI>
+
+<BR>&nbsp;
+<LI>
+<A HREF="#Appendix:  Quick GENESIS User Interface Tips">Appendix: Quick
+GENESIS User Interface Tips</A></LI>
+
+<BR>&nbsp;
+<LI>
+<A HREF="#References">References</A></LI>
+</OL>
+
+<H3>
+<A NAME="The Leech Heart Interneuron Circuit"></A>The Leech Heart Interneuron
+Circuit</H3>
+In the medicinal leech, blood is propelled through the circulatory system
+by the rhythmic constrictions of two lateral heart tubes. The timing and
+coordination of these constrictions are controlled by a central pattern
+generator (Calabrese et al. 1995). This pattern generator comprises a network
+of seven bilateral pairs of segmental heart (HN) interneurons. The CPG
+produces rhythmic activity (at about 0.1 Hz) that paces segmental heart
+motor neurons, which in turn drive the two hearts. The synaptic connections
+among the interneurons and from the interneurons to the motor neurons are
+inhibitory (Figure 2). The first four pairs of heart interneurons control
+the timing of the network.
+<CENTER><IMG SRC="leechgang.gif" HEIGHT=113 WIDTH=463>
+<BR><FONT SIZE=-1><B>Figure 1:</B>&nbsp; The 21 ganglia of the leech nervous
+system.&nbsp; (From <I>From Neuron to Brain</I>, used with permission.)</FONT>
+<P><IMG SRC="figure2-2.gif" HEIGHT=1064 WIDTH=819>
+<BR><FONT SIZE=-1><B>Figure 2:&nbsp; </B>A) shows the functional anatomy
+of the beat timing circuit.&nbsp; Circles represent cell bodies and synaptic
+input sites, lines represents axons and processes, and squares represent
+specializations of the axons for spike initiation and synaptic input.&nbsp;
+HN cells are indexed by body side and ganglion number.&nbsp; HN1 and HN2
+cells send axons down to G3 and G4, and make reciprocal inhibitory connections
+with HN cells on the same side in each ganglion.&nbsp; Each HN3 and HN4
+cell makes a reciprocal spike-mediated and graded synaptic connection with
+its contralateral homologue.&nbsp; In addition, each HN3 cell sends an
+axon down to G4, and makes reciprocal inhibitory connections with the HN1
+and HN2 cells on the same side.&nbsp; Red and yellow indicate the approximate
+activity phase of each cell, with red corresponding to ~0 degrees, and
+yellow to ~180 degrees.&nbsp; As described in the text, only the connections
+in G4 are modeled.&nbsp; B) shows the schematic of the modeled circuit.&nbsp;
+Since HN1 cell process in G4 fires in-phase with the ipsilateral HN2 process,
+and since the two cells make identical synaptic connections, they lumped
+together.&nbsp; Note that each HN1-2 synapse represents two synaptic connections,
+one for the HN1 cell and one for the HN2 cell.&nbsp; The synapses connecting
+the bilateral HN3 and HN4 cells also represent two connections, one spike-medated
+and the other graded.</FONT></CENTER>
+
+<BR>&nbsp;
+<P><BR>
+<P>The timing oscillation is dominated by the activity of the third and
+fourth pairs of heart interneurons. Reciprocally inhibitory synapses between
+these bilateral pairs of oscillator interneurons, combined with their ability
+to escape from inhibition and begin firing, pace the oscillation (Figure
+3A). Each of these two reciprocally inhibitory heart interneuron pairs
+can be considered an elemental half-center oscillator. Activity within
+an elemental oscillator consists of alternating bursts of action potentials
+and quiescent intervals when the neuron is inhibited by its contralateral
+homologue (Figure 3A). These neurons are thus termed oscillator interneurons.
+<P>The first two pairs of heart interneurons act as coordinating interneurons,
+serving to link these two elemental oscillators. Their pattern of synaptic
+connections with the oscillator interneurons is illustrated in Figure 2
+along with their rather unusual functional anatomy. These neurons initiate
+spikes and receive synaptic inputs and make their synaptic outputs not
+in their ganglion of origin but in ganglion 3 and 4. Under most circumstances
+their primary site of spike initiation is in ganglion 4 where they receive
+synaptic input from both ipsilateral HN(3) and HN(4) oscillator neurons.
+For the purpose of modeling this synaptic diagram was simplified to reflect
+the dominance of the G4 initiation sites of the coordinating interneurons
+as shown in the inset of Figure 2. Activity in the entire timing network
+is illustrated in the extracellular recordings of Figure 3B. Note that
+the activity of the oscillator neurons on the same side is coordinated
+with a small fixed phase difference and that the coordinating neurons fire
+during the interval where both the oscillator neurons on the same side
+are quiescent (i.e. they are being inhibited by their contralateral homologues
+respectively).
+<BR>&nbsp;
+<P><BR>
+<CENTER>
+<P><IMG SRC="figure3-3.gif" HEIGHT=312 WIDTH=799>
+<BR><FONT SIZE=-1><B>Figure 3:&nbsp; </B>A shows a simultaneous intracellular
+recording of the elemental oscillator in G3.&nbsp; B shows extracellular
+recordings from three HN cells.&nbsp; The median spike of each burst is
+marked by a dot.&nbsp; Note that cells L,3 and L, 4 fire approximately
+in-phase, and that both of these cells fire approximately 180 degrees out
+of phase with cell L,2.&nbsp; There is a small phase difference between
+the bursts of cell L,3 and L,4: the phase difference is defined to be the
+delay divided by the cycle period.</FONT></CENTER>
+
+<BR>&nbsp;
+<P><BR>
+<P>Several ionic currents have been identified in single electrode voltage-clamp
+studies that contribute to the activity of oscillator heart interneurons
+(Calabrese et al. 1995). These include, in addition to the fast Na<SUP>+</SUP>
+current that mediates spikes, two low-threshold Ca<SUP>2+</SUP> currents
+[one rapidly inactivating (I<SUB>CaF</SUB>) and one slowly inactivating
+(I<SUB>CaS</SUB>)], three outward currents [a fast transient K<SUP>+</SUP>
+current (I<SUB>A</SUB>) and two delayed rectifier-like K<SUP>+</SUP> currents,
+one inactivating (I<SUB>K1</SUB>), and one persistent (I<SUB>K2</SUB>)],
+a hyperpolarization-activated inward current (I<SUB>h</SUB>) (mixed Na<SUP>+</SUP>/K<SUP>+</SUP>,
+E<SUB>rev</SUB>=-0.020 V), a low-threshold persistent Na<SUP>+</SUP> current
+(I<SUB>P</SUB>) and a leakage current (I<SUB>l</SUB>). The inhibition between
+oscillator interneurons consists of a graded component that is associated
+with the low-threshold Ca<SUP>2+</SUP> currents and a spike-mediated component
+that appears to be mediated by a high-threshold Ca<SUP>2+</SUP> current.
+Spike-mediated transmission varies in amplitude throughout a burst according
+to the baseline level of depolarization (Olsen and Calabrese 1996). Graded
+transmission wanes during a burst owing to the inactivation of low-threshold
+Ca<SUP>2+</SUP> currents. Blockade of synaptic transmission with bicuculline
+leads to tonic activity in oscillator heart interneurons (Schmidt and Calabrese
+1992) and Cs<SUP>+</SUP>, which specifically blocks I<SUB>h</SUB>, leads
+to tonic activity or sporadic bursting (Angstadt and Calabrese 1989).
+<P>Much of this biophysical data has been incorporated into a detailed
+conductance-based model of an elemental (two-cell) oscillator (Nadim et
+al. 1995). The current generation of this model is implemented in this
+GENESIS (Bower and Beeman 1998) tutorial. The model cells consist of a
+single isopotential compartment and use standard Hodgkin-Huxley representations
+of each voltage-gated current. Synaptic transmission in the model is complex.
+A spike-triggered alpha-function is used to describe the postsynaptic conductance
+associated each action potential ,and the maximal conductance reached is
+a function of the past membrane potential to reflect the fact that spike-mediated
+transmission varies in amplitude throughout a burst according to the baseline
+level of depolarization. Graded synaptic transmission is represented by
+a synaptic transfer function, which relates postsynaptic conductance (the
+result of transmitter release) to presynaptic Ca<SUP>2+</SUP> build-up
+and decline, via low-threshold Ca<SUP>2+</SUP> currents and a Ca<SUP>2+</SUP>
+removal mechanism respectively. The model is now in it third generation,
+having been upgraded each time by the incorporation of new data from experiments
+suggested by the previous generation of model (Olsen and Calabrese 1996).
+Free parameters in the model are the maximal conductance&nbsp;<IMG SRC="image90.gif" HEIGHT=26 WIDTH=28>
+for each current (voltage-gated or synaptic). In the default or canonical
+version of the model presented here, the&nbsp;<IMG SRC="image90.gif" HEIGHT=26 WIDTH=28>'s
+were adjusted to be close to the average observed experimentally and to
+produce and appropriate firing frequency during the burst phase of oscillation.
+The reversal potential, E<SUB>ion</SUB>, for each current was determined
+experimentally and they were considered fixed. Final selection of parameters
+to form a canonical model was dictated by model behavior under control
+conditions, passive response of the model to hyperpolarizing current pulses,
+and reaction of the model to current perturbations. The model cells were
+also required to fire tonically when all inhibition between them was blocked,
+as do the biological neurons (Schmidt and Calabrese 1992).
+<P>Much less is known about the intrinsic membrane properties of the coordinating
+neurons; because their unusual functional morphology prevents voltage clamp
+analysis from the soma. To construct the timing network model presented
+here the coordinating neuron were modeled similarly to the oscillator neurons
+except that they have a restricted set of voltage-gated currents. These
+currents (<IMG SRC="image90.gif" HEIGHT=26 WIDTH=28>'s) were adjusted so
+that the neurons fire tonically at the experimentally observed frequency,
+whenever they are not inhibited by an oscillator neuron; when they are
+inhibited they are completely silent.
+<H3>
+<A NAME="An Eight Cell Model of the Beat Timing Circuit"></A>An Eight Cell
+Model of the Beat Timing Circuit</H3>
+The equation expressing an oscillator neuron's membrane voltage is
+<CENTER><IMG SRC="image79.gif" HEIGHT=41 WIDTH=494>,</CENTER>
+where <I>C</I> is the total membrane capacitance (0.5 nF), <I>I<SUB>ion</SUB></I>
+is the ionic current for each channel, <I>I<SUB>SynG</SUB></I> is graded
+synaptic current, <I>I<SUB>SynS</SUB></I> is spike-mediated synaptic current,
+and <I>I<SUB>inject</SUB></I> is injected current.&nbsp; Note that by convention
+inward ionic currents are negative and the injected current has the opposite
+sign.&nbsp; The equations for each ionic channel are the following:
+<CENTER><IMG SRC="image80.gif" HEIGHT=26 WIDTH=173><IMG SRC="image81.gif" HEIGHT=26 WIDTH=137><IMG SRC="image82.gif" HEIGHT=26 WIDTH=200>
+<BR><IMG SRC="image83.gif" HEIGHT=26 WIDTH=194><IMG SRC="image84.gif" HEIGHT=26 WIDTH=170><IMG SRC="image85.gif" HEIGHT=26 WIDTH=157>
+<BR><IMG SRC="image86.gif" HEIGHT=26 WIDTH=174><IMG SRC="image88.gif" HEIGHT=26 WIDTH=132><IMG SRC="image89.gif" HEIGHT=26 WIDTH=104>,</CENTER>
+where&nbsp;<IMG SRC="image90.gif" HEIGHT=26 WIDTH=28><I><SUB> </SUB></I>is
+the maximal conductance, and <I>m</I> and
+<I>h</I> are Hodkin-Huxley-style
+(see Hodgkin and Huxley 1952) activation and inactivation variables, respectively,
+which are raised by the integer values shown above. <I>E<SUB>ion</SUB></I>represents
+the reversal potential for each channel:
+<I>E<SUB>Na</SUB></I> = 0.045V,
+<I>E<SUB>K1,K2,KA</SUB></I>
+=&nbsp; -0.070V,
+<I>E<SUB>CaF,CaS
+</SUB></I>=&nbsp; 0.135V, <I>E<SUB>h
+</SUB></I>=-0.021V,
+and
+<I>E<SUB>l</SUB></I> = -0.060V.&nbsp; The activation/inactivation variables
+follow voltage- and time-dependent kinetics described by the following
+equations:
+<CENTER><IMG SRC="image12.gif" HEIGHT=44 WIDTH=238><IMG SRC="image13.gif" HEIGHT=50 WIDTH=253>
+<BR><IMG SRC="image14.gif" HEIGHT=41 WIDTH=220><IMG SRC="image15.gif" HEIGHT=45 WIDTH=202>
+<BR><IMG SRC="image16.gif" HEIGHT=52 WIDTH=273><IMG SRC="image17.gif" HEIGHT=50 WIDTH=262>
+<BR><IMG SRC="image18.gif" HEIGHT=50 WIDTH=306><IMG SRC="image19.gif" HEIGHT=50 WIDTH=262>
+<BR><IMG SRC="image20.gif" HEIGHT=44 WIDTH=240><IMG SRC="image21.gif" HEIGHT=44 WIDTH=216>
+<BR><IMG SRC="image22.gif" HEIGHT=44 WIDTH=233><IMG SRC="image23.gif" HEIGHT=44 WIDTH=258>
+<BR><IMG SRC="image25.gif" HEIGHT=44 WIDTH=218>,</CENTER>
+where&nbsp;<IMG SRC="image27.gif" HEIGHT=46 WIDTH=180> and&nbsp;<IMG SRC="image32.gif" HEIGHT=46 WIDTH=224>.&nbsp;
+The h current has a special steady state activation function&nbsp;<IMG SRC="image28.gif" HEIGHT=41 WIDTH=254>,
+and CaF and Na each have special time constant functions:&nbsp;<IMG SRC="image35.gif" HEIGHT=44 WIDTH=290>
+and&nbsp;<IMG SRC="image33.gif" HEIGHT=44 WIDTH=369>.
+<P>The steady-state activation/inactivation values and time-constant values
+for all of the channels are shown graphically in Figure 5.
+<BR>The actual value of the maximal conductance for each channel was taken
+to be a free parameter in the model, and was chosen so as to reproduce
+the frequency of oscillation typically observed in the animal.&nbsp; For
+the G3 and G4 cells,&nbsp;<IMG SRC="image91.gif" HEIGHT=26 WIDTH=69><I>,&nbsp;<IMG SRC="image92.gif" HEIGHT=26 WIDTH=50>,&nbsp;<IMG SRC="image93.gif" HEIGHT=26 WIDTH=60>,&nbsp;<IMG SRC="image94.gif" HEIGHT=26 WIDTH=72>,&nbsp;<IMG SRC="image95.gif" HEIGHT=26 WIDTH=69>,&nbsp;<IMG SRC="image96.gif" HEIGHT=26 WIDTH=61>,&nbsp;<IMG SRC="image97.gif" HEIGHT=26 WIDTH=62>,&nbsp;<IMG SRC="image98.gif" HEIGHT=26 WIDTH=49>,&nbsp;<IMG SRC="image99.gif" HEIGHT=26 WIDTH=56>
+</I>(all
+values are in nS).
+<BR>The model cells representing the coordinating fibers are similar to
+those representing the oscillator neurons, except that the coordinating
+fibers have a higher leak reversal potential and only have three channels:&nbsp;
+Na, K1, and K2.&nbsp; For the G1 cells,&nbsp;<IMG SRC="image100.gif" HEIGHT=26 WIDTH=69><I>,&nbsp;<IMG SRC="image102.gif" HEIGHT=26 WIDTH=69>,&nbsp;<IMG SRC="image103.gif" HEIGHT=26 WIDTH=61>,&nbsp;<IMG SRC="image104.gif" HEIGHT=26 WIDTH=50></I>,
+and the G2 cells are identical except that&nbsp;<IMG SRC="image101.gif" HEIGHT=26 WIDTH=69>
+(all values in nS).
+<I>E<SUB>l</SUB></I>= -0.040V for all of these cells.
+<BR>&nbsp;
+<P><BR>
+<CENTER>
+<P><IMG SRC="channels.gif" HEIGHT=1152 WIDTH=696>
+<BR><FONT SIZE=-1><B>Figure 5:</B>&nbsp; Screen shots of the channel steady
+state activations and time constants as viewed in Neurokit.&nbsp; Two tau
+panels are shown for K1 (the delayed rectifier) and CaS (slow calcium)
+because the activation and inactivation values cannot be shown on the same
+scale.&nbsp; Note that the activation time course for the Na (fast sodium)
+is voltage indepdent--it has a constant value of 1.0e-04 seconds.</FONT></CENTER>
+
+<BR>&nbsp;
+<P><BR>
+<P>The equations describing the spike-mediated synapse and the graded synapse
+are given in Figure 6.&nbsp; <I>E<SUB>Syn</SUB></I> = -0.0625V.&nbsp; The
+maximal synaptic conductances, like the maximal ionic channel conductances,
+are taken as free parameters and are chosen so as to fit the data.&nbsp;
+The values used in the regular model are the following:&nbsp;<IMG SRC="syn1.gif" HEIGHT=28 WIDTH=69><I>,&nbsp;<IMG SRC="syn2.gif" HEIGHT=29 WIDTH=185>,&nbsp;<IMG SRC="syn3.gif" HEIGHT=28 WIDTH=114>,
+</I>and&nbsp;<IMG SRC="syn4.gif" HEIGHT=28 WIDTH=115>
+(all units in nS).
+<BR>&nbsp;
+<P><BR>
+<CENTER>
+<P><IMG SRC="equations.gif" HEIGHT=860 WIDTH=564></CENTER>
+
+<BR>&nbsp;
+<H3>
+<A NAME="Questions and Experiments"></A>Questions and Experiments</H3>
+The 8-cell model allows one to investigate several questions central to
+understanding how the structure of the circuit and the properties of its
+cells interact to produce its behavior.&nbsp; This section walks the reader
+through some basic experiments.&nbsp; For papers on studies of these questions
+using modeling, see Olsen et al. (1995) and Nadim et al. (1995).
+<H4>
+What is the relationship between the activity of a single HN cell and its
+ion channels' conductances?</H4>
+If one isolates one of the HN cells in G3 or G4, it fires tonically.&nbsp;
+How do the maximal conductances of the ion channels in a cell affect this
+activity?&nbsp; One can perform some simple experiments to study this relationship.
+<P><B>Experiment 1:&nbsp; The relationship between ion channel conductances
+and single cell activity</B>
+<OL>
+<LI>
+First, isolate the left cell in G4 by selecting "Disable Cells and Synapses"
+from the "Experiments" section in the tutorial.&nbsp; Turn off all synapses
+leading into or away from cell L,4, and disable every other cell to speed
+up the simulation.&nbsp; Clicking on a cell or synapse will alternatively
+disable and enable it--cells turn dark gray when disabled, while synapses
+turn white.&nbsp; The window should look like the following:</LI>
+
+<BR><IMG SRC="exp1-disable2.gif" HEIGHT=306 WIDTH=478>
+<BR>Close the window to make room for other windows on the screen.
+<LI>
+Click on the "Show Left Vm's" button to show the voltage traces for all
+of the cells on the left side.&nbsp; Click "Run" to run the model for 20
+seconds.&nbsp; The voltage output should look like the following:</LI>
+
+<CENTER><IMG SRC="freerun.gif" HEIGHT=173 WIDTH=384></CENTER>
+On a sheet of paper, write down observations about the activity of the
+cell.&nbsp; <A HREF="#graphadjust">Zoom in (click here to find out how)</A>
+on a 5 second interval, count the number of action potentials to get an
+idea of the firing rate (should be ~7.5Hz), take note of the height of
+a typical action potential, and write down anything else interesting.
+<BR>&nbsp;
+<LI>
+Next, observe the cell's response to injected current.&nbsp; Click "reset"
+to reset the simulation, and open the "Current Injection" panel.&nbsp;
+Enter "-0.10e-09" to inject -0.10nA of current into the cell, and press
+return <A HREF="#editingtext">(for help with text fields, click here)</A>.&nbsp;
+Click "run" to run the simulation.&nbsp; What happens?&nbsp; What is the
+shape of the voltage trace?&nbsp; Adjust the scale of the graph if necessary
+to see the entire trace.</LI>
+
+<CENTER><IMG SRC="curinject.gif" HEIGHT=175 WIDTH=384></CENTER>
+Now reset and run the simulation again, but this time use "-0.06e-09".&nbsp;
+What happens?
+<BR>&nbsp;
+<LI>
+To discover how ion channels affect the cell's activity, it is useful to
+change the value of the maximal conductance for a channel and see how the
+activity changes.&nbsp; Make sure the current injection has been set to
+0.&nbsp; Click on "Parameter Editor" to edit the model parameters, and
+then click on "L,4" to edit the parameters for cell L,4.&nbsp; Change the
+value of the P conductance from its default value of 7e-09 to 8e-09 as
+shown:</LI>
+
+<BR><IMG SRC="editingP.gif" HEIGHT=426 WIDTH=708>
+<BR>Be sure to hit return or click the label "P" after editing the value
+so the change will take effect.&nbsp; Reset the simulation, and run it
+for 20 seconds.&nbsp; What is different?&nbsp; What is the firing rate?&nbsp;
+Has the height of the action potential changed?
+<BR>&nbsp;
+<LI>
+Return the P value back to its default value (the default value is given
+in parentheses).&nbsp; Repeat the above experiment, except use the Na channel
+and change it to half its value.&nbsp; How is the system different?&nbsp;
+Now return the Na current to its default value, and set the h current to
+0.&nbsp; Repeat the injection experiments.&nbsp; What does the voltage
+curve look like now?</LI>
+
+<BR>&nbsp;
+<LI>
+Now, return the h current maximal conductance to its default value of 4e-9
+S.&nbsp; Click on the "Show Ih, ICa, IP" button to look at the current
+flowing through each of these channels.&nbsp; Repeat the injection experiment
+above, and observe the current flowing through each of the channels.&nbsp;
+Compare the observed h current to the graph of the steady-state activation
+and time-constant for the h current.</LI>
+
+<BR>&nbsp;
+<LI>
+Explore the other ion channels.&nbsp; Interesting things to try include
+removing the calcium currents and repeating the injection experiments,
+doubling the slow calcium current while injecting -0.08e-9A, and reducing
+the K1 current.</LI>
+</OL>
+
+<H4>
+Why do two coupled HN cells oscillate?</H4>
+An isolated&nbsp; HN cell pair in G3 or G4 constitutes an elemental oscillator
+in the model as it does presumably in the biological system (Figure 3A).&nbsp;
+What mechanisms produce these oscillations?&nbsp; One can try changing
+parameters in the model to see which ones have a strong effect on the nature
+of the oscillation.
+<P><B>Experiment 2:&nbsp; The relationship between intrinsic currents and
+two cell oscillations</B>
+<OL>
+<LI>
+To isolate a reciprocally inhibitory cell pair, use the "Disable Cells
+and Synapses" feature to disable all cells in the circuit and the connections
+between them except for cells L,4 and R,4.&nbsp;&nbsp;&nbsp; When finished,
+the window should look somewhat like the following:<IMG SRC="exp2-disable.gif" HEIGHT=306 WIDTH=478></LI>
+
+<BR>Close this window after the disabling the cells to reduce window clutter.
+<BR>&nbsp;
+<LI>
+Run the model to see how these cells behave under the default parameters.&nbsp;
+First, click on the "Show Left Vm's" and "Show Right Vm's" buttons to display
+the graphs of the intracellular voltage in the cells.&nbsp; Run the model
+for 20 seconds, and observe the voltage traces.&nbsp; The left and right
+HN4 traces should look like the following:</LI>
+
+<BR><IMG SRC="oscill.gif" HEIGHT=176 WIDTH=772>
+<BR>Click "Show L,4 INa, IK" to show the fast sodium and potassium currents.&nbsp;
+Click "Show L,4 Ih,ICa,IP to show the h, calcium, and P currents.&nbsp;
+Observe how these currents change as the neurons go through the oscillation.&nbsp;
+Click "Show R,4->L,4 currents" and "Show L,1-2->L,4 currents" to view the
+synaptic currents.&nbsp; Next, reset and run the model for 100 seconds
+by changing "Time" to 100, pressing enter, and then clicking "Run".&nbsp;
+The graphs for cells L,4 and R,4 will display their voltages as the model
+runs.&nbsp; Click "Autoscale" on the graphs during the run so the time
+access will be from 0 to 100s.&nbsp; Count the number of oscillations during
+this time--it should be 10.&nbsp; Also, try to determine the spike rate
+during the bursts of action potentials and the number of spikes fired in
+a typical burst.
+<BR>&nbsp;
+<LI>
+Investigate what affect the h current has on the oscillation.&nbsp; Reduce
+the h current by half by setting its conductance to 2e-09.&nbsp; To do
+this, click on the "Parameter Editor" button and then on the circles labeled
+L,4 and R,4.&nbsp; Change the value of the h conductance to 2e-09 in both
+windows.</LI>
+
+<BR><IMG SRC="editparam.gif" HEIGHT=425 WIDTH=708>
+<BR>Be sure to hit return or click the label so the change takes effect.&nbsp;
+Close the R,4 and L,4 windows to reduce window clutter.&nbsp; Before clicking
+"reset" and "run" to run the model again, predict how the oscillation will
+be changed based on the current observed under the default parameters and
+the results of the current injection in Experiment 1.&nbsp; Was the prediction
+correct?&nbsp; What effect does the h current have on the oscillation?&nbsp;
+Try to write down not only what effect the h current has, but <I>why</I>
+it has that effect.
+<BR>&nbsp;
+<LI>
+Next, try increasing the P channel conductance in both L,4 and R,4 from
+its normal value.&nbsp; Change the value of the P conductance from its
+default value of 7e-09 to 8e-09 in both L,4 and R,4.&nbsp; Close the L,4
+and R,4 windows to reduce window clutter.&nbsp; Again predict how the behavior
+will be changed based on knowledge from Experiment 1 and the observations
+of the ionic current above.&nbsp; Run the model.&nbsp; How does this run
+differ from the previous one?&nbsp; Was the prediction accurate?&nbsp;
+Try increasing the value of the P conductance further to 10e-09.&nbsp;
+How does the behavior change?&nbsp; Try to write down in words what effect
+P has on the oscillation.</LI>
+
+<BR>&nbsp;
+<LI>
+Finally, investigate the affect of the synaptic weights on the oscillation.
+
+Click on "Show Weights" in the "Parameter Editor", and edit the value
+of the spike mediated synapses between L,4 and R,4 to be 4e-09 (the default
+value is 6e-09).&nbsp; Run the model again.&nbsp; What is the period of
+oscillation now?</LI>
+
+<BR>&nbsp;
+<LI>
+Compare the contributions of the spike-mediated synapse to the graded synapse
+both modifying the synaptic strengths and by observing the normal current
+flow.</LI>
+</OL>
+For a detailed analysis of this elemental oscillator model, see Nadim et
+al. (1995) and Olsen et al. (1995).
+<H4>
+<B>Putting it all together:&nbsp; The eight cell pattern generator</B></H4>
+How does the full beat timing circuit behave?&nbsp; How is this behavior
+influenced by the properties of its parts?&nbsp; The eight cell model allows
+questions of this type to be investigated.&nbsp; One such question is the
+following:&nbsp; if the two oscillators in G3 and G4 have different intrinsic
+periods, what is the period of the entire network?&nbsp; Is it equal to
+that of one oscillator, or some combination of the two?&nbsp; How can phase
+differences between the elemental oscillators arise?&nbsp; Experiment 3
+explores this question in detail.
+<P><B>Experiment 3:&nbsp; The relationship between the period of the circuit
+and the periods of its G3 and G4 components</B>
+<OL>
+<LI>
+In this experiment, the reader will change the period of the G4 oscillator
+by altering its intrinsic currents, and observe what effect this change
+has on the entire network.&nbsp; First, however, the reader should see
+how the circuit behaves under normal conditions.&nbsp; Run the model for
+100 seconds, counting the number of oscillations and noting any phase difference
+between the cells in G3 and G4.&nbsp; Compare the number of oscillations
+to that of the isolated G4 cells in Experiment 2 above.</LI>
+
+<BR>&nbsp;
+<LI>
+Now isolate the G4 oscillator by disabling cells 3L and 3R and the synapses
+between G1,2 and G3.&nbsp; Following the procedure above, reduce the h
+current in cells L,4 and R,4 to 2.6e-09.&nbsp; Run the simulation for 100
+seconds, and count the number of oscillations.&nbsp; Repeat for h = 4.0e-09
+(the default conductance), and for h = 5.4e-09.&nbsp; Write down the number
+of oscillations in each case.</LI>
+
+<BR>&nbsp;
+<LI>
+Next, re-enable the cells in G3 and the disabled synapses.&nbsp; Again,
+set the h current in both L,4 and R,4 to 2.6e-09, and run the simulation
+for 100 sec.&nbsp; What is the period of oscillation?&nbsp; Has the phase
+difference between the cells in G3 and G4 changed?&nbsp; Repeat for h =
+5.4e-09.&nbsp; What is the period of oscillation now?&nbsp; Describe the
+phase difference in this case.&nbsp; Is the period of the network equal
+to one of the intrinsic oscillators, or some combination?</LI>
+
+<BR>&nbsp;
+<LI>
+Repeat the experiment, except use small changes (in the 0.1e-9 S range)
+to the P current to change the intrinsic frequency of the G4 oscillator.&nbsp;
+Do the same results hold?</LI>
+
+<BR>&nbsp;
+<LI>
+Try to determine the period range over which the G4 oscillator can coordinate
+the cells in G3.&nbsp; That is, make changes to the P or h current to adjust
+the intrinsic period of the G4 oscillator, and see over what period range
+G4 will coordinate G3.&nbsp; Can this range be extended by strengthening
+or weaking the synaptic connections from the coordinating fibers to the
+G4 cells?</LI>
+</OL>
+
+<H2>
+<A NAME="Appendix:  Quick GENESIS User Interface Tips"></A>Appendix:&nbsp;
+Quick GENESIS User Interface Tips</H2>
+While much of the user interface for this tutorial should be straightforward,
+there are a few properties of the GENESIS user interface objects that are
+useful to know yet not obvious.
+<P>First, many X11 window managers give the user the option to close a
+window by clicking an "x" in the upper right corner of the window or a
+square in the upper left corner.&nbsp; GENESIS is not equipped to deal
+with these messages, so closing a window in this manner will cause the
+entire program to quit.&nbsp; Every closeable window in this tutorial has
+a "Close Window" or "close" button that should be used instead.&nbsp; Remember
+the following figure:
+<BR><IMG SRC="closewindow.gif" HEIGHT=426 WIDTH=708>
+<P><A NAME="editingtext"></A>Second, after editing a text field, one needs
+to either hit return or click the label of the text field to register the
+change.&nbsp; Sometimes the keys do not register, so it is a good idea
+to hit return a couple of times instead of just once.&nbsp; If one clicks
+the button, watch for it to change color as the mouse button is pressed
+and released to ensure a good hit.
+<BR>&nbsp;
+<P><BR>
+<CENTER>
+<P><IMG SRC="textfield.gif" HEIGHT=29 WIDTH=206></CENTER>
+
+<P><A NAME="graphadjust"></A>Finally, one can adjust the scale on graphs
+in GENESIS graphically by clicking on either the first or last label on
+an axis, and dragging it to a new location.&nbsp; For example, to change
+the scale for one of the Vm graphs to be from 0.010V ... -0.060V to 0.010mV
+... -0.030mV, click on the label "-0.060" and drag up to the location of
+-0.030 on the axis.&nbsp; Then, release the mouse and the graph will redraw
+itself with the new scale.&nbsp; To move it back, grab the "-0.030" label,
+drag it off the graph until the label reads -0.060, and release the mouse.
+<H2>
+<A NAME="References"></A>References</H2>
+
+<BLOCKQUOTE>Angstadt, J.D. and Calabrese, R.L. (1989) "A hyperpolarization-activated
+inward current in heart interneurons of the medicinal leech", <I>J. Neurosci.</I>
+9: 2846-2857.
+<P>Angstadt, J.D. and Calabrese, R.L. (1991) "Calcium currents and graded
+synaptic transmission between heart interneurons of the leech", <I>J. Neurosci</I>.
+11: 746-759.
+<P>Bower, J.M., and Beeman, D. (1998) <I>The book of GENESIS: Exploring
+realistic neural models with the GEneral NEural SImulation System</I>,
+Springer-Verlag, New York.
+<P>Hodkin, A. and Huxley, A. (1952) "A quantitative description of membrane
+current and its application to conduction and excitation in nerve", <I>J.
+Physiol. (London)</I> 117:500-544.
+<P>Kuffler, S.W., and Nicholls, J.G. (1976)&nbsp; <I>From Neuron to Brain</I>,
+Sinauer Associates, Inc., Sunderland, Massachusetts.
+<P>Nadim, F., Olsen, &Oslash;.H., DeSchutter, E. and Calabrese, R.L. (1995)
+"Modeling the Leech Heartbeat Elemental Oscillator: I. Interactions of
+Intrinsic and Synaptic Currents", <I>J. Computational Neuroscience</I>,
+2, 215-235.
+<P>Nadim, F., and Calabrese, R.L.&nbsp; (1997) "A Slow Outward Current
+Activated by FMRFamide in Heart Interneurons of the Medicinal Leech", <I>J.
+Neurosci.</I> 17:4461-4472.
+<P>Olsen, &Oslash;.H., Nadim, F. and Calabrese, R.L. (1995) "Modeling the
+Leech Heartbeat Elemental Oscillator: II. Exploring the Parameter Space",
+<I>J.
+Computational Neuroscience</I>, 2, 237-257.
+<P>Olsen, &Oslash;.H., and Calabrese, R.L. (1996) "Activation of Intrinsic
+and Synaptic Currents in Leech Heart Interneurons by Realistic Waveforms",
+<I>J.
+Neurosci</I>. 16, 4958-4970.
+<P>Opdyke, C.A. and Calabrese, R.L. (1994) "A persistent sodium current
+contributes to oscillatory activity in heart interneurons of the medicinal
+leech", <I>J. Comparative Physiology</I> A 175:781-789.
+<P>Peterson, E.L., and Calabrese R.L.&nbsp; (1983a) "Generation and coordination
+of heartbeat timing oscillation in the medicinal leech I. Oscillation in
+isolated ganglia", <I>J. Neurophysiol.</I> 49:611-626.
+<P>Peterson, E.L., and Calabrese R.L. (1983b) "Generation and coordination
+of heartbeat timing oscillation in the medicinal leech II.&nbsp; Intersegmental
+coordination", <I>J. Neurophysiol.</I> 49:627-638.
+<P>Peterson, E.L., and Calabrese R.L.&nbsp; (1982) "Dynamic analysis of
+a rhythmic neural circuit in the leech <I>Hirudo medicinalis</I>", <I>J.
+Neurophysiol.</I> 47:256-271.
+<P>Schmidt, J. and Calabrese, R.L. "Evidence that acetylcholine is an inhibitory
+transmitter of heart interneurons in the leech", <I>J. Experimental Biology</I>
+171: 329-347, 1992.
+<P>Simon, T.W., Opdyke, C.A., and Calabrese, R.L. (1992) "Modulatory effects
+of FMRF-NH2 on outward currents and oscillatory activity in heart interneurons
+of the medicinal leech", <I>J. Neuroscience</I> 12: 525-537.
+<P>Simon, T.W., Schmidt, J. and Calabrese, R.L. (1994) "Modulation of high-threshold
+transmission between heart interneurons of the medicinal leech by FMRF-NH2",
+<I>J.
+Neurophysiol.</I> 71:454-466.</BLOCKQUOTE>
+
+</BODY>
+</HTML>

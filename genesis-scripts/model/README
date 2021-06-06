@@ -1,0 +1,89 @@
+NOTE:  This is an old README file.  If you have the tutorial, you may want to
+       use it to run the model.  SDV 8/99
+
+
+To run the leech heartbeat network simulations you must first compile a 
+version of genesis that includes the necessary objects.  The instructions for
+this are located in the README file in the top directory leech.  
+
+The two cell, six cell, and eight cell simulations are started by typing 
+"hn2", "hn6_4", "hn8" at the genesis prompt while in the appropriate
+directory. The model will initially have the default parameters that are set 
+in the .p files (e.g. Ek, gbar of channels etc.).  Default parameters can also
+be loaded interactively by typing "include default_param.g" or by adding this 
+line to the main script.
+
+To start the simulation 
+1) Press reset button or type "reset" 
+2) Press the init button or type "restore start_state.bin". This restores the 
+   state variables such as the membrane potential from a binary file.  It is 
+   important to set the state variables to start in the middle of a cycle.  
+   Unfortunately this may not work on all machines since the binary file 
+   created by the restore command might not be readable on a machine with a 
+   different version of Unix.  In this case the simulation can also be 
+   started from an ascii file (eg. include start_state_asc.g).  The user may 
+   create a new binary state variable file by typing 
+   "start_state_bin start_state".  
+3) Press the Run button or use the step command to run the simulation 
+   eg. "step 10 -t" (runs a simulation for 10 sec)
+
+To see graphics
+uncomment lines under "// make control and graphs" in the main simulation 
+script (eg. hn2.g, hn6_4.g or hn8.g) to show graphs.  The line 
+make_scale_forms must be uncommented in order for the axis scaling to work 
+within the graphs.
+
+Some useful files you may want of modify:
+
+output_asc_volt.g -contains the function output_asc_volt which sends the
+              membrane potential of the cells to an ascii file.  
+             - syntax output_asc {filename}
+
+
+output_asc.g -contains the function output_asc which is similar to the function              above but sends additional to an ascii file.  
+             - syntax output_asc {filename}
+
+save_state_bin.g -contains the function save_state_bin which saves the state
+                  variables to a binary file using the genesis command save.
+		  This file can be used to restore a simulation with
+    		  the saved states by typing "restore {filename}"
+                  - syntax "save_state_bin {filename}"
+
+save_state_asc.g -contains the function save_state_asc which saves the state
+                  variables to an ascii file 
+                  (eg. save_state_asc start_state_asc.g) This file can be used
+                  to restore a simulation by typing including the .g file
+                  (eg. include start_state_asc.g).  This method of saving and
+                  restoring the state variables is not as accurate as the 
+                  binary method because the state variables of the synchan 
+                  are not saved (these are readonly or are hidden).
+
+save_param.g  -contains the function save_param which saves the model 
+               parameters (e.g. Ek and gbar for each channel etc.) to an ascii
+               file.  The resulting file can be used to set the model 
+               parameters with the include command.  The filename must end in
+               .g
+	       - synatax "save_param {filename}"
+
+save_table_asc.g -contains two functions "save_table_X" and "save_table_XY"
+                  which can be used to save tab chan parameters to an ascii
+                  file for viewing.  The first function if for channels with
+                  just an activation variable.  minf =X_A/X_B
+                  tau = 1/X_B
+
+Notes:
+The HN3 and HN4 cells are identical in terms of the maximal conductances in 
+the default configuration.  The gbar of the Na current is slightly higher in 
+HN 1 cells than in HN 2 cells.  This was necessary so that the cells would 
+spike at slightly different times.
+
+There are also scripts which were taken from the squid tutorial for voltage
+clamping.  These are not yet in a user friendly form.
+                 
+
+
+
+ 
+
+
+
