@@ -212,7 +212,7 @@ function run_and_close(shcmd)
 end
 
 function run_intro
-   str shcmd = "netscape " @ {file_prefix} @ "/intro/index.html &"
+   str shcmd = "firefox " @ {file_prefix} @ "/intro/index.html &"
 
    if (!{exists /introduction})
       create xform /introduction [100,100,650,120] -title "Introduction"

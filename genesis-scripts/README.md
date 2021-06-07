@@ -30,10 +30,14 @@ genesis tutorial.g
 
 This will allow the tutorial to find the support files it needs.
 
-The tutorial has introductory material and help contained within it.  You should
-not need to access any of the material contained in the "tutorial", "intro",
-or "model" directories directly--they merely contain support files for the
-tutorial. There is also an [online guide for the tutorial](http://www.biology.emory.edu/research/Calabrese/INTRO/INDEX.HTML).
+The tutorial has introductory material and help contained within it.
+The introduction button will ask you to start a browser (default is
+"firefox", but you can edit and change it). If you prefer, you can
+also access the same material online at
+[Calabrese Lab website](http://www.biology.emory.edu/research/Calabrese/INTRO/INDEX.HTML). You
+should not need to access any of the material contained in the
+"tutorial", "intro", or "model" directories directly--they merely
+contain support files for the tutorial.
 
 ## Notes
 
