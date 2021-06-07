@@ -17,8 +17,12 @@ Linux (via live USB or virtual machine), such as
 
 ## Running the tutorial
 
-Start a terminal application and navigate to the same directory as this README
-file, and type: 
+First, copy the GENESIS `.simrc` file (e.g., found at
+`/usr/lib64/genesis/startup/.simrc` of the NeuroFedora mentioned
+above) to the same directory as this README file.  
+
+Then, start a terminal application and navigate to the same folder.
+To start the tutorial, type:
 
 ```sh
 genesis tutorial.g
