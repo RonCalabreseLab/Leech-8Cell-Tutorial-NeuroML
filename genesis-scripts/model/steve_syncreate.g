@@ -50,7 +50,7 @@ setfield {chanpath} \
 //         C   	 {C}   
 
 str chanpath = "/cell_3R/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 
@@ -95,7 +95,7 @@ setfield {chanpath} \
 //         C       {C}
 
 str chanpath = "/cell_3L/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 
@@ -139,7 +139,7 @@ setfield {chanpath} \
 //         C   	 {C}   
 
 str chanpath = "/cell_4R/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 
@@ -185,7 +185,7 @@ setfield {chanpath} \
 //         C       {C}
 
 str chanpath = "/cell_4L/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 
@@ -235,7 +235,7 @@ create SynS_object  {chanpath}
 setfield  {chanpath}  m_SynS     0.0      
 
 str chanpath = "/cell_1L/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 
@@ -269,7 +269,7 @@ create SynS_object  {chanpath}
 setfield  {chanpath}  m_SynS     0.0      
 
 str chanpath = "/cell_1R/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 
@@ -304,7 +304,7 @@ create SynS_object  {chanpath}
 setfield  {chanpath}  m_SynS     0.0      
 
 str chanpath = "/cell_2L/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 
@@ -338,7 +338,7 @@ create SynS_object  {chanpath}
 setfield  {chanpath}  m_SynS     0.0      
 
 str chanpath = "/cell_2R/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 

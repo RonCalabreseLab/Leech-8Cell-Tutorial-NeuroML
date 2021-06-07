@@ -9,7 +9,7 @@ To run the tutorial, you'll first need:
 
 - The [GENESIS neural simulator](http://genesis-sim.org/GENESIS/)
 
-    The official Genesis 2.4 release includes required extensions to GENESIS (leech-libraries).
+    The official Genesis 2.3+ releases include required extensions to GENESIS (leech-libraries).
 
 You can download and compile Genesis or use it from a pre-installed
 Linux (via live USB or virtual machine), such as

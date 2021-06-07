@@ -71,7 +71,7 @@ setfield {chanpath} \
    	 POWER {POWER}   
 
 str chanpath = "/cell_3R/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 
@@ -128,7 +128,7 @@ setfield {chanpath} \
    	 POWER {POWER}   
 
 str chanpath = "/cell_3L/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 
@@ -184,7 +184,7 @@ setfield {chanpath} \
    	 POWER {POWER}   
 
 str chanpath = "/cell_4R/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 
@@ -240,7 +240,7 @@ setfield {chanpath} \
    	 POWER {POWER}   
 
 str chanpath = "/cell_4L/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 
@@ -299,7 +299,7 @@ setfield {chanpath} D 0.04
 setfield {chanpath} E 0.2
 
 str chanpath = "/cell_1L/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 
@@ -342,7 +342,7 @@ setfield {chanpath} D 0.04
 setfield {chanpath} E 0.2
 
 str chanpath = "/cell_1R/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 
@@ -387,7 +387,7 @@ setfield {chanpath} D 0.04
 setfield {chanpath} E 0.2
 
 str chanpath = "/cell_2L/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 
@@ -431,7 +431,7 @@ setfield {chanpath} D 0.04
 setfield {chanpath} E 0.2
 
 str chanpath = "/cell_2R/soma/spike"
-create newspikegen {chanpath}
+create spikegen {chanpath}
 setfield {chanpath}        \
           thresh {threshold}     \
 	  abs_refract {refract} \ 
