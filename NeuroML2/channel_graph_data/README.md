@@ -3,8 +3,10 @@
 ## Ca-Channel (Fast)
 
 ![CaFast](ca-fast/Steady_state(s)_of_activation_variables_of_ca_fast_channel.png) 
+*Steady State*
+
 ![CaFast](ca-fast/Time_Course(s)_of_activation_variables_of_ca_fast_channel.png)
-*Steady State*, *Time Course*
+*Time Course*
 
 ![CaFast](ca-fast/Genesis_ca_fast_channel.png)
 *Genesis*
