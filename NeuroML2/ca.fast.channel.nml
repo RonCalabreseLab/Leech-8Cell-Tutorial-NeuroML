@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta4.xsd"
 	id="ca_fast_channel">
-	
+
 	<!-- Values from the Genesis file "HNChan.g"
 			// make CaF
 function make_CaF_ron
@@ -20,11 +20,11 @@ function make_CaF_ron
          Gk     0	  \
 		 Xpower	2 \
 		 Ypower	1 \
-		 Zpower	0  
+		 Zpower	0
 
     call    {chanpath}    TABCREATE X 100 -0.100 0.050
 
-    FillTableTau_CaF {chanpath} X_A 
+    FillTableTau_CaF {chanpath} X_A
     FillTableInf {chanpath} X_B 0 1 -600 {CaFshft} -.0467
 		/* Setting the calc_mode to NO_INTERP for speed */
 		setfield {chanpath} X_A->calc_mode 0 X_B->calc_mode 0
@@ -39,7 +39,7 @@ function make_CaF_ron
  call    {chanpath}    TABCREATE Y 100 -0.100 0.050
                            //.060 .310
  FillTableTau {chanpath} Y_A .060 .310   270 {CaFshft} -.055
- FillTableInf {chanpath} Y_B 0     1   350 {CaFshft} -.0555	
+ FillTableInf {chanpath} Y_B 0     1   350 {CaFshft} -.0555
 
 		/* Setting the calc_mode to NO_INTERP for speed */
 		setfield {chanpath} Y_A->calc_mode 0 Y_B->calc_mode 0
@@ -51,7 +51,7 @@ function make_CaF_ron
 		call {chanpath} TABFILL Y 3000 0
 end
 
-Equations below are from the paper: 
+Equations below are from the paper:
 A Model of a Segmental Oscillator in the Leech Heartbeat Neuronal Network
 A.A.V. HILL, J. LU, M.A. MASINO, O.H. OLSEN, R.L. CALABRESE
 Biology Department, 1510 Clifton Road, Emory University, Atlanta, GA 30322
@@ -76,32 +76,32 @@ Parameters for time course (τ):
 "rate" = d
 "midpoint" = -b
 "scale" = -1/a
--->	
+-->
 <include href="sigmoid.offset.xml"/>
-	
-	<ionChannelHH id="ca_fast_channel" conductance="24.1nS" species="ca"> 
-        
+
+	<ionChannelHH id="ca_fast_channel" conductance="24.1nS" species="ca">
+
               	<gateHHtauInf id="m" instances="2">
             		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-46.7mV" scale="1.666667mV" />
-            		<timeCourse type="tauMCaF" offset="0.011ms" rate="0.024ms" midpoint="-46.7mV" scale="3.0303mV" /> 
+            		<timeCourse type="tauMCaF" offset="0.011ms" rate="0.024ms" midpoint="-46.7mV" scale="3.0303mV" />
        		</gateHHtauInf>
 
        		<gateHHtauInf id="h" instances="1">
             		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-55.5mV" scale="-2.85714mV" />
-            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.06ms" rate="0.31ms" midpoint="-55.5mV"  scale="-3.37mV" /> 
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.06ms" rate="0.31ms" midpoint="-55.5mV"  scale="-3.37mV" />
        		</gateHHtauInf>
-    
+
     </ionChannelHH>
 
 	<!-- Custom tauMCaF component -->
     <ComponentType name="tauMCaF" extends="baseVoltageDepTime"
         description="Voltage-dependent time constant that has a sigmoid shape and an offset">
-        
+
         <Parameter name="offset" dimension="time" />
         <Parameter name="rate" dimension="time" />
         <Parameter name="midpoint" dimension="voltage" />
         <Parameter name="scale" dimension="voltage" />
-        
+
         <Dynamics>
         	<!--
         							τmCaF (V ) = 0.011 + 0.024 / cosh(−330(V + 0.0467))
@@ -112,7 +112,7 @@ Parameters for time course (τ):
         							scale = 1/-330
         	-->
         	<DerivedVariable name="v_cosh" value="-(v - midpoint)/scale" dimension="none"/>
-        	<DerivedVariable name="t" exposure="t" value="offset + rate / ((exp(v_cosh) + exp(0 - v_cosh))/ 2)" />
+        	<DerivedVariable name="t" exposure="t" dimension="time" value="offset + rate / ((exp(v_cosh) + exp(0 - v_cosh))/ 2)" />
         </Dynamics>
 
 	</ComponentType>
