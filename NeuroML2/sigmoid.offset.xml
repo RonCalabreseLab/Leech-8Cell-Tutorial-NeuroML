@@ -3,12 +3,12 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/master/Schemas/NeuroML2/NeuroML_v2beta4.xsd"
 	id="k2_channel">
-	
-	<!-- 
-	Custom componenet for the sigmoidal offset. 
-	This file is representative of the equation: tau = c + d/ 1 + exp(a(V+b)) 
-	Reference file ==> https://github.com/cengique/drosophila-aCC-L3-motoneuron-model/tree/master/NeuroML2/isopotential_NeuroML2 
-			
+
+	<!--
+	Custom componenet for the sigmoidal offset.
+	This file is representative of the equation: tau = c + d/ 1 + exp(a(V+b))
+	Reference file ==> https://github.com/cengique/drosophila-aCC-L3-motoneuron-model/tree/master/NeuroML2/isopotential_NeuroML2
+
 			 τ(a, b, c, d, V) = c + d / 1 + exp(a(V + b))
 			 Parameters for time course:
 			"offset" = c
@@ -16,8 +16,8 @@
 			"midpoint" = b
 			"scale" = 1/a
 		-->
-	
-	 <ComponentType name="sigmoidOffsetTimeCourse" 
+
+	 <ComponentType name="sigmoidOffsetTimeCourse"
         extends="baseVoltageDepTime"
         description="Voltage-dependent time constant that has a sigmoid shape and an offset">
 
@@ -28,9 +28,9 @@
         <Constant name="SEC" dimension="time" value="1s"/>
         <Dynamics>
 
-            <DerivedVariable name="t" exposure="t" value="(offset + rate / (1 + exp(-(v - midpoint)/scale)))*SEC"/>
+            <DerivedVariable name="t" exposure="t" dimension="time" value="(offset + rate / (1 + exp(-(v - midpoint)/scale)))"/>
         </Dynamics>
 
     </ComponentType>
-    
+
 </neuroml>
