@@ -8,10 +8,10 @@
 
 #### **HN Cell 2**
 
-![HN_2cell](./isolated_cells_graph/hn_2cell.png)
+![HN_2cell](hn_2cell.png)
 
 
 #### **HN Cell 34**
 
-![HN_34cell](./isolated_cells_graph/hn_34cell.png)
+![HN_34cell](hn_34cell.png)
 
