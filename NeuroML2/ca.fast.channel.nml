@@ -83,12 +83,12 @@ Parameters for time course (τ):
         
               	<gateHHtauInf id="m" instances="2">
             		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-46.7mV" scale="1.666667mV" />
-            		<timeCourse type="tauMCaF" offset="0.011ms" rate="0.024ms" midpoint="-46.7mV" scale="3.0303mV" /> 
+            		<timeCourse type="tauMCaF" offset="0.011s" rate="0.024s" midpoint="-46.7mV" scale="3.0303mV" /> 
        		</gateHHtauInf>
 
        		<gateHHtauInf id="h" instances="1">
             		<steadyState type="HHSigmoidVariable" rate="1" midpoint="-55.5mV" scale="-2.85714mV" />
-            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.06ms" rate="0.31ms" midpoint="-55.5mV"  scale="-3.37mV" /> 
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.06s" rate="0.31s" midpoint="-55.5mV"  scale="-3.37mV" /> 
        		</gateHHtauInf>
     
     </ionChannelHH>

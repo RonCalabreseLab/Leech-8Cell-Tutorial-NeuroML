@@ -21,12 +21,10 @@
 		 Xpower	2 \
 		 Ypower	0 \
 		 Zpower	0
-
    call    {chanpath}    TABCREATE X 100 -0.100 0.050
 // add some fields                            
     FillTableTau {chanpath} X_A .700 1.700 -100 0 -.073 
     FillTableInf_h {chanpath} X_B 0 1 180 0 -.047  
-
 		 setfield {chanpath} X_A->calc_mode 0 X_B->calc_mode 0
  
                 /* tweaking the tables for the tabchan calculation */
@@ -35,18 +33,14 @@
                 /* Filling the tables using B-SPLINE interpolation */
                 call {chanpath} TABFILL X 3000 0
 end
-
 Equations below are from the paper: 
 A Model of a Segmental Oscillator in the Leech Heartbeat Neuronal Network
 A.A.V. HILL, J. LU, M.A. MASINO, O.H. OLSEN, R.L. CALABRESE
 Biology Department, 1510 Clifton Road, Emory University, Atlanta, GA 30322
 ahill@biology.emory.edu
 Received May 17, 2000; Revised November 17, 2000; Accepted December 5, 2000
-
 Overall Current (I) for Ca fast channel = ḡh * m^2h  * (V−ECaF)
-
  change in activation gate = dmCaF /dt = steady state: fh∞(V) − mh / time course: τ (−100, 0.073, 0.7, 1.7, V )
-
  fh∞(V) = 1 /( 1 + 2exp(180(V+0.047)) + exp(500(V + 0.047)) => This value will be created custom at the end of this file
 Parameters for steady state for m and h:
 "rate" = 1
@@ -69,7 +63,7 @@ Parameters for time course (τ):
         
         	<gateHHtauInf id="m" instances="2">
             		<steadyState type="hSteadyState" rate="1" midpoint="47.0mV" scale_1="5.555555mV"  scale_2="2.00mV" scale ="0.0mV"/>
-            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.7ms" rate="1.70ms" midpoint="-73.00mV" 
+            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.7s" rate="1.70s" midpoint="-73.00mV" 
                         scale="10.0mV" /> 
        		</gateHHtauInf>
 
