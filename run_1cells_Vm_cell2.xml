@@ -1,0 +1,20 @@
+<Lems>
+  <!-- Run the simulation and show one window with the membrane
+       potentials of a single left cell. -->
+  <Target component="hn2_simulation"/>
+
+  <Include file="Cells.xml"/>
+  <Include file="Networks.xml"/>
+  <Include file="Simulation.xml"/>
+  <Include file="NeuroML2/network.iso.cell2.nml"/>
+
+  <Simulation id="hn2_simulation" length="3000ms" step="0.01ms" target="net_1">
+    
+    <Display id="display_vL1" title="Membrane Potentials (Left)" timeScale="1ms"
+	     xmin="0" xmax="3000" ymin="-70" ymax="0">
+      <Line id="v2L" quantity="hn2L_pop[0]/v" scale="1mV" color="#ff00ff" timeScale="1ms"/>
+    </Display>
+
+  </Simulation>
+
+</Lems>
