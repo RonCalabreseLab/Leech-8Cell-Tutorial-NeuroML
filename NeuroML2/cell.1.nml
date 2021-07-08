@@ -28,12 +28,13 @@
         
                <!--
                     The following values were taken from the cell_1L.p file and converted to the appropriate units
-                RM = membrane resistance and was converted to the conductance density for leak channel(g = 1/RM)
+                RM = specific membrane resistance and was converted to the conductance density for leak channel(g = 1/RM)
                 RA = resistivity(1 ohm*m = 0.1 kohm*cm)
                 CM = specific capacitance(1 F/m^2)
                 EREST_ACT = init membrane potential
                 ELEAK = erev for leak channel
-                Channel Density values are found by dividing the dens value in the .p file by the surface area, which is 50,000 um2
+                Channel Density values are found by dividing the total value in the .p file by the surface area, which is 50,000 um2 (5e-8 m2)
+                except RM, which is already a density
 
                 -->
                 
