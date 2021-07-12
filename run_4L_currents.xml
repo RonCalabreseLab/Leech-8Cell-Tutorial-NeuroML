@@ -11,15 +11,15 @@
     
     <Display id="display_I" title="Membrane Currents - HN(4L)" timeScale="1ms"
 	     xmin="0" xmax="3000" ymin="-60" ymax="60">
-      <Line id="na" quantity="hn4L_pop[0]/bio_phys_HN3,4/membraneProperties/na_chan_den/iDensity" scale="-1uA_per_cm2" color="#ffffff" timeScale="1ms" value = ""/>
-      <Line id="k1" quantity="hn4L_pop[0]/bio_phys_HN3,4/membraneProperties/k1_chan_den/iDensity" scale="-1uA_per_cm2" color="#ff00ff" timeScale="1ms" value = ""/>
-      <Line id="k2" quantity="hn4L_pop[0]/bio_phys_HN3,4/membraneProperties/k2_chan_den/iDensity" scale="-1uA_per_cm2" color="#FFFF00" timeScale="1ms" value = ""/>
-      <Line id="ka" quantity="hn4L_pop[0]/bio_phys_HN3,4/membraneProperties/ka_chan_den/iDensity" scale="-1uA_per_cm2" color="#00ff0ef" timeScale="1ms" value = ""/>
-      <Line id="h" quantity="hn4L_pop[0]/bio_phys_HN3,4/membraneProperties/h_chan_den/iDensity" scale="-1uA_per_cm2" color="#00FF0eF" timeScale="1ms" value = ""/>
-      <Line id="caf" quantity="hn4L_pop[0]/bio_phys_HN3,4/membraneProperties/caf_chan_den/iDensity" scale="-1uA_per_cm2" color="#ADFF2F" timeScale="1ms" value = ""/>
-      <Line id="cas" quantity="hn4L_pop[0]/bio_phys_HN3,4/membraneProperties/cas_chan_den/iDensity" scale="-1uA_per_cm2" color="#FFA500" timeScale="1ms" value = ""/>
-      <Line id="p" quantity="hn4L_pop[0]/bio_phys_HN3,4/membraneProperties/p_chan_den/iDensity" scale="-1uA_per_cm2" color="#800080" timeScale="1ms" value = ""/>
-      <Line id="kf" quantity="hn4L_pop[0]/bio_phys_HN3,4/membraneProperties/kf_chan_den/iDensity" scale="-1uA_per_cm2" color="#000000" timeScale="1ms" value = ""/>
+      <Line id="na" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/na_chan_den/iDensity" scale="-1uA_per_cm2" color="#ffffff" timeScale="1ms" value = ""/>
+      <Line id="k1" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/k1_chan_den/iDensity" scale="-1uA_per_cm2" color="#ff00ff" timeScale="1ms" value = ""/>
+      <Line id="k2" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/k2_chan_den/iDensity" scale="-1uA_per_cm2" color="#FFFF00" timeScale="1ms" value = ""/>
+      <Line id="ka" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/ka_chan_den/iDensity" scale="-1uA_per_cm2" color="#00ff0ef" timeScale="1ms" value = ""/>
+      <Line id="h" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/h_chan_den/iDensity" scale="-1uA_per_cm2" color="#00FF0eF" timeScale="1ms" value = ""/>
+      <Line id="caf" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/caf_chan_den/iDensity" scale="-1uA_per_cm2" color="#ADFF2F" timeScale="1ms" value = ""/>
+      <Line id="cas" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/cas_chan_den/iDensity" scale="-1uA_per_cm2" color="#FFA500" timeScale="1ms" value = ""/>
+      <Line id="p" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/p_chan_den/iDensity" scale="-1uA_per_cm2" color="#800080" timeScale="1ms" value = ""/>
+      <Line id="kf" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/kf_chan_den/iDensity" scale="-1uA_per_cm2" color="#000000" timeScale="1ms" value = ""/>
     </Display>
 
   </Simulation>
