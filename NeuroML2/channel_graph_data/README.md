@@ -36,7 +36,7 @@
 *Genesis*
 
 
-## K-Channel (Fast)
+## FMRFamide (Phe-Met-Arg-Phe-NH2) activated K+ current
 
 ![kFast](k-fast/Steady_state(s)_of_activation_variables_of_k_fast.png) 
 *Steady State*
