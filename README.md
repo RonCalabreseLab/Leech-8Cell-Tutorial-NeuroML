@@ -60,7 +60,7 @@ nrngui -python run_4cells_Vm_nrn.py
 Some discrepancies between neuron models exist, which may require fine tuning ion channels:
 
 - [x] Verified that ionic current profiles [match with original Genesis model](NeuroML2/channel_graph_data/README.md)
-- [ ] Verify individual, isolated cell activity
+- [ ] Verify [individual, isolated cell activity](NeuroML2/isolated_cells_graph). In particular, [Cell 3/4 are not behaving correctly](4LCurrents/).
 - [ ] Verify network activity
 - [ ] Slow synapses (SynS) that include membrane voltage modulation are
   not implemented because they require custom NeuroML components.
