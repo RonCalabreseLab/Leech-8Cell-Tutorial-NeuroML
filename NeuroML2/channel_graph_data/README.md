@@ -1,6 +1,6 @@
-# Channel Comparison with Genesis 
+# Ionic Currents Comparison with Genesis 
 
-## Ca-Channel (Fast)
+## CaF: fast, low-threshold Ca2+ Current
 
 ![CaFast](ca-fast/Steady_state(s)_of_activation_variables_of_ca_fast_channel.png) 
 *Steady State*
@@ -12,7 +12,7 @@
 *Genesis*
 
 
-## Ca-Channel (Slow)
+## CaS: Slow, Low-threshold Ca2+ Current
 
 ![CaSlow](ca-slow/Steady_state(s)_of_activation_variables_of_ca_slow_channel.png) 
 *Steady State*
@@ -24,7 +24,7 @@
 *Genesis*
 
 
-## H-Channel 
+## H: Hyperpolarization-activated Cation Current 
 
 ![h](h/Steady_state(s)_of_activation_variables_of_h_channel.png) 
 *Steady State*
@@ -36,7 +36,7 @@
 *Genesis*
 
 
-## FMRFamide (Phe-Met-Arg-Phe-NH2) activated K+ current
+## KF: FMRFamide (Phe-Met-Arg-Phe-NH2) activated K+ current
 
 ![kFast](k-fast/Steady_state(s)_of_activation_variables_of_k_fast.png) 
 *Steady State*
@@ -45,7 +45,7 @@
 *Time Course*
 
 
-## K1-Channel
+## K1: Delayed-rectifier K+ Current
 
 ![k1](k1/Steady_state(s)_of_activation_variables_of_k1.png) 
 *Steady State*
@@ -57,7 +57,7 @@
 *Genesis*
 
 
-## K2-Channel
+## K2: Persistent K+ Current
 
 ![k2](k2/Steady_state(s)_of_activation_variables_of_k2.png) 
 *Steady State*
@@ -69,7 +69,7 @@
 *Genesis*
 
 
-## Ka-Channel
+## KA: Fast, Transient K+ Current
 
 ![ka](ka/Steady_state(s)_of_activation_variables_of_ka.png) 
 *Steady State*
@@ -81,7 +81,7 @@
 *Genesis*
 
 
-## Na-Channel
+## Na: Fast Na+ Current
 
 ![na](na/Steady_state(s)_of_activation_variables_of_na.png) 
 *Steady State*
@@ -93,7 +93,7 @@
 *Genesis*
 
 
-## P-Channel
+## P: Persistent Na+ Current
 
 ![p](p/Steady_state(s)_of_activation_variables_of_p.png) 
 *Steady State*
