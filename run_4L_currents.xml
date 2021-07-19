@@ -5,23 +5,32 @@
   <Include file="Cells.xml"/>
   <Include file="Networks.xml"/>
   <Include file="Simulation.xml"/>
-  <Include file="NeuroML2/network.8.cell.nml"/>
+  <Include file="NeuroML2/network.iso.cell34.nml"/>
 
-  <Simulation id="hn8_simulation" length="3000ms" step="0.01ms" target="net_8">
+  <!-- run model for 1s first to settle variables -->
+  <Simulation id="hn8_simulation" length="1300ms" step="0.01ms" target="net_1">
+
+    <Display id="display_I_large" title="Membrane Currents in nA - HN(3L)" timeScale="1ms"
+	     xmin="1000" xmax="1300" ymin="-5" ymax="5">
+      <!-- Scale is a divisor: by area 5e-8 and then to get nA multiplied by 1e9 -->
+      <Line id="na" quantity="hn3L_pop[0]/bio_phys_HN34/membraneProperties/na_chan_den/iDensity" scale="-0.2e-1 m2" color="#ffffff" timeScale="1ms" value = ""/>
+      <Line id="k1" quantity="hn3L_pop[0]/bio_phys_HN34/membraneProperties/k1_chan_den/iDensity" scale="-0.2e-1 m2" color="#ff00ff" timeScale="1ms" value = ""/>
+    </Display>
     
-    <Display id="display_I" title="Membrane Currents - HN(4L)" timeScale="1ms"
-	     xmin="0" xmax="3000" ymin="-60" ymax="60">
-      <Line id="na" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/na_chan_den/iDensity" scale="-1uA_per_cm2" color="#ffffff" timeScale="1ms" value = ""/>
-      <Line id="k1" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/k1_chan_den/iDensity" scale="-1uA_per_cm2" color="#ff00ff" timeScale="1ms" value = ""/>
-      <Line id="k2" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/k2_chan_den/iDensity" scale="-1uA_per_cm2" color="#FFFF00" timeScale="1ms" value = ""/>
-      <Line id="ka" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/ka_chan_den/iDensity" scale="-1uA_per_cm2" color="#00ff0ef" timeScale="1ms" value = ""/>
-      <Line id="h" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/h_chan_den/iDensity" scale="-1uA_per_cm2" color="#00FF0eF" timeScale="1ms" value = ""/>
-      <Line id="caf" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/caf_chan_den/iDensity" scale="-1uA_per_cm2" color="#ADFF2F" timeScale="1ms" value = ""/>
-      <Line id="cas" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/cas_chan_den/iDensity" scale="-1uA_per_cm2" color="#FFA500" timeScale="1ms" value = ""/>
-      <Line id="p" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/p_chan_den/iDensity" scale="-1uA_per_cm2" color="#800080" timeScale="1ms" value = ""/>
-      <Line id="kf" quantity="hn4L_pop[0]/bio_phys_HN34/membraneProperties/kf_chan_den/iDensity" scale="-1uA_per_cm2" color="#000000" timeScale="1ms" value = ""/>
+    <Display id="display_I_small" title="Membrane Currents in nA - HN(3L)" timeScale="1ms"
+	     xmin="1000" xmax="1300" ymin="-0.5" ymax="1">
+      <Line id="k2" quantity="hn3L_pop[0]/bio_phys_HN34/membraneProperties/k2_chan_den/iDensity" scale="-0.2e-1 m2" color="#FFFF00" timeScale="1ms" value = ""/>
+      <Line id="cas" quantity="hn3L_pop[0]/bio_phys_HN34/membraneProperties/cas_chan_den/iDensity" scale="-0.2e-1 m2" color="#FFA500" timeScale="1ms" value = ""/>
+      <Line id="p" quantity="hn3L_pop[0]/bio_phys_HN34/membraneProperties/p_chan_den/iDensity" scale="-0.2e-1 m2" color="#800080" timeScale="1ms" value = ""/>
     </Display>
 
+    <Display id="display_I_tiny" title="Membrane Currents in nA - HN(3L)" timeScale="1ms"
+	     xmin="1000" xmax="1300" ymin="-0.05" ymax="0.05">
+      <Line id="ka" quantity="hn3L_pop[0]/bio_phys_HN34/membraneProperties/ka_chan_den/iDensity" scale="-0.2e-1 m2" color="#00ffef" timeScale="1ms" value = ""/>
+      <Line id="h" quantity="hn3L_pop[0]/bio_phys_HN34/membraneProperties/h_chan_den/iDensity" scale="-0.2e-1 m2" color="#8000FF" timeScale="1ms" value = ""/>
+      <Line id="caf" quantity="hn3L_pop[0]/bio_phys_HN34/membraneProperties/caf_chan_den/iDensity" scale="-0.2e-1 m2" color="#ADFF2F" timeScale="1ms" value = ""/>
+    </Display>
+    
   </Simulation>
 
 </Lems>
