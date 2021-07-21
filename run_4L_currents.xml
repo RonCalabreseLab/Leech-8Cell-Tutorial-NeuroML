@@ -8,7 +8,7 @@
   <Include file="NeuroML2/network.iso.cell34.nml"/>
 
   <!-- run model for 1s first to settle variables -->
-  <Simulation id="hn8_simulation" length="3000ms" step="0.01ms" target="net_1">
+  <Simulation id="hn8_simulation" length="1300ms" step="0.01ms" target="net_1">
 
     <Display id="display_Vm" title="Membrane Voltage in mV - HN(3L)" timeScale="1ms"
 	     xmin="1000" xmax="1300" ymin="-50" ymax="0">
