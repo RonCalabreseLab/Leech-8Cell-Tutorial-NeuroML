@@ -59,15 +59,16 @@ Parameters for time course (τ):
 	<include href="sigmoid.offset.xml"/>
 
 	 	 
- <ionChannelHH id="h_channel" conductance="100nS" species="non_specific" >
+        <ionChannelHH id="h_channel" conductance="100nS" species="non_specific" >
         
         	<gateHHtauInf id="m" instances="2">
-            		<steadyState type="hSteadyState" rate="1" midpoint="47.0mV" scale_1="5.555555mV"  scale_2="2.00mV" scale ="0.0mV"/>
-            		<timeCourse type="sigmoidOffsetTimeCourse" offset="0.7s" rate="1.70s" midpoint="-73.00mV" 
-                        scale="10.0mV" /> 
+            	  <steadyState type="hSteadyState" rate="1" midpoint="47.0mV"
+                               scale_1="5.555555mV"  scale_2="2.00mV" scale ="0.0mV"/>
+            	  <timeCourse type="sigmoidOffsetTimeCourse" offset="0.7s" rate="1.70s" midpoint="-73.00mV" 
+                              scale="10.0mV" /> 
        		</gateHHtauInf>
 
-		</ionChannelHH>	
+	</ionChannelHH>	
 		
 	<!--Custom hSteadyState component -->
     <ComponentType name="hSteadyState" extends="baseHHVariable"
@@ -79,14 +80,15 @@ Parameters for time course (τ):
         <Parameter name="scale_2" dimension= "voltage"/>
         
         <Dynamics>
-        							<!--
-        								fh∞(V) = 1 /( 1 + 2exp(180(V+0.047)) + exp(500(V + 0.047))
-        								rate = 
-        								midpoint = 47.0 mV
-        								scale_1 = 1/180 mV
-        								scale_2 = 1/500 mV
-        							-->
-        	<DerivedVariable name="x" exposure="x" value="rate / (1 + (2 * exp(( v + midpoint)/scale_1)) + exp((v + midpoint)/scale_2))"/>
+          <!--
+              fh∞(V) = 1 /( 1 + 2exp(180(V+0.047)) + exp(500(V + 0.047))
+              rate = 
+              midpoint = 47.0 mV
+              scale_1 = 1/180 mV
+              scale_2 = 1/500 mV
+          -->
+          <DerivedVariable name="x" exposure="x"
+                           value="rate / (1 + (2 * exp(( v + midpoint)/scale_1)) + exp((v + midpoint)/scale_2))"/>
         
         </Dynamics>
 

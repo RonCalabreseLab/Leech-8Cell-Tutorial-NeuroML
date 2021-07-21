@@ -10,6 +10,12 @@
   <!-- run model for 1s first to settle variables -->
   <Simulation id="hn8_simulation" length="3000ms" step="0.01ms" target="net_1">
 
+    <Display id="display_Vm" title="Membrane Voltage in mV - HN(3L)" timeScale="1ms"
+	     xmin="1000" xmax="1300" ymin="-50" ymax="0">
+      <!-- Scale is a divisor: by area 5e-8 and then to get nA multiplied by 1e9 -->
+      <Line id="Vm" quantity="hn3L_pop[0]/v" scale="1mV" color="#ffffff" timeScale="1ms" value = ""/>
+    </Display>
+
     <Display id="display_I_large" title="Membrane Currents in nA - HN(3L)" timeScale="1ms"
 	     xmin="1000" xmax="1300" ymin="-5" ymax="5">
       <!-- Scale is a divisor: by area 5e-8 and then to get nA multiplied by 1e9 -->
