@@ -62,7 +62,7 @@ save_table_X chan_P /cell_4L/soma/P_ron
 save_table_XY chan_Na /cell_4L/soma/Na_ron
 save_table_X chan_K2 /cell_4L/soma/K2_ron  
 save_table_X chan_H /cell_4L/soma/h_ron
- save_table_XY chan_CaF /cell_4L/soma/CaF_ron  
+save_table_XY chan_CaF /cell_4L/soma/CaF_ron  
 save_table_XY chan_K1 /cell_4L/soma/K1_ron
 save_table_XY chan_CaS /cell_4L/soma/CaS_ron
 save_table_XY chan_A /cell_4L/soma/A_ron
