@@ -1,0 +1,33 @@
+<Lems>
+    
+    <!-- 
+
+        This LEMS file has been automatically generated using PyNeuroML v0.5.11 (libNeuroML v0.2.55)
+
+     -->
+    
+    <!-- Specify which component to run -->
+    <Target component="hn2"/>
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml"/>
+    <Include file="Networks.xml"/>
+    <Include file="Simulation.xml"/>
+    
+    <Include file="../../network.iso.cell2.nml"/>
+    <Include file="cell.2.nml"/>
+    <Include file="passive.channel.nml"/>
+    <Include file="na.channel.nml"/>
+    <Include file="k1.channel.nml"/>
+    <Include file="sigmoid.offset.xml"/>
+    <Include file="k2.channel.nml"/>
+   
+    <Simulation id="hn2" length="1000ms" step="0.01ms" target="net_1" seed="123">  <!-- Note seed: ensures same random numbers used every run -->
+        
+        <OutputFile id="output0" fileName="hn2.dat">
+            <OutputColumn id="v1L" quantity="hn2L_pop[0]/v"/> 
+        </OutputFile>
+        
+    </Simulation>
+
+</Lems>
