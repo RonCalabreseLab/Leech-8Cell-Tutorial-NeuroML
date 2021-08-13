@@ -15,21 +15,21 @@
 	<include href="k.fast.channel.nml"/>
 	
 	<cell id="cell_HN34">
-        <morphology id="morph_HN34">
-            <segment id="0" name="soma">
-                <proximal x="0" y="0" z="0" diameter="126.15663"/> <!--Gives a convenient surface area of 1000.0 um^2-->
-                <distal x="126.15663" y="0" z="0" diameter="126.15663"/>
-            </segment>
+    <morphology id="morph_HN34">
+        <segment id="0" name="soma">
+            <proximal x="0" y="0" z="0" diameter="126.15663"/> <!--Gives a convenient surface area of 1000.0 um^2-->
+            <distal x="126.15663" y="0" z="0" diameter="126.15663"/>
+        </segment>
 
-            <segmentGroup id="soma_group">
-                <member segment="0"/>
-            </segmentGroup>
+        <segmentGroup id="soma_group">
+            <member segment="0"/>
+        </segmentGroup>
 
-        </morphology>
+    </morphology>
 
-        <biophysicalProperties id="bio_phys_HN34">
+    <biophysicalProperties id="bio_phys_HN34">
 
-            <membraneProperties>
+        <membraneProperties>
 
 			<!--
                     The following values were taken from the cell_3L.p file and converted to the appropriate units
@@ -50,13 +50,13 @@
             <channelDensity id="caf_chan_den" ionChannel="ca_fast_channel" condDensity="0.1 S_per_m2" erev="135.0mV" ion="ca"/>
             <channelDensity id="cas_chan_den" ionChannel="ca_slow_channel" condDensity="0.064 S_per_m2" erev="135.0mV" ion="ca"/>
             <channelDensity id="p_chan_den" ionChannel="p_channel" condDensity="0.14 S_per_m2" erev="45.0mV" ion="na"/>
-            <channelDensity id="kf_chan_den" ionChannel="k_fast_channel" condDensity="0 S_per_m2" erev="-70.0mV" ion="k"/>
+            <!--channelDensity id="kf_chan_den" ionChannel="k_fast_channel" condDensity="0 S_per_m2" erev="-70.0mV" ion="k"/-->
 
                 <spikeThresh value="-20mV"/>
                 <specificCapacitance value="0.01 F_per_m2"/>
                 <initMembPotential value="-65mV"/>
 
-            </membraneProperties>
+        </membraneProperties>
 
             <intracellularProperties>
                 <resistivity value="0.03 kohm_cm"/> <!-- Not sure if this is necessary? -->
